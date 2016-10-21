@@ -89,6 +89,7 @@
     //Scrip para inserção na tabela os_usuarios onde se mantem log de eventos realizados pela ordem de serviço
     $consLogOs ="Select max(id)as maxIdLogOs from os_usuarios";
     $resulLog = mysql_query($consLogOs) or die("Falha na execução da consulta - RLog");
+
     $lin = mysql_fetch_assoc($resulLog);
     $maxIdLogOs = $lin["maxIdLogOs"] + 1;    
     $usuarios_idUsuarios = $_SESSION['idUsuarios'];
@@ -97,6 +98,7 @@
                values ('$maxIdLogOs','$idMaxOs','$usuarios_idUsuarios',0,'$dataStatusAndamentoOs') ";
     echo $insLog;
     $resultLogIns = mysql_query($insLog) or die("Falha na execução da consulta - Log");
+
     echo "Dados adicionados com sucesso";       
     header("Location:../cadOs.php");
 ?>
