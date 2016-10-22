@@ -98,7 +98,6 @@
                values ('$maxIdLogOs','$idMaxOs','$usuarios_idUsuarios',0,'$dataStatusAndamentoOs') ";
     echo $insLog;
     $resultLogIns = mysql_query($insLog) or die("Falha na execução da consulta - Log");
-
     echo "Dados adicionados com sucesso";       
     header("Location:../cadOs.php");
 ?>
