@@ -141,9 +141,14 @@ a:hover {
         width: 95%;
     }
 }
-.summer-header{
-    background-color: rgba(0,0,0, 0.5);
-    height: 140px;
+.summer-header {
+    background-blend-mode: multiply;
+    background-color: rgba(10, 70, 100, 0.5);
+    background-image: url("../images/banner.jpg");
+    background-position-x: 300px;
+    background-repeat: no-repeat;
+    background-size: 70% auto;
+    height: 240px;
     margin-bottom: 18px;
     overflow: hidden;
 }
@@ -158,7 +163,7 @@ a:hover {
     line-height: 0;
     margin: 0 0 -52px;
     position: relative;
-    top: 37px;
+    top: 67px;
 }
 
 .logo__img.span6 a {

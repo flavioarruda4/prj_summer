@@ -24,7 +24,8 @@ $(document).ready(function () {
             "sLoadingRecords": "Carregando...",
             "sProcessing": "Processando...",
             "sZeroRecords": "Nenhum registro encontrado",
-            "sSearch": "Nome cliente ou ID Os:",
+            "sSearch": "Pesquisar:",
+             "searchPlaceholder": "Id,Nome Cliente ou Data ",
             "oPaginate": {
                 "sNext": "Próximo",
                 "sPrevious": "Anterior",
@@ -61,7 +62,8 @@ $(document).ready(function () {
             "sLoadingRecords": "Carregando...",
             "sProcessing": "Processando...",
             "sZeroRecords": "Nenhum registro encontrado",
-            "sSearch": "Nome Usuário:",
+            "sSearch": "Pesquisar:",
+            "searchPlaceholder": "Nome,Login ou Perfil ",
             "oPaginate": {
                 "sNext": "Próximo",
                 "sPrevious": "Anterior",
