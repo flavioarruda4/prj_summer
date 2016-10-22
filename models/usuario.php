@@ -90,4 +90,15 @@ class Usuario {
     
     return $stmt->fetch();
     }
+    
+     //lê todos os usuarios
+    function readAll() {
+        $query = "SELECT idUsuarios,nome, login,perfil "
+                . "FROM " . $this->table_name . "
+                ORDER BY nome";
+        $stmt = $this->conn->prepare($query);
+        $stmt->execute();
+        return $stmt;
+    }
+    
 }

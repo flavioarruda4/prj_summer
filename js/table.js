@@ -51,17 +51,17 @@ $(document).ready(function () {
 
         ],
         "language": {
-            "sEmptyTable": "Nenhuma OS encontrada",
-            "sInfo": "Mostrando de _START_ até _END_ de _TOTAL_ OS",
-            "sInfoEmpty": "Mostrando 0 até 0 de 0 OS",
+            "sEmptyTable": "Nenhum usuário encontrado",
+            "sInfo": "Mostrando de _START_ até _END_ de _TOTAL_ usários",
+            "sInfoEmpty": "Mostrando 0 até 0 de 0 Usuários",
             "sInfoFiltered": "(Filtrados de _MAX_ OS)",
             "sInfoPostFix": "",
             "sInfoThousands": ".",
-            "sLengthMenu": "_MENU_ OS por página",
+            "sLengthMenu": "_MENU_ Usuários por página",
             "sLoadingRecords": "Carregando...",
             "sProcessing": "Processando...",
             "sZeroRecords": "Nenhum registro encontrado",
-            "sSearch": "Nome cliente ou ID Os:",
+            "sSearch": "Nome Usuário:",
             "oPaginate": {
                 "sNext": "Próximo",
                 "sPrevious": "Anterior",

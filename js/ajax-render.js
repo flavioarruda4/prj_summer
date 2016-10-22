@@ -29,6 +29,7 @@ $(document).ready(function () {
         $("#load").html("<img src='/prj_summer/images/load.gif'>");
         $("#load").fadeIn(100, function () {
             window.setTimeout(function () {
+                $('#cadastro-usuario').find('input:text').val('');
                 $('#load').fadeOut();
             }, 1400);
         });
@@ -39,14 +40,13 @@ $(document).ready(function () {
                 url: "/prj_summer/controllers/usuarioDAO.php",
                 data: dados,
                 success: function (data) {
-                    $("#msgsucesso").fadeIn(1500, function () {
+                    $("#msgsucessouser").fadeIn(1500, function () {
+                        $("#msgsucessouser").focus();
                         window.setTimeout(function () {
-                            $('#msgsucesso').fadeOut();
-                        }, 3999);
+                            $('#msgsucessouser').fadeOut();
+
+                        }, 2500);
                     });
-                    setTimeout(function () {
-                        location.reload();
-                    }, 4000);
                 }
             });
         } else {
@@ -55,11 +55,12 @@ $(document).ready(function () {
             field.value = field.defaultValue;
             $('#senha2').focus();
             $('#msgerrosenha').fadeIn();
-            
+
         }
         return false;
 
     });
+
 
 
 });

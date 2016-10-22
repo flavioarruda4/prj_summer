@@ -1,15 +1,14 @@
 <?php
 //inicia a sessão e verifica se o usuario está autenticado
 
-if((!isset ($_SESSION['login']) == true) and (!isset ($_SESSION['senha']) == true)){ 
-    unset($_SESSION['login']); 
-    unset($_SESSION['perfil']); 
-    unset($_SESSION['senha']); 
-    header('location:../index.php'); 
-    
-    
-}   
-    $logado = $_SESSION['login']; 
+if ((!isset($_SESSION['login']) == true) and ( !isset($_SESSION['senha']) == true)) {
+    unset($_SESSION['login']);
+    unset($_SESSION['perfil']);
+    unset($_SESSION['senha']);
+    header('location:../index.php');
+}
+$logado = $_SESSION['login'];
+$perfil = $_SESSION['perfil'];
 ?>
 
 <nav role="navigation" class="menu">
@@ -26,7 +25,13 @@ if((!isset ($_SESSION['login']) == true) and (!isset ($_SESSION['senha']) == tru
                         <span class=" glyphicon glyphicon-menu-down"></span>
                     </a>
                     <ul aria-labelledby="drop3" role="menu" class="dropdown-menu pull-right">
-                        <li role="presentation"><a tabindex="-1" data-toggle="modal" data-target=".bs-example-modal-lg" href=""> <i aria-hidden="true" class="glyphicon glyphicon-plus-sign"></i> Cadastrar Usuário  </a></li>
+                        <?php
+                        if ($perfil == 3) {
+
+                            echo '<li role="presentation"><a tabindex="-1" data-toggle="modal" data-target=".bs-user-modal-lg" href=""> <i aria-hidden="true" class="glyphicon glyphicon-plus-sign"></i> Cadastrar Usuário  </a></li>';
+                        }
+                        ?>
+
                         <li role="presentation"><a tabindex="-1" href="../controllers/logout.php"> <i aria-hidden="true" class="glyphicon glyphicon-log-out"></i> Sair  </a></li>
                     </ul>
                 </li>
@@ -35,3 +40,8 @@ if((!isset ($_SESSION['login']) == true) and (!isset ($_SESSION['senha']) == tru
 
     </div>
 </nav>
+
+
+<?php
+include_once "modal-view.php";
+?>
