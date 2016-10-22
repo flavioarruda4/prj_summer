@@ -16,6 +16,8 @@ $usuario->readOne();
 ?>
 
 <form id='update-user' action='' method='post' border='0' autocomplete="off">
+     <!-- Mensagem Sucesso -->
+     
     <table class='table table-bordered table-hover'>
 
         <tr>
@@ -30,24 +32,31 @@ $usuario->readOne();
         </tr>
         <tr>
             <td>Senha</td>
-            <td><input  type='password' name='senha' class='form-control' value='' required /></td>
+            <td><input  id="senha-edit" type='password' name='senha' class='form-control' value='' required /></td>
         </tr>
-
+        <tr>
+        <div id="msgerro-update-senha"  style="display: none;" class="alert alert-danger alert-dismissable">
+            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+            Senhas não conferem!
+        </div>
+        <td>Reiterar Senha</td>
+        <td><input id="senha-edit-2" type='password' name='senha' class='form-control' value='' required /></td>
+        </tr>
         <tr>
 
             <td>Perfil</td>
             <td>
                 <?php $selected = htmlspecialchars($usuario->perfil, ENT_QUOTES); ?>
                 <select id="perfil" name="perfil" class="form-control">
-                    <option value="1" <?=($selected == '1')?'selected':''?>>Operação(Atendimento ao Cliente)</option>
-                    <option value="2" <?=($selected == '2')?'selected':''?>>Gerencial</option>
-                    <option value="3" <?=($selected == '3')?'selected':''?>>Estratétegico</option>
+                    <option value="1" <?= ($selected == '1') ? 'selected' : '' ?>>Operação(Atendimento ao Cliente)</option>
+                    <option value="2" <?= ($selected == '2') ? 'selected' : '' ?>>Gerencial</option>
+                    <option value="3" <?= ($selected == '3') ? 'selected' : '' ?>>Estratétegico</option>
                 </select>
             </td>
         <tr>
             <td>
 
-                <input type='hidden' name='id' value='<?php echo $idUsuarios ?>' /> 
+                <input type='hidden' name='IdUsuarios' value='<?php echo $idUsuarios ?>' /> 
 
             </td>
             <td>

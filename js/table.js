@@ -44,7 +44,7 @@ $(document).ready(function () {
     
     
     $(".os-user-table").DataTable({
-        "order": [[0, "desc"]],
+        "order": [[0, "asc"]],
         "paging": true,
         "lengthMenu": [5,10,15,20,25,30,40, 60, 80, 100],
         "pageLength": 5,

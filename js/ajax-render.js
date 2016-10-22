@@ -62,17 +62,49 @@ $(document).ready(function () {
     });
 
 //Ajax renderiza a pagina que edita
-jQuery(document).ready(function () {
-    $(document).on('click', '.edit-user', function () {
-        var idUsuarios = $(this).closest('td').find('.idUsuarios').text();
-        $('#page-edita').fadeOut(0, function () {
-            $('#page-edita').load('/prj_summer/views/update-user.php?id=' + idUsuarios, function () {
-                $('#page-edita').fadeIn(0);
-                $('#update-user').focus();
+    jQuery(document).ready(function () {
+        $(document).on('click', '.edit-user', function () {
+            var idUsuarios = $(this).closest('td').find('.idUsuarios').text();
+            $('#page-edita').fadeOut(0, function () {
+                $('#page-edita').load('/prj_summer/views/update-user.php?id=' + idUsuarios, function () {
+                    $('#page-edita').fadeIn(0);
+                    $('#update-user').focus();
+                });
             });
         });
     });
-});
+
+// ajax update do usuario
+
+    jQuery(document).ready(function () {
+        $(document).on('submit', '#update-user', function () {
+            var update = jQuery(this).serialize();
+
+            if ($('#senha-edit').val() === $('#senha-edit-2').val()) {
+                jQuery.ajax({
+                    type: "POST",
+                    url: "/prj_summer/controllers/usuario-update.php",
+                    data: update,
+                    success: function (data) {
+                        $('#update-user').hide();
+                        $("#msgsucesso-user-update").fadeIn(150, function () {
+                            window.setTimeout(function () {
+                                $('#msgsucesso-user-update').fadeOut();
+                            }, 3999);
+                        });
+
+                    }
+                });
+            } else {
+                var field = document.getElementById('senha-edit-2');
+                field.value = field.defaultValue;
+                $('#senha-edit-2').focus();
+                $('#msgerro-update-senha').fadeIn();
+
+            }
+            return false;
+        });
+    });
 
 
 });

@@ -14,6 +14,8 @@
             Usuário cadastrado com sucesso!
         </div>
         
+       
+        
         <!-- animação de load -->
         <div id="load" class="col-sm-offset-5"></div>
         <!-- Inicio do formul�rio -->
@@ -113,6 +115,12 @@
 
 
         echo '<h3>Usuários Cadastrados</h3>
+          
+        <div id="msgsucesso-user-update"  style="display: none;" class="alert alert-success alert-dismissable">
+            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+            Usuário Alterado com sucesso!
+        </div>
+        
         <table id="cadastro-user-table" class="os-user-table table display table-hover" width="100%" cellspacing="0">
             <thead>
                 <tr>

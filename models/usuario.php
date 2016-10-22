@@ -5,7 +5,7 @@ class Usuario {
     private $table_name = "usuarios";
  
   
-    public $id;
+    public $idUsuarios;
     public $nome;
     public $login;
     public $senha;
@@ -42,6 +42,36 @@ class Usuario {
         
         
     }
+    
+     //faz um update no usuario caso ele seja editado
+    function update() {
+        $query = "UPDATE 
+                usuarios
+            SET 
+                nome = :nome,
+                login = :login,
+                senha = :senha,
+                perfil = :perfil
+                
+            WHERE
+                idUsuarios = :idUsuarios";
+        
+        $stmt = $this->conn->prepare($query);
+        
+        $stmt->bindParam(':idUsuarios', $this->idUsuarios);
+        $stmt->bindParam(':nome', $this->nome);
+        $stmt->bindParam(':login', $this->login);
+        $stmt->bindParam(':senha', $this->senha);
+        $stmt->bindParam(':perfil', $this->perfil);
+        
+        
+        if ($stmt->execute()) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+    
      //lê um usuario para ser editado
     function readOne() {
         $query = "SELECT
