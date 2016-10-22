@@ -145,12 +145,16 @@ a:hover {
     background-blend-mode: multiply;
     background-color: rgba(10, 70, 100, 0.5);
     background-image: url("../images/banner.jpg");
-    background-position-x: 300px;
-    background-repeat: no-repeat;
-    background-size: 70% auto;
     height: 240px;
+    max-width: 100%;
     margin-bottom: 18px;
     overflow: hidden;
+    background-repeat:no-repeat;
+    -webkit-background-size:cover;
+    -moz-background-size:cover;
+    -o-background-size:cover;
+    background-size:cover;
+    background-position:center;
 }
 
 
