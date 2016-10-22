@@ -1,0 +1,65 @@
+<?php
+include_once '../config/database.php';
+include_once '../models/usuario.php';
+
+
+$idUsuarios = isset($_GET['id']) ? $_GET['id'] : die("Erro ao encontrar Usuário!");
+
+$database = new Database();
+$db = $database->getConnection();
+
+$usuario = new Usuario($db);
+
+$usuario->idUsuarios = $idUsuarios;
+
+$usuario->readOne();
+?>
+
+<form id='update-user' action='' method='post' border='0' autocomplete="off">
+    <table class='table table-bordered table-hover'>
+
+        <tr>
+            <td>Nome</td>
+            <td>
+                <input name='nome' type="text" class='form-control nome-editar' value='<?php echo htmlspecialchars($usuario->nome, ENT_QUOTES); ?>' required=/>
+            </td>
+        </tr>
+        <tr>
+            <td>Login</td>
+            <td><input type='text' name='login' class='form-control' value='<?php echo htmlspecialchars($usuario->login, ENT_QUOTES); ?>' required /></td>
+        </tr>
+        <tr>
+            <td>Senha</td>
+            <td><input  type='password' name='senha' class='form-control' value='' required /></td>
+        </tr>
+
+        <tr>
+
+            <td>Perfil</td>
+            <td>
+                <?php $selected = htmlspecialchars($usuario->perfil, ENT_QUOTES); ?>
+                <select id="perfil" name="perfil" class="form-control">
+                    <option value="1" <?=($selected == '1')?'selected':''?>>Operação(Atendimento ao Cliente)</option>
+                    <option value="2" <?=($selected == '2')?'selected':''?>>Gerencial</option>
+                    <option value="3" <?=($selected == '3')?'selected':''?>>Estratétegico</option>
+                </select>
+            </td>
+        <tr>
+            <td>
+
+                <input type='hidden' name='id' value='<?php echo $idUsuarios ?>' /> 
+
+            </td>
+            <td>
+                <button type='submit' class='btn btn-primary'>
+                    <span class='glyphicon glyphicon-edit'></span> Salvar Alterações
+                </button>
+            </td>
+        </tr>
+    </table>
+</form>
+
+<div id="msgsucessoupdate"  style="display: none;" class="alert alert-success alert-dismissable">
+    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+    Usuario alterado com sucesso!
+</div>

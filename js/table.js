@@ -5,11 +5,13 @@ $(document).ready(function () {
 
     $(".os-table").DataTable({
         "order": [[0, "desc"]],
+        "lengthMenu": [5,10,15,20,25,30,40, 60, 80, 100],
+        "pageLength": 5,
         "paging": true,
         "columnDefs": [
             {"searchable": true, "targets": 0},
             {"searchable": true, "targets": 1},
-            {"searchable": true, "targets": 2}
+            {"searchable": true, "targets": 2},
 
 
         ],
@@ -44,6 +46,8 @@ $(document).ready(function () {
     $(".os-user-table").DataTable({
         "order": [[0, "desc"]],
         "paging": true,
+        "lengthMenu": [5,10,15,20,25,30,40, 60, 80, 100],
+        "pageLength": 5,
         "columnDefs": [
             {"searchable": true, "targets": 0},
             {"searchable": true, "targets": 1},

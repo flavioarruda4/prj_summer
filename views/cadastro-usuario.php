@@ -119,6 +119,7 @@
                     <th class=".select-filter span2">Nome</th>
                     <th class=".select-filter span2">Login</th>
                     <th class=".select-filter span2">Perfil</th>
+                    <th class=".select-filter span2">Ação</th>
                 </tr>
             </thead>
             <tbody>';
@@ -138,7 +139,18 @@
             } else if ($perfil == 3) {
                 echo "<td>Estratégico</td>";
             }
+            echo "<td>";
+            echo "<div id='idUsuarios' class='idUsuarios display-none' style='display: none;'>{$idUsuarios}</div>";
 
+            echo "<div class='btn btn-info edit-btn edit-user margin-right-2em'>";
+            echo "<span class='glyphicon glyphicon-edit'></span> Editar";
+            echo "</div>";
+
+
+            echo "<div class='btn btn-warning warning-btn'>";
+            echo "<span class='glyphicon glyphicon-delete'></span> Desabilitar";
+            
+            echo "</td>";
 
             echo "</tr>";
         }
@@ -149,6 +161,8 @@
     } else {
         echo "<div class='lista_clientes alert alert-info'>Nenhum Usuário Cadastrado!</div>";
     }
+    
+     echo "<div id='page-edita'></div>";
     ?>
-
+     
 </div>

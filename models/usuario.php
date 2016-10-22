@@ -42,6 +42,29 @@ class Usuario {
         
         
     }
+     //lê um usuario para ser editado
+    function readOne() {
+        $query = "SELECT
+                 idUsuarios,nome,login,senha,perfil
+                FROM " . $this->table_name . "
+            WHERE
+                idUsuarios = ?
+            LIMIT
+                0,1";
+        
+        $stmt = $this->conn->prepare($query);
+        $stmt->bindParam(1, $this->idUsuarios);
+        $stmt->execute();
+        
+        $row = $stmt->fetch(PDO::FETCH_ASSOC);
+        
+        $this->idUsuarios = $row['idUsuarios'];
+        $this->nome = $row['nome'];
+        $this->senha = $row['senha'];
+        $this->login = $row['login'];
+        $this->perfil = $row['perfil'];
+    }
+    
     
     //verifica se o usuario existe na tabela login
     

@@ -61,6 +61,18 @@ $(document).ready(function () {
 
     });
 
+//Ajax renderiza a pagina que edita
+jQuery(document).ready(function () {
+    $(document).on('click', '.edit-user', function () {
+        var idUsuarios = $(this).closest('td').find('.idUsuarios').text();
+        $('#page-edita').fadeOut(0, function () {
+            $('#page-edita').load('/prj_summer/views/update-user.php?id=' + idUsuarios, function () {
+                $('#page-edita').fadeIn(0);
+                $('#update-user').focus();
+            });
+        });
+    });
+});
 
 
 });
