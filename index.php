@@ -1,6 +1,13 @@
 <?php
+
+session_start();
 include_once "config/database.php";
 include_once "views/header.php";
+
+if((isset ($_SESSION['login']) == true) and (isset ($_SESSION['senha']) == true)){ 
+    header('location: /prj_summer/views/home.php'); 
+}   
+
 ?>
 
 
@@ -16,13 +23,13 @@ include_once "views/header.php";
         <div class="form-group">
             <label for="inputEmail3" class="col-sm-4 control-label">Login:</label>
             <div class="col-sm-3">
-                <input id="login" name="login" class="form-control" placeholder="Digite seu login" type="text">
+                <input id="login" name="login" class="form-control" placeholder="Digite seu login" type="text" required="true">
             </div>
         </div>
         <div class="form-group">
             <label for="inputPassword3" class="col-sm-4 control-label">Senha</label>
             <div class="col-sm-3">
-                <input class="form-control" id="senha" name="senha" placeholder="Digite sua senha" type="password">
+                <input class="form-control" id="senha" name="senha" placeholder="Digite sua senha" type="password" required="true">
             </div>
         </div>
         <div class="form-group">

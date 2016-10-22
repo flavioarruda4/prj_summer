@@ -29,6 +29,8 @@
         <link rel="stylesheet" href="/prj_summer/css/menu.css">
 
         <script src="/prj_summer/js/table.js"></script>
+        
+        <script src="/prj_summer/js/ajax-render.js"></script>
 
     </head>
     <body>

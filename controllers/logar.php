@@ -2,7 +2,7 @@
 session_start();
 //faz o login do usuario de acordo com os dados passados
 include_once '../config/database.php';
-include_once '../models/login.php';
+include_once '../models/usuario.php';
 
 
 $database = new Database();

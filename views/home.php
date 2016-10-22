@@ -1,31 +1,25 @@
 <?php
+
+session_start();
+
 include_once "../config/database.php";
 include_once "../views/header.php";
+include_once "../views/menu.php";
+
+//inicia a sessão e verifica se o usuario está autenticado
+
+if((!isset ($_SESSION['login']) == true) and (!isset ($_SESSION['senha']) == true)){ 
+    unset($_SESSION['login']); 
+    unset($_SESSION['perfil']); 
+    unset($_SESSION['senha']); 
+    header('location:../index.php'); 
+     exit;
+    
+}   
+    $logado = $_SESSION['login']; 
 ?>
 
-<nav role="navigation" class="menu">
-    <div class="wrapper container">
-        <nav role="menu" class="menu__links">
-            <a class="" href="">Gerenciamento de OS</a>
-            <a class=" " href="">Cadastro de Clientes</a>
 
-            <ul class="menu-funcoes pull-right">
-                <li class="dropdown" style="list-style: none;">
-                    <a class="dropdown-toggle" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" href="">
-                        Bem Vindo, José
-                        <i class="icon-user icon-white"></i>
-                        <span class=" glyphicon glyphicon-menu-down"></span>
-                    </a>
-                    <ul aria-labelledby="drop3" role="menu" class="dropdown-menu pull-right">
-                        <li role="presentation"><a tabindex="-1" data-toggle="modal" data-target="#myModalUser" href="#myModalUser"> <i aria-hidden="true" class="glyphicon glyphicon-plus-sign"></i> Cadastrar Usuário  </a></li>
-                        <li role="presentation"><a tabindex="-1" href=""> <i aria-hidden="true" class="glyphicon glyphicon-log-out"></i> Sair  </a></li>
-                    </ul>
-                </li>
-            </ul>
-        </nav>
-
-    </div>
-</nav>
 <div class="flex container">
     <div class="flex2 slidebar-left">
         <ul class="nav menu-left  filters">
@@ -63,6 +57,10 @@ include_once "../views/header.php";
                 <div class="span6">
                     <h2 class="page-title"> Lista de Ordens de Serviço </h2>
                 </div>
+                
+            
+            </legend>
+
                 <div class="span3">
 
                     <div class="btn-group pull-right">
@@ -93,7 +91,7 @@ include_once "../views/header.php";
                     <tbody>
                         <tr>
                             <td><a data-toggle="modal" data-target="#myModalEdit" href="#myModalEdit">23423423</a></td>
-                            <td>Alberto Roberto</td>
+                            <td>joao</td>
                             <td>10/12</td>
 
 
@@ -119,68 +117,11 @@ include_once "../views/header.php";
 
 
                         </tr>
-                        <tr>
-                            <td>23423423</td>
-                            <td>Alberto Roberto</td>
-                            <td>10/12</td>
-
-
-                        </tr>
-                        <tr>
-                            <td>23423423</td>
-                            <td>Alberto Roberto</td>
-                            <td>10/12</td>
-
-
-                        </tr>
-                        <tr>
-                            <td>23423423</td>
-                            <td>Alberto Roberto</td>
-                            <td>10/12</td>
-
-
-                        </tr>
-                        <tr>
-                            <td>23423423</td>
-                            <td>Alberto Roberto</td>
-                            <td>10/12</td>
-
-
-                        </tr>
-                        <tr>
-                            <td>23423423</td>
-                            <td>Alberto Roberto</td>
-                            <td>10/12</td>
-
-
-                        </tr>
-                        <tr>
-                            <td>23423423</td>
-                            <td>Alberto Roberto</td>
-                            <td>10/12</td>
-
-
-                        </tr>
-                        <tr>
-                            <td>23423423</td>
-                            <td>Alberto Roberto</td>
-                            <td>10/12</td>
-
-
-                        </tr>
-                        <tr>
-                            <td>23423423</td>
-                            <td>Alberto Roberto</td>
-                            <td>10/12</td>
-
-
-                        </tr>
-
+                   
+                     
                     </tbody>
                 </table>
 
-
-            </legend>
 
         </div>
 
@@ -202,20 +143,17 @@ include_once "../views/header.php";
             </div>
         </div>
 
-        <div class="modal fade" id="myModalUser" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-            <div class="modal-dialog" role="document">
+        <div class="modal fade  bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+            <div class="modal-dialog  modal-lg" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                         <h4 class="modal-title" id="myModalLabel">Cadastro de Usuarios</h4>
                     </div>
                     <div class="modal-body">
-
+                        <?php include_once 'cadastro-usuario.php' ?>
                     </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
-                        <button type="button" class="btn btn-primary">Salvar</button>
-                    </div>
+                    
                 </div>
             </div>
         </div>
@@ -233,7 +171,10 @@ include_once "../views/header.php";
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
-                        <button type="button" class="btn btn-primary">Salvar</button>
+                        <button id="limpar" name="limpar" class="btn btn-danger" type="reset">Limpar formul&aacuterio</button>
+
+                        <button type="submit" class="btn btn-primary" >Salvar</button>
+
                     </div>
                 </div>
             </div>

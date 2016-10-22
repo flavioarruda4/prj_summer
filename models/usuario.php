@@ -32,6 +32,7 @@ class Usuario {
         $stmt->bindParam(2, $this->login);
         $stmt->bindParam(3, $this->senha);
         $stmt->bindParam(4, $this->perfil);
+    
         
         if($stmt->execute()){
             return true;
