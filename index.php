@@ -1,90 +1,38 @@
-<!DOCTYPE html>
-<html lang="pt-br">
-  <head>
-    <!-- Head padr„o para p·gina -->
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>SUMMER OS</title>
-    <!-- Bootstrap -->
-    <link href="css/bootstrap.min.css" rel="stylesheet" />
-    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-    <!-- Include all compiled plugins (below), or include individual files as needed -->
-    <script src="js/bootstrap.min.js"></script>    
-  </head>
-  <body>
+<?php
+include_once "config/database.php";
+include_once "views/header.php";
+?>
 
-    <!-- NavegaÁ„o -->
-    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-        <div class="container">
-            <!--Marca e de altern‚ncia se agrupado para melhor visualizaÁ„o mÛvel -->
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-                    <span class="sr-only">Alternancia de Navegacao</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a class="navbar-brand" href="#">SUMMER O.S.</a>
-            </div>
-            <!-- Coleta as ligaÁıes nav, formul·rios e outros conte˙dos para alternar -->
-            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-<!--
-                <ul class="nav navbar-nav">
-                    <li>
-                        <a href="principal.php">P&aacutegina Principal</a>
-                    </li>                
-                    <li>
-                        <a href="cadOs.php">Ordem de Servi&ccedilo</a>
-                    </li>
-                    <li>
-                        <a href="cadUsuario.php">Usu&aacuterios</a>
-                    </li>                    
-                </ul>
--->
-            </div>
-            <!-- /.navbar-collapse -->
-        </div>
-        <!-- /.container -->
-    </nav>
+
+<div class="container">
     
-<br />
-         <!-- Retorno de Mensagem de erro-->
-        <?php
-            var_dump($_GET);
-            if (isset($_GET['$m'])){ 
-                echo $_GET['$m']; 
-            }
-        ?>
-   
-        <form class="form-horizontal" method="POST" action="dm/login.php">
-            <fieldset>
-                <!-- Nome do Formul·rio -->
-                <legend>Acesso</legend>
-                <!-- Campo Login do usu·rio-->
-                <div class="form-group">
-                  <label class="col-md-4 control-label" for="login">login:</label> 
-                  <div class="col-md-2">
-                  <input id="login" name="login" type="text" placeholder="Digite seu login" class="form-control input-md" required="">
-                  <span class="help-block">Acesso ao Sistema - login</span> 
-                  </div>
-                </div>
-                <!-- Campo Senha do usu·rio-->
-                <div class="form-group">
-                  <label class="col-md-4 control-label" for="senha">senha :</label>
-                  <div class="col-md-2">
-                    <input id="senha" name="senha" type="password" placeholder="Digite sua senha" class="form-control input-md" required="">
-                  </div>
-                </div>
-                <!-- Bot„o para que seja feita a verificaÁ„o da senha e usu·rio no banco de dados-->
-                <div class="form-group">
-                  <label class="col-md-4 control-label" for="acesso"></label>
-                  <div class="col-md-4">
-                    <button id="acesso" name="acesso" class="btn btn-primary">Acessar</button>
-                  </div>
-                </div>
-            </fieldset>
-        </form>
-  </body>
-</html>
+    <div id="msgerro"  style="display: none;" class="alert alert-danger alert-dismissable">
+        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+        Usu√°rio ou senha inv√°lidos!
+    </div>
+    
+    <legend class="col-sm-offset-5">Acesso</legend>
+    <form id="form-login" class="form-horizontal" method="POST" action="" autocomplete="off">
+        <div class="form-group">
+            <label for="inputEmail3" class="col-sm-4 control-label">Login:</label>
+            <div class="col-sm-3">
+                <input id="login" name="login" class="form-control" placeholder="Digite seu login" type="text">
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="inputPassword3" class="col-sm-4 control-label">Senha</label>
+            <div class="col-sm-3">
+                <input class="form-control" id="senha" name="senha" placeholder="Digite sua senha" type="password">
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="control-label col-sm-6">
+                <button id="entrar" type="submit" name="entrar" class="btn btn-success">Entrar</button>
+                <button id="limpar" type="reset" name="limpar" class="btn btn-primary">Limpar</button>
+            </div>
+        </div>
+    </form>
+</div>
+<?php
+include_once "views/footer.php";
+?>
