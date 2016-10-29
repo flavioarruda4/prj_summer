@@ -24,15 +24,15 @@ $logado = $_SESSION['login'];
         <h3>Cadastro de Cliente</h3>        
         
         <!-- Mensagem Sucesso -->
-        <div id="msgsucessouser"  style="display: none;" class="alert alert-success alert-dismissable">
+        <div id="msgsucessoclient"  style="display: none;" class="alert alert-success alert-dismissable">
             <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-            Usuário cadastrado com sucesso!
+            Cliente cadastrado com sucesso!
         </div>
 
         <div id="load" class="col-sm-offset-5"></div>
         
         <!-- Inicio do formulário -->
-        <form id="cadastro-usuario" class="form-horizontal" method="POST" action="">
+        <form id="cadastro-cliente" class="form-horizontal" method="POST" action="">
 
             <fieldset>
                 <div class="form-group"><legend> Dados Pessoais </legend></div>
@@ -68,13 +68,13 @@ $logado = $_SESSION['login'];
                 </div>                  
 
                 <div class="form-group">
-                    <label class="col-md-2 control-label" for="telfixo">Telefone:</label>  
+                    <label class="col-md-2 control-label" for="telFixo">Telefone:</label>  
                     <div class="col-md-3">
                         <input id="telFixo" name="telFixo" type="text" placeholder="Digite o Telefone" class="form-control input-md" required="true" maxlength="40">
 
                     </div>
 
-                    <label class="col-md-2 control-label" for="nome">Celular:</label>  
+                    <label class="col-md-2 control-label" for="telCleluar">Celular:</label>  
                     <div class="col-md-3">
                         <input id="telCleluar" name="telCleluar" type="text" placeholder="Digite o Celular" class="form-control input-md" required="true" maxlength="40">
 
@@ -82,7 +82,7 @@ $logado = $_SESSION['login'];
                 </div>   
 
                 <div class="form-group">
-                    <label class="col-md-2 control-label" for="datacadastro">Data do Cadastro:</label>  
+                    <label class="col-md-2 control-label" for="dataCadastro">Data do Cadastro:</label>  
                     <div class="col-md-2">
                         <input id="dataCadastro" name="dataCadastro" type="date"  class="form-control input-md" required="true">
 
@@ -97,7 +97,7 @@ $logado = $_SESSION['login'];
                 <div class="form-group"><legend> Endereço </legend></div>
 
                 <div class="form-group">
-                    <label class="col-md-2 control-label" for="logradouro">Logradouro:</label>  
+                    <label class="col-md-2 control-label" for="largadouro">Logradouro:</label>  
                     <div class="col-md-8">
                         <input id="largadouro" name="largadouro" type="text" placeholder="Digite o Logradouro"  class="form-control input-md" required="true" maxlength="50">
 
