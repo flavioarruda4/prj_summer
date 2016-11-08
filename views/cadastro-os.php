@@ -1,6 +1,6 @@
 
 <div class="container-fluid">
-    <form class="form-horizontal" method="POST" action="">
+    <form class="form-horizontal" method="POST" action="../controllers/osDAO.php">
 
         <?php include_once 'dados-1-os.php'; ?>
         
