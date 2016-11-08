@@ -21,7 +21,14 @@
         <link rel="stylesheet" href="/prj_summer/css/bootstrap-3.3.7-dist/fonts">
 
         <link rel="stylesheet" href="/prj_summer/css/dataTable.min.css">
-
+        
+        <!-- Datepicker -->
+        
+        <script src="/prj_summer/js/bootstrap-datepicker.min.js"></script>
+        <script src="/prj_summer/js/bootstrap-datepicker.pt-BR.min.js"></script>
+        <link rel="stylesheet" href="/prj_summer/css/bootstrap-datepicker.min.css">
+       
+        
         <!-- css style principal -->
         <link rel="stylesheet" href="/prj_summer/css/style.css">
 

@@ -106,6 +106,11 @@ $(document).ready(function () {
         });
     });
 
-
+    $('.dateTxt').datepicker({
+        clearBtn: true,
+        language: "pt-BR",
+        todayHighlight: true,
+        autoclose: true
+    });
 });
 
