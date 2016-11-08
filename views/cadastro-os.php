@@ -2,10 +2,8 @@
 <div class="container-fluid">
     <form class="form-horizontal" method="POST" action="../controllers/osDAO.php">
 
-        <?php include_once 'dados-1-os.php'; ?>
-        
-        
-        <?php include_once 'dados-2-os.php'; ?>
+        <?php include_once 'dados-1-os.php';?>
+        <?php include_once 'dados-2-os.php';?>
         
         
         <div class="modal-footer form-group">
