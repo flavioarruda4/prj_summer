@@ -61,7 +61,7 @@ $(document).ready(function () {
 
     });
 
-//Ajax renderiza a pagina que edita
+//Ajax renderiza a pagina que edita usuario
     jQuery(document).ready(function () {
         $(document).on('click', '.edit-user', function () {
             var idUsuarios = $(this).closest('td').find('.idUsuarios').text();
@@ -75,7 +75,6 @@ $(document).ready(function () {
     });
 
 // ajax update do usuario
-
     jQuery(document).ready(function () {
         $(document).on('submit', '#update-user', function () {
             var update = jQuery(this).serialize();
@@ -107,5 +106,39 @@ $(document).ready(function () {
     });
 
 
+    $('#cadastro-cliente').submit(function () {
+        $("#load").html("<img src='/prj_summer/images/load.gif'>");
+        $("#load").fadeIn(100, function () {
+            window.setTimeout(function () {
+                $('#cadastro-cliente').find('input:text').val('');
+                $('#load').fadeOut();
+            }, 1400);
+        });
+        var dados = jQuery(this).serialize();
+
+        $.ajax({
+            type: "POST",
+            url: "/prj_summer/controllers/clienteDAO.php",
+            data: dados,
+            success: function (data) {
+                $("#msgsucessoclient").fadeIn(1500, function () {
+                    $("#msgsucessoclient").focus();
+                    window.setTimeout(function () {
+                        $('#msgsucessoclient').fadeOut();
+                    }, 2500);
+                });
+            }
+        });
+
+        return false;
+
+    });
+
+    $('.dateTxt').datepicker({
+        clearBtn: true,
+        language: "pt-BR",
+        todayHighlight: true,
+        autoclose: true
+    });
 });
 

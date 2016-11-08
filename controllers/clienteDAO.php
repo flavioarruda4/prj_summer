@@ -1,4 +1,5 @@
 <?php
+date_default_timezone_set('America/Sao_Paulo');
 
 include_once '../config/database.php';
 
@@ -12,7 +13,7 @@ include_once '../models/cliente.php';
 $cliente = new Cliente($db);
 
 
-$endereco->largadouro = strip_tags($_POST["largadouro"]);
+$endereco->logradouro = strip_tags($_POST["logradouro"]);
 $endereco->numero = strip_tags($_POST["numero"]);
 $endereco->bairro = strip_tags($_POST["bairro"]);
 $endereco->uf = strip_tags($_POST["uf"]);
@@ -24,15 +25,18 @@ if($endereco->create()){
         $id_endereco_cliente = $id["id"];
 }
 
+
 $cliente->nome = strip_tags($_POST["nome"]);
 $cliente->email = strip_tags($_POST["email"]);
-$cliente->dataCadastro = strip_tags($_POST["dataCadastro"]);
+
+$dataCadastro = date("Y-m-d",strtotime(str_replace('/','-',$_POST["dataCadastro"])));
+
+$cliente->dataCadastro = $dataCadastro;
 $cliente->rg = strip_tags($_POST["rg"]);
 $cliente->cpf = strip_tags($_POST["cpf"]);
 $cliente->telFixo = strip_tags($_POST["telFixo"]);
-$cliente->telCleluar = strip_tags($_POST["telCleluar"]);
-$cliente->endereco_id = $id["id"];
-
+$cliente->telCelular = strip_tags($_POST["telCelular"]);
+$cliente->endereco_id =  $id_endereco_cliente;
 
 $cliente->create();
 

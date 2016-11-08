@@ -65,18 +65,8 @@ if((!isset ($_SESSION['login']) == true) and (!isset ($_SESSION['senha']) == tru
 
                     <div class="btn-group pull-right">
 
-                        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Nova OS <span class="caret"></span></button>
-
-
-                        <ul class="dropdown-menu">
-
-                            <li>
-
-                                <a data-toggle="modal" data-target=".bs-os-modal-lg" href="">Adicionar OS <i aria-hidden="true" class="fa fa-plus"></i> </a>
-                            </li>
-
-
-                        </ul>
+                         <button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bs-os-modal-lg" href="" >Adicionar OS <span class="caret"></span></button>
+                        
                     </div>
                 </div>
 

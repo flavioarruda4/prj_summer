@@ -1,7 +1,7 @@
 
 <ul class="nav nav-tabs">
     <li class="active"><a data-toggle="tab" href="#cadastro">Cadastro</a></li>
-    <li><a data-toggle="tab" href="#tabUsuario">Usu&aacuterios</a></li>
+    <li><a data-toggle="tab" href="#tabUsuario">Usuarios</a></li>
 </ul>
 <!-- Tab Order com tela de cadastro e listagem de usuario cadastrados--> 
 <div class="tab-content">
@@ -93,7 +93,7 @@
             <hr/>
             <div class="modal-footer form-group">
                 <button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
-                <button id="limpar" name="limpar" class="btn btn-danger" type="reset">Limpar formul&aacuterio</button>
+                <button id="limpar" name="limpar" class="btn btn-danger" type="reset">Limpar formulário</button>
                 <button id="submit-user" type="submit" class="btn btn-primary">Salvar</button>
             </div>
         </form>

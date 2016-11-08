@@ -11,7 +11,7 @@ class Cliente {
     public $rg;
     public $cpf;
     public $telFixo;
-    public $telCleluar;
+    public $telCelular;
     public $endereco_id;
     
  
@@ -25,9 +25,7 @@ class Cliente {
         $query = "INSERT INTO
                     " . $this->table_name . "
                 SET
-                    nome = ?, email = ?, dataCadastro = ?, rg = ?, cpf = ?, telFixo = ?, telCleluar = ?, endereco_id = ?";
-        
-    
+                    nome = ?, email = ?, dataCadastro = ?, rg = ?, cpf = ?, telFixo = ?, telCelular = ?, endereco_id = ?";
  
         $stmt = $this->conn->prepare($query);
  
@@ -37,7 +35,7 @@ class Cliente {
         $stmt->bindParam(4, $this->rg);
         $stmt->bindParam(5, $this->cpf);
         $stmt->bindParam(6, $this->telFixo);
-        $stmt->bindParam(7, $this->telCleluar);
+        $stmt->bindParam(7, $this->telCelular);
         $stmt->bindParam(8, $this->endereco_id);
             
         

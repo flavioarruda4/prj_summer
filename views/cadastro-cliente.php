@@ -5,6 +5,7 @@ session_start();
 include_once "../config/database.php";
 include_once "../views/header.php";
 include_once "../views/menu.php";
+
 $database = new Database();
 $db = $database->getConnection();
     
@@ -20,7 +21,7 @@ $logado = $_SESSION['login'];
 ?>
 
 <div class="flex container">
-    <div id="cadastro-cliente" class="panel-right">
+    <div  class="panel-right">
         <h3>Cadastro de Cliente</h3>        
         
         <!-- Mensagem Sucesso -->
@@ -32,7 +33,7 @@ $logado = $_SESSION['login'];
         <div id="load" class="col-sm-offset-5"></div>
         
         <!-- Inicio do formulário -->
-        <form id="cadastro-cliente" class="form-horizontal" method="POST" action="">
+        <form id="cadastro-cliente" class="form-horizontal" method="POST" action="" autocomplete="off">
 
             <fieldset>
                 <div class="form-group"><legend> Dados Pessoais </legend></div>
@@ -49,7 +50,7 @@ $logado = $_SESSION['login'];
                 <div class="form-group">
                     <label class="col-md-2 control-label" for="email">E-mail:</label>  
                     <div class="col-md-8">
-                        <input id="email" name="email" type="email" placeholder="Digite o E-mail" class="form-control input-md" required="true" maxlength="45">
+                        <input id="email" name="email" type="text" placeholder="Digite o E-mail" class="form-control input-md" required="true" maxlength="45">
 
                     </div>
                 </div>                   
@@ -76,7 +77,7 @@ $logado = $_SESSION['login'];
 
                     <label class="col-md-2 control-label" for="telCleluar">Celular:</label>  
                     <div class="col-md-3">
-                        <input id="telCleluar" name="telCleluar" type="text" placeholder="Digite o Celular" class="form-control input-md" required="true" maxlength="40">
+                        <input id="telCleluar" name="telCelular" type="text" placeholder="Digite o Celular" class="form-control input-md" required="true" maxlength="40">
 
                     </div>
                 </div>   
@@ -84,7 +85,7 @@ $logado = $_SESSION['login'];
                 <div class="form-group">
                     <label class="col-md-2 control-label" for="dataCadastro">Data do Cadastro:</label>  
                     <div class="col-md-2">
-                        <input id="dataCadastro" name="dataCadastro" type="date"  class="form-control input-md" required="true">
+                        <input id="dataCadastro" class="dateTxt" name="dataCadastro" type="text"  class="form-control input-md" required="true">
 
                     </div>
                 </div>              
@@ -99,7 +100,7 @@ $logado = $_SESSION['login'];
                 <div class="form-group">
                     <label class="col-md-2 control-label" for="largadouro">Logradouro:</label>  
                     <div class="col-md-8">
-                        <input id="largadouro" name="largadouro" type="text" placeholder="Digite o Logradouro"  class="form-control input-md" required="true" maxlength="50">
+                        <input id="largadouro" name="logradouro" type="text" placeholder="Digite o Logradouro"  class="form-control input-md" required="true" maxlength="50">
 
                     </div>
                 </div>  
@@ -146,7 +147,6 @@ $logado = $_SESSION['login'];
             </fieldset>
             <hr/>
             <div class="modal-footer form-group">
-                <button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
                 <button id="limpar" name="limpar" class="btn btn-danger" type="reset">Limpar formul&aacuterio</button>
                 <button id="submit-cliente" type="submit" class="btn btn-primary">Salvar</button>
             </div>
