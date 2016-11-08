@@ -56,9 +56,10 @@ $os->dataPg= strip_tags($_POST["dataPg"]);
 $os->nParcelas = strip_tags($_POST["nParcelas"]);
 $os->observacao= strip_tags($_POST["observacao"]);
 $os->valorOs = strip_tags($_POST["valorOs"]);
-$os->clientes_cpf = "03904053108";
+$os->clientes_cpf = strip_tags($_POST["clienteOs"]);
 
-$result = $os->create();
+if($os->create()){
+    
+}
 
-echo $result;
 ?>

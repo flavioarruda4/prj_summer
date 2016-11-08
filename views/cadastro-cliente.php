@@ -33,7 +33,7 @@ $logado = $_SESSION['login'];
         <div id="load" class="col-sm-offset-5"></div>
         
         <!-- Inicio do formulário -->
-        <form id="cadastro-cliente" class="form-horizontal" method="POST" action="">
+        <form id="cadastro-cliente" class="form-horizontal" method="POST" action="" autocomplete="off">
 
             <fieldset>
                 <div class="form-group"><legend> Dados Pessoais </legend></div>
