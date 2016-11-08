@@ -104,37 +104,35 @@ $(document).ready(function () {
             return false;
         });
     });
-    
-    
-//    $('#cadastro-cliente').submit(function () {
-//        $("#load").html("<img src='/prj_summer/images/load.gif'>");
-//        $("#load").fadeIn(100, function () {
-//            window.setTimeout(function () {
-//                $('#cadastro-cliente').find('input:text').val('');
-//                $('#load').fadeOut();
-//            }, 1400);
-//        });
-//        var dados = jQuery(this).serialize();
-//        
-//            $.ajax({
-//                type: "POST",
-//                url: "/prj_summer/controllers/clienteDAO.php",
-//                data: dados,
-//                success: function (data) {
-//                    
-//                    alert(data);
-//                    $("#msgsucessoclient").fadeIn(1500, function () {
-//                        $("#msgsucessoclient").focus();
-//                        window.setTimeout(function () {
-//                            $('#msgsucessoclient').fadeOut();
-//                        }, 2500);
-//                    });
-//                }
-//            });
-//     
-//        return false;
-//
-//    });
+
+
+    $('#cadastro-cliente').submit(function () {
+        $("#load").html("<img src='/prj_summer/images/load.gif'>");
+        $("#load").fadeIn(100, function () {
+            window.setTimeout(function () {
+                $('#cadastro-cliente').find('input:text').val('');
+                $('#load').fadeOut();
+            }, 1400);
+        });
+        var dados = jQuery(this).serialize();
+
+        $.ajax({
+            type: "POST",
+            url: "/prj_summer/controllers/clienteDAO.php",
+            data: dados,
+            success: function (data) {
+                $("#msgsucessoclient").fadeIn(1500, function () {
+                    $("#msgsucessoclient").focus();
+                    window.setTimeout(function () {
+                        $('#msgsucessoclient').fadeOut();
+                    }, 2500);
+                });
+            }
+        });
+
+        return false;
+
+    });
 
     $('.dateTxt').datepicker({
         clearBtn: true,

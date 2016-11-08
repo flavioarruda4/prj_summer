@@ -33,7 +33,7 @@ $logado = $_SESSION['login'];
         <div id="load" class="col-sm-offset-5"></div>
         
         <!-- Inicio do formulário -->
-        <form id="cadastro-cliente" class="form-horizontal" method="POST" action="../controllers/clienteDAO.php">
+        <form id="cadastro-cliente" class="form-horizontal" method="POST" action="">
 
             <fieldset>
                 <div class="form-group"><legend> Dados Pessoais </legend></div>
