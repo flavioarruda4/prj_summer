@@ -144,10 +144,10 @@ $(document).ready(function () {
             url: "/prj_summer/controllers/osDAO.php",
             data: dados,
             success: function (data) {
-                
+
                 $("#load-os").html("<img src='/prj_summer/images/load.gif'>");
                 $("#load-os").focus();
-                $(".bs-os-modal-lg").animate({ scrollTop: 0 }, "slow");
+                $(".bs-os-modal-lg").animate({scrollTop: 0}, "slow");
                 $("#load-os").fadeIn(100, function () {
                     window.setTimeout(function () {
                         $('#close-os-modal').click();
@@ -175,29 +175,34 @@ $(document).ready(function () {
         todayHighlight: true,
         autoclose: true
     });
-    
-     $('#dataPrevEntrega').datepicker({
+
+    $('#dataPrevEntrega').datepicker({
         clearBtn: true,
         language: "pt-BR",
         todayHighlight: true,
         autoclose: true
     });
-    
+
     $('#dataVencLentes').datepicker({
         clearBtn: true,
         language: "pt-BR",
         todayHighlight: true,
         autoclose: true
     });
-    
-     
+
+
     $('#dataPg').datepicker({
         clearBtn: true,
         language: "pt-BR",
         todayHighlight: true,
         autoclose: true
     });
-    
-    
+
+    $('li').click(function () {
+        $('li.os-filter').removeClass('active');
+        $(this).addClass("active");
+    });
+
+
 });
 

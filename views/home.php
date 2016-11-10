@@ -28,23 +28,21 @@ $logado = $_SESSION['login'];
     <div class="flex2 slidebar-left">
         <ul class="nav menu-left  filters">
 
-            <li class="">
-                <a href="">Pendentes <span class=""></span></a>
+            <li class="os-filter">
+                <a href="#">Pendentes <span class=""></span></a>
             </li>
 
-            <li class="">
-                <a href="">Em andamento <span class=""></span></a>
+            <li class="os-filter">
+                <a href="#">Em andamento <span class=""></span></a>
             </li>
 
 
-            <li class="">
-                <a href="">Finalizadas <span class=""></span></a>
+            <li class="os-filter">
+                <a href="#">Finalizadas <span class=""></span></a>
             </li>
 
-            <li class="">
-                <a href="">
-                    Todas
-                    <span class=""></span></a>
+            <li class="os-filter">
+                <a href="#">Todas<span class=""></span></a>
             </li>
 
         </ul>

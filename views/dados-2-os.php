@@ -111,7 +111,7 @@
         <div class="form-group">
             <label class="col-md-6 control-label" for="dataPg">Data Pagamento:</label> 
             <div class="col-md-6">
-                <input id="dataPg" name="dataPg" class="form-control input-md" placeholder="Data Pagamento.:" type="text">
+                <input id="dataPg" name="dataPg" class="form-control input-md" placeholder="Data Pagamento:" type="text">
             </div>
         </div>                
     </div>

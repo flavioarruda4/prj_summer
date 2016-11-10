@@ -268,7 +268,11 @@
 }
 
 .menu-left li.active a {
-  font-weight: bold;
+  background: none;
+  text-decoration: none;
+  background-color: transparent !important;
+  color: #88b6eb;
+  box-shadow: 0px 3px 0px 0px;
 }
 
 .menu-left a {
