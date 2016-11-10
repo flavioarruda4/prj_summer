@@ -3,66 +3,68 @@
 <!-- Inicio linhas : adicao, adicao, dataVencLentes  --> 
 <fieldset>
     <div class="form-group"><legend> Dados Extras </legend></div>
-<div class="col-md-4">
-    <!-- Campo Adi��o da OS ()-->
-    <div class="form-group">
-        <label class="col-md-4 control-label" for="adicao">Adição.:</label> 
-        <div class="col-md-8">
-            <input id="adicao" name="adicao" placeholder="Adição" class="form-control input-md" type="text">
-        </div>
-    </div>                
-</div>
-<div class="col-md-4">
-    <!-- Campo Arma��o da OS ()-->
-    <div class="form-group">
-        <label class="col-md-4 control-label" for="armacao">Armação.:</label> 
-        <div class="col-md-8">
-            <input id="armacao" name="armacao" placeholder="Armação" class="form-control input-md" type="text">
-        </div>
-    </div>                
-</div>
-<div class="col-md-4">
-    <!-- Campo Data Previs�o de entrega da OS ()-->
-    <div class="form-group">
-        <label class="col-md-4 control-label" for="dataVencLentes">Data Vencimento Lentes:</label> 
-        <div class="col-md-8">
-            <input class="dateTxt" id="dataVencLentes" name="dataVencLentes" placeholder="Data vencimento Lentes" type="text">
-        </div>
-    </div>                
-</div> 
 
-<!-- Fim linhas : adicao, adicao, dataVencLentes  -->       
+        <div class="col-md-4">
+            <!-- Campo Adi��o da OS ()-->
+            <div class="form-group">
+                <label class="col-md-4 control-label" for="adicao">Adição:</label> 
+                <div class="col-md-8">
+                    <input id="adicao" name="adicao" placeholder="Adição" class="form-control input-md" type="text">
+                </div>
+            </div>                
+        </div>
+        <div class="col-md-4">
+            <!-- Campo Arma��o da OS ()-->
+            <div class="form-group">
+                <label class="col-md-4 control-label" for="armacao">Armação:</label> 
+                <div class="col-md-8">
+                    <input id="armacao" name="armacao" placeholder="Armação" class="form-control input-md" type="text">
+                </div>
+            </div>                
+        </div>
+        <div class="col-md-4">
+            <!-- Campo Data Previsão de entrega da OS ()-->
+            <div class="form-group">
+                <label class="col-md-4 control-label" for="dataVencLentes">Data Vencimento Lentes:</label> 
+                <div class="col-md-8">
+                    <input  id="dataVencLentes" name="dataVencLentes" class="form-control input-md" placeholder="Data vencimento Lentes" type="text">
+                </div>
+            </div>                
+        </div> 
 
-<!-- Inicio linhas : lentes, medico,receita  --> 
+        <!-- Fim linhas : adicao, adicao, dataVencLentes  -->       
 
-<div class="col-md-4">
-    <!-- Campo Lentes da OS ()-->
-    <div class="form-group">
-        <label class="col-md-4 control-label" for="lentes">Lentes.:</label> 
-        <div class="col-md-8">
-            <input id="lentes" name="lentes" placeholder="Lentes" class="form-control input-md" type="text">
+        <!-- Inicio linhas : lentes, medico,receita  --> 
+
+        <div class="col-md-4">
+            <!-- Campo Lentes da OS ()-->
+            <div class="form-group">
+                <label class="col-md-4 control-label" for="lentes">Lentes.:</label> 
+                <div class="col-md-8">
+                    <input id="lentes" name="lentes" placeholder="Lentes" class="form-control input-md" type="text">
+                </div>
+            </div>                
         </div>
-    </div>                
-</div>
-<div class="col-md-4">
-    <!-- Campo M�dico da OS ()-->
-    <div class="form-group">
-        <label class="col-md-4 control-label" for="medico">Médico:</label> 
-        <div class="col-md-8">
-            <input id="medico" name="medico" placeholder="Médico" class="form-control input-md" type="text">
+        <div class="col-md-4">
+            <!-- Campo M�dico da OS ()-->
+            <div class="form-group">
+                <label class="col-md-4 control-label" for="medico">Médico:</label> 
+                <div class="col-md-8">
+                    <input id="medico" name="medico" placeholder="Médico" class="form-control input-md" type="text">
+                </div>
+            </div>                
         </div>
-    </div>                
-</div>
-<div class="col-md-4">
-    <!-- Campo Data Receita de entrega da OS ()-->
-    <div class="form-group">
-        <label class="col-md-4 control-label" for="receita">Receita:</label> 
-        <div class="col-sm-8">
-             <!-- <input type="file" name="foto" /> -->
-            <input id="receita" name="receita" placeholder="Receita Oftmologica" class="form-control input-md" type="text">
-        </div>
-    </div>                
-</div> 
+        <div class="col-md-4">
+            <!-- Campo Data Receita de entrega da OS ()-->
+            <div class="form-group">
+                <label class="col-md-4 control-label" for="receita">Receita:</label> 
+                <div class="col-sm-8">
+                     <!-- <input type="file" name="foto" /> -->
+                    <input id="receita" name="receita" placeholder="Receita Oftmologica" class="form-control input-md" type="text">
+                </div>
+            </div>                
+        </div> 
+
 </fieldset>
 <br/>
 <!-- Fim linhas : lentes, medico,receita  -->
@@ -109,7 +111,7 @@
         <div class="form-group">
             <label class="col-md-6 control-label" for="dataPg">Data Pagamento:</label> 
             <div class="col-md-6">
-                <input class="dateTxt" id="dataPg" name="dataPg" placeholder="Data Pagamento.:" type="text">
+                <input id="dataPg" name="dataPg" class="form-control input-md" placeholder="Data Pagamento.:" type="text">
             </div>
         </div>                
     </div>

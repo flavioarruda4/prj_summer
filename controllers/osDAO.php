@@ -22,7 +22,7 @@ $os->dataPrevEntrega = $dataPrevEntrega;
 $os->statusPg = 1;
 
 //Grau Olho Direito Longe
-$os->longEsfOd = strip_tags($_POST["longEsfOd"]);
+$os->longEsfOd = empty(strip_tags($_POST["longEsfOd"])) ? 0 : strip_tags($_POST["longEsfOd"]) ;
 $os->longCilOd = strip_tags($_POST["longCilOd"]);
 $os->longEixoOd = strip_tags($_POST["longEixoOd"]);
 $os->longDnpOd = strip_tags($_POST["longDnpOd"]);

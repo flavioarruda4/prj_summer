@@ -169,11 +169,35 @@ $(document).ready(function () {
 
 
 //Datepicker js
-    $('.dateTxt').datepicker({
+    $('#dataEmissao').datepicker({
         clearBtn: true,
         language: "pt-BR",
         todayHighlight: true,
         autoclose: true
     });
+    
+     $('#dataPrevEntrega').datepicker({
+        clearBtn: true,
+        language: "pt-BR",
+        todayHighlight: true,
+        autoclose: true
+    });
+    
+    $('#dataVencLentes').datepicker({
+        clearBtn: true,
+        language: "pt-BR",
+        todayHighlight: true,
+        autoclose: true
+    });
+    
+     
+    $('#dataPg').datepicker({
+        clearBtn: true,
+        language: "pt-BR",
+        todayHighlight: true,
+        autoclose: true
+    });
+    
+    
 });
 

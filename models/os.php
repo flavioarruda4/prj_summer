@@ -69,18 +69,6 @@ class Os {
 
         $stmt = $this->conn->prepare($query);
 
-
-        // prepare() can fail because of syntax errors, missing privileges, ....
-        if (false === $stmt) {
-            // and since all the following operations need a valid/ready statement object
-            // it doesn't make sense to go on
-            // you might want to use a more sophisticated mechanism than die()
-            // but's it's only an example
-            die('prepare() failed: ' . htmlspecialchars($mysqli->error));
-        }
-
-
-
         $stmt->bindParam(1, $this->dataEmissao);
         $stmt->bindParam(2, $this->dataPrevEntrega);
         $stmt->bindParam(3, $this->statusPg);
@@ -128,8 +116,6 @@ class Os {
         $stmt->bindParam(33, $this->observacao);
         $stmt->bindParam(34, $this->valor);
         $stmt->bindParam(35, $this->clientes_cpf);
-
-        
 
 
        if ($stmt->execute()) {
