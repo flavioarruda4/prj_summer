@@ -26,6 +26,7 @@ if($num > 0)
     echo 1;
     $_SESSION['idUsuarios'] = $row["idUsuarios"];
     $_SESSION['login'] = $row["login"];
+    $_SESSION['senha'] = $row["senha"];
     $_SESSION['perfil'] = $row["perfil"];
     
 }

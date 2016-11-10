@@ -8,7 +8,6 @@ $(document).ready(function () {
                 url: "controllers/logar.php",
                 data: dados,
                 success: function (result) {
-                    alert(result);
                     if (result == 1) {
 
                         location.href = 'views/home.php';
