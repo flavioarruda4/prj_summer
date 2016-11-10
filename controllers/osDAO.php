@@ -1,4 +1,5 @@
 <?php
+session_start();
 
 include_once '../config/database.php';
 
@@ -11,8 +12,11 @@ $os = new Os($db);
 include_once '../models/controleos.php';
 $controleos = new ControleOs($db);
 
-$os->dataEmissao = strip_tags($_POST["dataEmissao"]);
-$os->dataPrevEntrega = strip_tags($_POST["dataPrevEntrega"]);
+$dataEmissao = date("Y-m-d", strtotime(str_replace('/', '-', $_POST["dataEmissao"])));
+$os->dataEmissao = $dataEmissao;
+
+$dataPrevEntrega = date("Y-m-d", strtotime(str_replace('/', '-', $_POST["dataPrevEntrega"])));
+$os->dataPrevEntrega = $dataPrevEntrega;
 
 //Status pagamento onde 0 - Pago ; 1 - Pendente ; 2 - Cobranca
 $os->statusPg = 1;
@@ -32,44 +36,66 @@ $os->longDnpOe = strip_tags($_POST["longDnpOe"]);
 $os->longAlturaOe = strip_tags($_POST["longAlturaOe"]);
 
 //Grau Olho Direito Perto
-$os->pertoEsfOd = strip_tags($_POST["pertoEsfOd"]);
-$os->pertoCilOd = strip_tags($_POST["pertoCilOd"]);
-$os->pertoEixoOd = strip_tags($_POST["pertoEixoOd"]);
-$os->pertoDnpOd = strip_tags($_POST["pertoDnpOd"]);
-$os->pertoAlturaOd = strip_tags($_POST["pertoAlturaOd"]);
+$os->perEsfOd = strip_tags($_POST["perEsfOd"]);
+$os->perCilOd = strip_tags($_POST["perCilOd"]);
+$os->perEixoOd = strip_tags($_POST["perEixoOd"]);
+$os->perDnpOd = strip_tags($_POST["perDnpOd"]);
+$os->perAlturaOd = strip_tags($_POST["perAlturaOd"]);
 
 //Grau Olho Esquerdo Perto
-$os->pertoEsfOe = strip_tags($_POST["pertoEsfOe"]);
-$os->pertoCilOe = strip_tags($_POST["pertoCilOe"]);
-$os->pertoEixoOe = strip_tags($_POST["pertoEixoOe"]);
-$os->pertoDnpOe = strip_tags($_POST["pertoDnpOe"]);
-$os->pertoAlturaOe = strip_tags($_POST["pertoAlturaOe"]);
+$os->perEsfOe = strip_tags($_POST["perEsfOe"]);
+$os->perCilOe = strip_tags($_POST["perCilOe"]);
+$os->perEixoOe = strip_tags($_POST["perEixoOe"]);
+$os->perDnpOe = strip_tags($_POST["perDnpOe"]);
+$os->perAlturaOe = strip_tags($_POST["perAlturaOe"]);
 
 //Dados Adicionais da Ordem de servi�o
 $os->adicao = strip_tags($_POST["adicao"]);
 $os->armacao = strip_tags($_POST["armacao"]);
-$os->dataVencLentes = strip_tags($_POST["dataVencLentes"]);
+
+$dataVencLentes = date("Y-m-d", strtotime(str_replace('/', '-', $_POST["dataVencLentes"])));
+$os->dataVencLentes = $dataVencLentes;
+
 $os->lentes = strip_tags($_POST["lentes"]);
 $os->medico = strip_tags($_POST["medico"]);
 $os->receita = strip_tags($_POST["receita"]);
 
 //Pagamento
 $os->formaPg = strip_tags($_POST["pagamento"]);
-$os->dataPg = strip_tags($_POST["dataPg"]);
+
+$dataPg = date("Y-m-d", strtotime(str_replace('/', '-', $_POST["dataPg"])));
+$os->dataPg = $dataPg;
+
 $os->nParcelas = strip_tags($_POST["nParcelas"]);
 $os->observacao = strip_tags($_POST["observacao"]);
-$os->valorOs = strip_tags($_POST["valorOs"]);
-$os->clientes_cpf = strip_tags($_POST["clienteOs"]);
+$os->valor = strip_tags($_POST["valor"]);
+$os->clientes_cpf = strip_tags($_POST["clientes_cpf"]);
 
 
+print_r($os);
 
-if ($os->create()) {
+$id = $os->create();
+
+
+if($id > 0){
     
-    $id_idos = $os->getLastOs();
+    $id_idos = $id;
     
-    $controleos->os_idos = $id_idos;
-    $controleos->statusAndamentoOs;
-    $controleos->dataStatusAndamentoOs;
-    $controleos->usuarios_idUsuarios;
+    $controleos->os_idos = $id;
+
+    // 0 = pendente , 1 = em andamento e 2 = finalizada
+    $controleos->statusAndamentoOs = 0;
+
+    // data de criacao da os
+    $controleos->dataStatusAndamentoOs = $dataEmissao;
+    
+    print_r($_SESSION);
+    
+    $controleos->usuarios_idUsuarios = $_SESSION["idUsuarios"];
+
+    $controleos->create();
+}else{
+    echo -1;
 }
+
 ?>

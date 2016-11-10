@@ -1,11 +1,12 @@
-
+<!-- animação de load -->
+<div id="load-os" class="col-sm-offset-5"></div>
 <div class="container-fluid">
-    <form class="form-horizontal" method="POST" action="../controllers/osDAO.php">
+    <form id="cadastro-os" class="form-horizontal" method="POST" action="../controllers/osDAO.php">
 
-        <?php include_once 'dados-1-os.php';?>
-        <?php include_once 'dados-2-os.php';?>
-        
-        
+        <?php include_once 'dados-1-os.php'; ?>
+        <?php include_once 'dados-2-os.php'; ?>
+
+
         <div class="modal-footer form-group">
             <button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
             <button id="limpar" name="limpar" class="btn btn-danger" type="reset">Limpar formul&aacuterio</button>

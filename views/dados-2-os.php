@@ -76,7 +76,7 @@
         <div class="form-group">
             <label class="col-md-6 control-label" for="valorOs">Valor da O.S:</label> 
             <div class="col-md-6">
-                <input id="valorOs" name="valorOs" placeholder="Valor da OS " class="form-control input-md" type="text">
+                <input id="valorOs" name="valor" placeholder="Valor da OS " class="form-control input-md" type="text">
             </div>
         </div>               
     </div>                        

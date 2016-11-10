@@ -35,8 +35,10 @@ class Usuario {
     
         
         if($stmt->execute()){
+
             return true;
         }else{
+
             return false;
         }       
         
@@ -66,8 +68,10 @@ class Usuario {
         
         
         if ($stmt->execute()) {
+
             return true;
         } else {
+
             return false;
         }
     }
@@ -101,23 +105,23 @@ class Usuario {
     function logando(){
      
  
-    $query = "SELECT *
-   
-                FROM  " . $this->table_name . "
-            WHERE
-                login = ? and
-                senha = ?
-            LIMIT
-                1";
- 
-    $stmt = $this->conn->prepare( $query );
-    
-    $stmt->bindParam(1, $this->login);
-    $stmt->bindParam(2, $this->senha);
-    
-    $stmt->execute();
-    
-    return $stmt;
+        $query = "SELECT *
+
+                    FROM  " . $this->table_name . "
+                WHERE
+                    login = ? and
+                    senha = ?
+                LIMIT
+                    1";
+
+        $stmt = $this->conn->prepare( $query );
+
+        $stmt->bindParam(1, $this->login);
+        $stmt->bindParam(2, $this->senha);
+
+        $stmt->execute();
+
+        return $stmt;
     }
     
     //recupera o nivel de acesso do usuario
@@ -125,23 +129,23 @@ class Usuario {
     function recuperaPerfil(){
      
  
-    $query = "SELECT *
-   
-                FROM  " . $this->table_name . "
-            WHERE
-                login = ? and
-                senha = ?
-            LIMIT
-                1";
- 
-    $stmt = $this->conn->prepare( $query );
-    
-    $stmt->bindParam(1, $this->login);
-    $stmt->bindParam(2, $this->senha);
-    
-    $stmt->execute();
-    
-    return $stmt->fetch();
+        $query = "SELECT *
+
+                    FROM  " . $this->table_name . "
+                WHERE
+                    login = ? and
+                    senha = ?
+                LIMIT
+                    1";
+
+        $stmt = $this->conn->prepare( $query );
+
+        $stmt->bindParam(1, $this->login);
+        $stmt->bindParam(2, $this->senha);
+
+        $stmt->execute();
+
+        return $stmt->fetch();
     }
     
      //lê todos os usuarios

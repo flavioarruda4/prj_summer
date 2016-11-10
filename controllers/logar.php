@@ -13,19 +13,20 @@ $usuario = new Usuario($db);
 $usuario->login = strip_tags($_POST['login']);
 $usuario->senha = md5(strip_tags($_POST['senha']));
 
+//valida o login
 $stmt = $usuario->logando();
 
-$perfilArray = $usuario->recuperaPerfil();
-$perfil = $perfilArray['perfil'];
+
+$row = $stmt->fetch(PDO::FETCH_ASSOC);
 
 $num = $stmt->rowCount();
 
 if($num > 0)
 {   
     echo 1;
-    $_SESSION['login'] = $usuario->login;
-    $_SESSION['senha'] = $usuario->senha;
-    $_SESSION['perfil'] = $perfil;
+    $_SESSION['idUsuarios'] = $row["idUsuarios"];
+    $_SESSION['login'] = $row["login"];
+    $_SESSION['perfil'] = $row["perfil"];
     
 }
 else{

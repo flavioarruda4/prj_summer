@@ -38,8 +38,10 @@ class Endereco {
             
         
         if($stmt->execute()){
+
             return true;
         }else{
+
             return false;
         }       
         
@@ -64,6 +66,7 @@ class Endereco {
         if($stmt->execute()){
             return $stmt->fetch();
         }else{
+
             return false;
         }
 

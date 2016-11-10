@@ -8,7 +8,9 @@ $(document).ready(function () {
                 url: "controllers/logar.php",
                 data: dados,
                 success: function (result) {
+                    alert(result);
                     if (result == 1) {
+
                         location.href = 'views/home.php';
                     } else {
                         $("#msgerro").fadeIn(1500, function () {
@@ -105,7 +107,7 @@ $(document).ready(function () {
         });
     });
 
-
+//Ajax do cadastro de cliente
     $('#cadastro-cliente').submit(function () {
         $("#load").html("<img src='/prj_summer/images/load.gif'>");
         $("#load").fadeIn(100, function () {
@@ -133,7 +135,41 @@ $(document).ready(function () {
         return false;
 
     });
+//Ajax do cadastro de OS
+    $('#cadastro-os').submit(function () {
+        $('#cadastro-os').find('input:text').val('');
+        $('#cadastro-os').find('input:radio').val('');
+        var dados = jQuery(this).serialize();
+        $.ajax({
+            type: "POST",
+            url: "/prj_summer/controllers/osDAO.php",
+            data: dados,
+            success: function (data) {
+                
+                $("#load-os").html("<img src='/prj_summer/images/load.gif'>");
+                $("#load-os").focus();
+                $(".bs-os-modal-lg").animate({ scrollTop: 0 }, "slow");
+                $("#load-os").fadeIn(100, function () {
+                    window.setTimeout(function () {
+                        $('#close-os-modal').click();
+                        $('#load-os').fadeOut();
+                    }, 1400);
+                });
+                $("#msgsucesso-os").fadeIn(2000, function () {
+                    $("#msgsucesso-os").focus();
+                    window.setTimeout(function () {
+                        $('#msgsucesso-os').fadeOut();
+                    }, 2500);
+                });
+            }
+        });
 
+        return false;
+
+    });
+
+
+//Datepicker js
     $('.dateTxt').datepicker({
         clearBtn: true,
         language: "pt-BR",

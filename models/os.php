@@ -5,8 +5,7 @@ class Os {
 
     private $conn;
     private $table_name = "os";
-    
-    public $idOs;
+    public $id;
     public $dataEmissao;
     public $dataPrevEntrega;
     //Status pagamento onde 0 - Pago ; 1 - Pendente ; 2 - Cobranca
@@ -24,17 +23,17 @@ class Os {
     public $longDnpOe;
     public $longAlturaOe;
     //Grau Olho Direito Perto
-    public $pertoEsfOd;
-    public $pertoCilOd;
-    public $pertoEixoOd;
-    public $pertoDnpOd;
-    public $pertoAlturaOd;
+    public $perEsfOd;
+    public $perCilOd;
+    public $perEixoOd;
+    public $perDnpOd;
+    public $perAlturaOd;
     //Grau Olho Esquerdo Perto
-    public $pertoEsfOe;
-    public $pertoCilOe;
-    public $pertoEixoOe;
-    public $pertoDnpOe;
-    public $pertoAlturaOe;
+    public $perEsfOe;
+    public $perCilOe;
+    public $perEixoOe;
+    public $perDnpOe;
+    public $perAlturaOe;
     //Dados Adicionais da Ordem de servi�o
     public $adicao;
     public $armacao;
@@ -47,7 +46,7 @@ class Os {
     public $dataPg;
     public $nParcelas;
     public $observacao;
-    public $valorOs;
+    public $valor;
     public $clientes_cpf;
 
     public function __construct($db) {
@@ -62,15 +61,26 @@ class Os {
                 SET                   
                     dataEmissao = ?, dataPrevEntrega = ?, statusPg = ?, longEsfOd = ?, longCilOd = ?, longEixoOd = ?, longDnpOd = ?, longAlturaOd = ?,
 
-                    longEsfOe = ?, longCilOe = ?, longEixoOe = ?, longDnpOe = ?, longAlturaOe = ?, pertoEsfOd = ?, pertoCilOd = ?, pertoEixoOd = ?,
+                    longEsfOe = ?, longCilOe = ?, longEixoOe = ?, longDnpOe = ?, longAlturaOe = ?, perEsfOd = ?, perCilOd = ?, perEixoOd = ?,
 
-                    pertoDnpOd = ?, pertoAlturaOd = ?, pertoEsfOe = ?, pertoCilOe = ?, pertoEixoOe = ?, pertoDnpOe = ?, pertoAlturaOe = ?, adicao = ?,
+                    perDnpOd = ?, perAlturaOd = ?, perEsfOe = ?, perCilOe = ?, perEixoOe = ?, perDnpOe = ?, perAlturaOe = ?, adicao = ?,
 
-                    armacao = ?, dataVencLentes = ?, lentes = ?, medico = ?, receita = ?, formaPg = ?, dataPg = ?, nParcelas = ?, observacao = ?, valorOs = ?,clientes_cpf = ?";
+                    armacao = ?, dataVencLentes = ?, lentes = ?, medico = ?, receita = ?, formaPg = ?, dataPg = ?, nParcelas = ?, observacao = ?, valor = ?,clientes_cpf = ?";
 
         $stmt = $this->conn->prepare($query);
-        
-        
+
+
+        // prepare() can fail because of syntax errors, missing privileges, ....
+        if (false === $stmt) {
+            // and since all the following operations need a valid/ready statement object
+            // it doesn't make sense to go on
+            // you might want to use a more sophisticated mechanism than die()
+            // but's it's only an example
+            die('prepare() failed: ' . htmlspecialchars($mysqli->error));
+        }
+
+
+
         $stmt->bindParam(1, $this->dataEmissao);
         $stmt->bindParam(2, $this->dataPrevEntrega);
         $stmt->bindParam(3, $this->statusPg);
@@ -90,18 +100,18 @@ class Os {
         $stmt->bindParam(13, $this->longAlturaOe);
 
         //Grau Olho Direito Perto
-        $stmt->bindParam(14, $this->pertoEsfOd);
-        $stmt->bindParam(15, $this->pertoCilOd);
-        $stmt->bindParam(16, $this->pertoEixoOd);
-        $stmt->bindParam(17, $this->pertoDnpOd);
-        $stmt->bindParam(18, $this->pertoAlturaOd);
+        $stmt->bindParam(14, $this->perEsfOd);
+        $stmt->bindParam(15, $this->perCilOd);
+        $stmt->bindParam(16, $this->perEixoOd);
+        $stmt->bindParam(17, $this->perDnpOd);
+        $stmt->bindParam(18, $this->perAlturaOd);
 
         //Grau Olho Direito Perto
-        $stmt->bindParam(19, $this->pertoEsfOe);
-        $stmt->bindParam(20, $this->pertoCilOe);
-        $stmt->bindParam(21, $this->pertoEixoOe);
-        $stmt->bindParam(22, $this->pertoDnpOe);
-        $stmt->bindParam(23, $this->pertoAlturaOe);
+        $stmt->bindParam(19, $this->perEsfOe);
+        $stmt->bindParam(20, $this->perCilOe);
+        $stmt->bindParam(21, $this->perEixoOe);
+        $stmt->bindParam(22, $this->perDnpOe);
+        $stmt->bindParam(23, $this->perAlturaOe);
 
         //Dados Adicionais da Ordem de servico
         $stmt->bindParam(24, $this->adicao);
@@ -116,13 +126,16 @@ class Os {
         $stmt->bindParam(31, $this->dataPg);
         $stmt->bindParam(32, $this->nParcelas);
         $stmt->bindParam(33, $this->observacao);
-        $stmt->bindParam(34, $this->valorOs);
+        $stmt->bindParam(34, $this->valor);
         $stmt->bindParam(35, $this->clientes_cpf);
 
-        if ($stmt->execute()) {
-            return true;
+        
+
+
+       if ($stmt->execute()) {
+           return $this->conn->lastInsertId("id");
         } else {
-            return false;
+            return -1;
         }
     }
 

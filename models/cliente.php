@@ -40,8 +40,10 @@ class Cliente {
             
         
         if($stmt->execute()){
+            $stmt->close();
             return true;
         }else{
+            $stmt->close();
             return false;
         }          
         
