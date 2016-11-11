@@ -19,7 +19,7 @@
         <!-- animação de load -->
         <div id="load" class="col-sm-offset-5"></div>
         <!-- Inicio do formul�rio -->
-        <form id="cadastro-usuario" class="form-horizontal" method="POST" action="">
+        <form id="cadastro-usuario" class="form-horizontal" method="POST" action="" autocomplete="off">
 
             <fieldset>
                 <div class="form-group"><legend> Dados Pessoais </legend></div>
@@ -31,15 +31,7 @@
                         <input id="nome" name="nome" type="text" placeholder="Digite o Nome Completo" class="form-control input-md" required="true" maxlength="45">
 
                     </div>
-                </div>
-
-                <!-- O que seria o Stauts Inicial? O status não seria da OS? -->
-                <div class="form-group">
-                    <label class="col-md-3 control-label" for="statusAtividade">Status Atividade.:</label> 
-                    <div class="col-md-7">
-                        <input class="form-control input-md" id="statusAtividade" name="statusAtividade" type="text" placeholder="Status da Atividade" class="form-control input-md" value="1" disabled />
-                    </div>
-                </div>     
+                </div>  
 
 
             </fieldset>
@@ -156,6 +148,8 @@
 
 
             echo "<div class='btn btn-warning warning-btn'>";
+            
+            //implementar o desabilitar! 0 = desabilitado e 1 = habilitado (variavel statusAtividade)
             echo "<span class='glyphicon glyphicon-delete'></span> Desabilitar";
             
             echo "</td>";

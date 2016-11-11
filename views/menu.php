@@ -15,7 +15,7 @@ $perfil = $_SESSION['perfil'];
     <div class="wrapper container">
         <nav role="menu" class="menu__links">
             <a class="" href="../">Gerenciamento de OS</a>
-            <a class=" " href="../views/cadastro-cliente.php">Cadastro de Clientes</a>
+            <a class=" " href="../views/cadastro-cliente.php">Gerenciamento de Clientes</a>
 
             <ul class="menu-funcoes pull-right">
                 <li class="dropdown" style="list-style: none;">

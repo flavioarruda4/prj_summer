@@ -72,14 +72,6 @@ $os->observacao = strip_tags($_POST["observacao"]);
 $os->valor = strip_tags($_POST["valor"]);
 $os->clientes_cpf = strip_tags($_POST["clientes_cpf"]);
 
-echo "OS >>>>>>>";
-print_r($os);
-echo "OS >>>>>>>";
-
-echo "post >>>>>";
-print_r($_POST);
-echo "post >>>>>";
-
 $id = $os->create();
 
 
@@ -94,8 +86,6 @@ if($id > 0){
 
     // data de criacao da os
     $controleos->dataStatusAndamentoOs = $dataEmissao;
-    
-    print_r($_SESSION);
     
     $controleos->usuarios_idUsuarios = $_SESSION["idUsuarios"];
 
