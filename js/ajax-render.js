@@ -136,8 +136,6 @@ $(document).ready(function () {
     });
 //Ajax do cadastro de OS
     $('#cadastro-os').submit(function () {
-        $('#cadastro-os').find('input:text').val('');
-        $('#cadastro-os').find('input:radio').val('');
         var dados = jQuery(this).serialize();
         $.ajax({
             type: "POST",
@@ -160,6 +158,12 @@ $(document).ready(function () {
                         $('#msgsucesso-os').fadeOut();
                     }, 2500);
                 });
+
+                setTimeout(function () {
+                    location.reload();
+                    $('#cadastro-os').trigger("reset");
+                }, 3000);
+
             }
         });
 
@@ -168,18 +172,25 @@ $(document).ready(function () {
     });
 
 //Datepicker js
-    $('#dataEmissao').datepicker({
+
+    $("#dataEmissao").datepicker({
+        todayBtn: 1,
+        autoclose: true,
         clearBtn: true,
         language: "pt-BR",
-        todayHighlight: true,
-        autoclose: true
+        todayHighlight: true
+    }).on('changeDate', function (selected) {
+        var minDate = new Date(selected.date.valueOf());
+        $('#dataPrevEntrega').datepicker('setStartDate', minDate);
     });
 
-    $('#dataPrevEntrega').datepicker({
+    $("#dataPrevEntrega").datepicker({
         clearBtn: true,
         language: "pt-BR",
         todayHighlight: true,
-        autoclose: true
+        autoclose: true}).on('changeDate', function (selected) {
+                var minDate = new Date(selected.date.valueOf());
+                $('#dataEmissao').datepicker('setEndDate', minDate);
     });
 
     $('#dataVencLentes').datepicker({

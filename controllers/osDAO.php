@@ -22,7 +22,8 @@ $os->dataPrevEntrega = $dataPrevEntrega;
 $os->statusPg = 1;
 
 //Grau Olho Direito Longe
-$os->longEsfOd = empty(strip_tags($_POST["longEsfOd"])) ? 0 : strip_tags($_POST["longEsfOd"]) ;
+echo "Resultado if >>>".empty(strip_tags($_POST["longEsfOd"])) ? 0 : strip_tags($_POST["longEsfOd"]);
+$os->longEsfOd = empty(strip_tags($_POST["longEsfOd"])) ? 0.00 : strip_tags($_POST["longEsfOd"]);
 $os->longCilOd = strip_tags($_POST["longCilOd"]);
 $os->longEixoOd = strip_tags($_POST["longEixoOd"]);
 $os->longDnpOd = strip_tags($_POST["longDnpOd"]);
@@ -71,8 +72,13 @@ $os->observacao = strip_tags($_POST["observacao"]);
 $os->valor = strip_tags($_POST["valor"]);
 $os->clientes_cpf = strip_tags($_POST["clientes_cpf"]);
 
-
+echo "OS >>>>>>>";
 print_r($os);
+echo "OS >>>>>>>";
+
+echo "post >>>>>";
+print_r($_POST);
+echo "post >>>>>";
 
 $id = $os->create();
 

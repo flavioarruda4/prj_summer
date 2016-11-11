@@ -25,6 +25,7 @@ if ($numeroOs > 0) {
                 <tr>
                     <th class=".select-filter span2">Id Os</th>
                     <th class=".select-filter span2">Nome Cliente</th>
+                    <th class=".select-filter span2">Celular</th>
                     <th class=".select-filter span2">Data Alteração Status</th>
                     <th class=".select-filter span2">Ação</th>
                 </tr>
@@ -37,8 +38,10 @@ if ($numeroOs > 0) {
 
         echo "<tr>";
         echo "<td>{$os_idos}</td>";
-        echo "<td>{$usuarios_idUsuarios}</td>";
+        echo "<td>{$nome}</td>";
+        echo "<td>{$telCelular}</td>";
         echo "<td>{$dataStatusAndamentoOs}</td>";
+
 
 
         echo "<td>";

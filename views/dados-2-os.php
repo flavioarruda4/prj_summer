@@ -88,19 +88,20 @@
             <label class="col-md-4 control-label" for="pagamento">Forma de Pagamento</label>
             <div class="col-md-8">
                 <label class="radio-horizontal" for="pagamento-0">
-                    <input name="pagamento" id="pagamento-0" value="1" type="radio">
+                    <input name="pagamento" value="1" type="radio">
                     Dinheiro
                 </label>
                 <label class="radio-horizontal" for="pagamento-1">
-                    <input name="pagamento" id="pagamento-1" value="2" type="radio">
+                    <input name="pagamento"  value="2" type="radio">
                     Cheque
                 </label>
                 <label class="radio-horizontal" for="pagamento-2">
-                    <input name="pagamento" id="pagamento-2" value="3" type="radio">
+                    <input name="pagamento" value="3" type="radio">
                     Visa
                 </label>
                 <label class="radio-horizontal" for="pagamento-3">
-                    <input name="pagamento" id="pagamento-3" value="4" type="radio">
+                    <input name="pagamento"
+                           value="4" type="radio">
                     Master
                 </label>
             </div>

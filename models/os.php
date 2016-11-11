@@ -117,7 +117,18 @@ class Os {
         $stmt->bindParam(34, $this->valor);
         $stmt->bindParam(35, $this->clientes_cpf);
 
+        $rc = $stmt;
 
+        if (false === $rc) {
+
+            die('bind_param() failed: ' . htmlspecialchars($stmt->error));
+        }
+
+        $rc = $stmt->execute();
+
+        if (false === $rc) {
+            die('execute() failed: ' . print_r($stmt->errorInfo()));
+        }
        if ($stmt->execute()) {
            return $this->conn->lastInsertId("id");
         } else {

@@ -56,7 +56,7 @@
             <tr>
                 <td>OD</td>
                 <td>
-                    <!-- Campo Grau longe Esf�rico olho direito da OS ()-->
+                    <!-- Campo Grau longe Esférico olho direito da OS ()-->
                     <div class="form-group">
                         <div class="col-md-11">
                             <input id="longEsfOd" name="longEsfOd" type="text" placeholder="Long Esf OD" class="form-control input-md" />
@@ -64,10 +64,10 @@
                     </div>          
                 </td>
                 <td>
-                    <!-- Campo Grau longe Esf�rico olho direito da OS ()-->
+                    <!-- Campo Grau longe Esférico olho direito da OS ()-->
                     <div class="form-group">
                         <div class="col-md-11">
-                            <input id="longCilOd" name="longCilOd" type="text" placeholder="Long Esf OD" class="form-control input-md" />
+                            <input id="longCilOd" name="longCilOd" type="text" placeholder="Long Cil OD" class="form-control input-md" />
                         </div>
                     </div>        
                 </td>
@@ -75,7 +75,7 @@
                     <!-- Campo Grau longe Esf�rico olho direito da OS ()-->
                     <div class="form-group">
                         <div class="col-md-11">
-                            <input id="longEixoOd" name="longEixoOd" type="text" placeholder="Long Esf OD" class="form-control input-md" />
+                            <input id="longEixoOd" name="longEixoOd" type="text" placeholder="Long Eixo OD" class="form-control input-md" />
                         </div>
                     </div>        
                 </td>

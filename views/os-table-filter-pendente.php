@@ -21,17 +21,13 @@ if ($numeroOs > 0) {
 
 
     echo '
-          
-        <div id="msgsucesso-os-update"  style="display: none;" class="alert alert-success alert-dismissable">
-            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-            Status da Os Alterada com sucesso!
-        </div>
-        
+
         <table class="os-table-pendentes table display table-hover" width="100%" cellspacing="0">
-            <thead>
+           <thead>
                 <tr>
                     <th class=".select-filter span2">Id Os</th>
                     <th class=".select-filter span2">Nome Cliente</th>
+                    <th class=".select-filter span2">Celular</th>
                     <th class=".select-filter span2">Data Alteração Status</th>
                     <th class=".select-filter span2">Ação</th>
                 </tr>
@@ -44,8 +40,10 @@ if ($numeroOs > 0) {
 
         echo "<tr>";
         echo "<td>{$os_idos}</td>";
-        echo "<td>{$usuarios_idUsuarios}</td>";
+        echo "<td>{$nome}</td>";
+        echo "<td>{$telCelular}</td>";
         echo "<td>{$dataStatusAndamentoOs}</td>";
+
 
 
         echo "<td>";
