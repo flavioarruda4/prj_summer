@@ -22,13 +22,20 @@ $logado = $_SESSION['login'];
 
 <div class="flex container">
     <div  class="panel-right">
-        <h3>Cadastro de Cliente</h3>        
+       <ul class="nav nav-tabs">
+         <li class="active"><a data-toggle="tab" href="#cadastro">Cadastro</a></li>
+         <li><a data-toggle="tab" href="#tabClientes">Usuarios</a></li>
+        </ul>      
         
         <!-- Mensagem Sucesso -->
         <div id="msgsucessoclient"  style="display: none;" class="alert alert-success alert-dismissable">
             <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
             Cliente cadastrado com sucesso!
         </div>
+        
+        <!-- Tab Order com tela de cadastro e listagem de usuario cadastrados--> 
+        <div class="tab-content">
+         <div id="cadastro" class="tab-pane fade in active">
 
         <div id="load" class="col-sm-offset-5"></div>
         
@@ -151,9 +158,91 @@ $logado = $_SESSION['login'];
                 <button id="submit-cliente" type="submit" class="btn btn-primary">Salvar</button>
             </div>
         </form>
-    </div>
- </div>
+      </div>
  
+  <?php
+    include_once '../config/database.php';
+    include_once '../models/usuario.php';
+    $database = new Database();
+    $db = $database->getConnection();
+
+    $usuario = new Usuario($db);
+
+    $stmt = $usuario->readAll();
+
+    $num = $stmt->rowCount();
+    echo '<div id="tabClientes" class="tab-pane fade">';
+    if ($num > 0) {
+
+
+        echo '<h3>Usuários Cadastrados</h3>
+          
+        <div id="msgsucesso-user-update"  style="display: none;" class="alert alert-success alert-dismissable">
+            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+            Usuário Alterado com sucesso!
+        </div>
+        
+        <table id="cadastro-user-table" class="os-user-table table display table-hover" width="100%" cellspacing="0">
+            <thead>
+                <tr>
+                    <th class=".select-filter span2">Nome</th>
+                    <th class=".select-filter span2">Login</th>
+                    <th class=".select-filter span2">Perfil</th>
+                    <th class=".select-filter span2">Ação</th>
+                </tr>
+            </thead>
+            <tbody>';
+
+        while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+
+
+            extract($row);
+
+            echo "<tr>";
+            echo "<td>{$nome}</td>";
+            echo "<td>{$login}</td>";
+            if ($perfil == "1") {
+                echo "<td>Operação</td>";
+            } else if ($perfil == 2) {
+                echo "<td>Gerencial</td>";
+            } else if ($perfil == 3) {
+                echo "<td>Estratégico</td>";
+            }
+            echo "<td>";
+            echo "<div id='idUsuarios' class='idUsuarios display-none' style='display: none;'>{$idUsuarios}</div>";
+
+            echo "<div class='btn btn-info edit-btn edit-user margin-right-2em'>";
+            echo "<span class='glyphicon glyphicon-edit'></span> Editar";
+            echo "</div>";
+
+
+            echo "<div class='btn btn-warning warning-btn'>";
+            
+            //implementar o desabilitar! 0 = desabilitado e 1 = habilitado (variavel statusAtividade)
+            echo "<span class='glyphicon glyphicon-delete'></span> Desabilitar";
+            
+            echo "</td>";
+
+            echo "</tr>";
+        }
+        echo "</tbody>";
+        echo "</table>";
+
+        echo "</div>";
+    } else {
+        echo "<div class='lista_clientes alert alert-info'>Nenhum Usuário Cadastrado!</div>";
+    }
+    
+     echo "<div id='page-edita'></div>";
+    ?>
+     </div>
+</div>
+</div>
+</div>
+
+
+
+
 <?php
 
 include_once "footer.php";
