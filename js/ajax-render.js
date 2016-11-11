@@ -170,6 +170,17 @@ $(document).ready(function () {
         return false;
 
     });
+    
+    //Ajax renderiza a pagina que edita o status da OS
+
+    $(document).on('click', '#edit-os-status', function () {
+        var idOs = $(this).closest('td').find('.idOsList').text();
+        $('#page-edita-status-os').fadeOut(0, function () {
+            $('#page-edita-status-os').load('/prj_summer/views/update-status-os.php?id=' + idOs, function () {
+                $('#page-edita-status-os').fadeIn(0);
+            });
+        });
+    });
 
 //Datepicker js
 

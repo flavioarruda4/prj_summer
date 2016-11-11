@@ -67,6 +67,8 @@ class ControleOs {
                 . "FROM " . $this->table_name . "
                 INNER JOIN os ON os_usuarios.os_idos = os.id
                 INNER JOIN clientes ON os.clientes_cpf = clientes.cpf order by os_usuarios.dataStatusAndamentoOs";
+        
+        
         $stmt = $this->conn->prepare($query);
         $rc = $stmt->execute();
 
@@ -75,5 +77,31 @@ class ControleOs {
         }
         return $stmt;
     }
+    
+    //lê as ordens de serviço de acordo com o status
+    function readOne() {
+        
+        $query = "SELECT * "
+                . " FROM " . $this->table_name . 
+                " WHERE os_idos = ?";
+
+        $stmt = $this->conn->prepare($query);
+        $stmt->bindParam(1, $this->os_idos);
+        
+         $rc = $stmt->execute();
+
+        if (false === $rc) {
+            die('execute() failed: ' . print_r($stmt->errorInfo()));
+        }
+         
+        $row = $stmt->fetch(PDO::FETCH_ASSOC);
+          	 	
+        $this->id = $row['id'];  	 	
+        $this->usuarios_idUsuarios = $row['usuarios_idUsuarios'];
+        $this->statusAndamentoOs = $row['statusAndamentoOs'];
+        $this->dataStatusAndamentoOs = $row['dataStatusAndamentoOs'];
+        
+    }
+
 
 }

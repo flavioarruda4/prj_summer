@@ -9,8 +9,6 @@ $db = $database->getConnection();
  
 $usuario = new Usuario($db);
 
-print_r($_POST);
-
 $usuario->idUsuarios= strip_tags($_POST['IdUsuarios']);
 
 $usuario->nome=strip_tags($_POST['nome']);

@@ -129,12 +129,76 @@ class Os {
         if (false === $rc) {
             die('execute() failed: ' . print_r($stmt->errorInfo()));
         }
-       if ($stmt->execute()) {
-           return $this->conn->lastInsertId("id");
+        if ($stmt->execute()) {
+            return $this->conn->lastInsertId("id");
         } else {
             return -1;
         }
     }
 
+    //lê uma Od para ser editada
+    function readOne() {
+        $query = "SELECT
+                 *
+                FROM " . $this->table_name . "
+            WHERE
+                id = ?
+            LIMIT
+                1";
+
+        $stmt = $this->conn->prepare($query);
+        $stmt->bindParam(1, $this->id);
+        $stmt->execute();
+
+        $row = $stmt->fetch(PDO::FETCH_ASSOC);
+
+        $this->dataEmissao = $row['dataEmissao'];
+        $this->dataPrevEntrega = $row['dataPrevEntrega'];
+        $this->statusPg = $row['statusPg'];
+
+        //Grau Olho Direito Longe
+        $this->longEsfOd = $row['longEsfOd'];
+        $this->longCilOd = $row['longCilOd'];
+        $this->longEixoOd = $row['longEixoOd'];
+        $this->longDnpOd = $row['longDnpOd'];
+        $this->longAlturaOd = $row['longAlturaOd'];
+
+        //Grau Olho Esquerdo Longe
+        $this->longEsfOe = $row['longEsfOe'];
+        $this->longCilOe = $row['longCilOe'];
+        $this->longEixoOe = $row['longEixoOe'];
+        $this->longDnpOe = $row['longDnpOe'];
+        $this->longAlturaOe = $row['longAlturaOe'];
+
+        //Grau Olho Direito Perto
+        $this->perEsfOd = $row['perEsfOd'];
+        $this->perCilOd = $row['perCilOd'];
+        $this->perEixoOd = $row['perEixoOd'];
+        $this->perDnpOd = $row['perDnpOd'];
+        $this->perAlturaOd = $row['perAlturaOd'];
+
+        //Grau Olho Direito Perto
+        $this->perEsfOe = $row['perEsfOe'];
+        $this->perCilOe = $row['perCilOe'];
+        $this->perEixoOe = $row['perEixoOe'];
+        $this->perDnpOe = $row['perDnpOe'];
+        $this->perAlturaOe = $row['perAlturaOe'];
+
+        //Dados Adicionais da Ordem de servico
+        $this->adicao = $row['adicao'];
+        $this->armacao = $row['armacao'];
+        $this->dataVencLentes = $row['dataVencLentes'];
+        $this->lentes = $row['lentes'];
+        $this->medico = $row['medico'];
+        $this->receita = $row['receita'];
+
+        //Pagamento
+        $this->formaPg = $row['formaPg'];
+        $this->dataPg = $row['dataPg'];
+        $this->nParcelas = $row['nParcelas'];
+        $this->observacao = $row['observacao'];
+        $this->valor = $row['valor'];
+        $this->clientes_cpf = $row['clientes_cpf'];
+    }
 
 }

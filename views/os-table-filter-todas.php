@@ -48,8 +48,8 @@ if ($numeroOs > 0) {
         echo "<td>";
         echo "<div id='idOsList' class='idOsList display-none' style='display: none;'>{$os_idos}</div>";
 
-        echo "<div class='btn btn-info edit-btn edit-user margin-right-2em'>";
-        echo "<a data-toggle='modal' data-target='#myModalEdit' href='#myModalEdit'> <span class='glyphicon glyphicon-edit'></span>Alterar Status</a>";
+        echo "<div class='btn btn-info edit-btn margin-right-2em'>";
+        echo "<a id='edit-os-status' data-toggle='modal' data-target='#myModalEdit' href='#myModalEdit'> <span class='glyphicon glyphicon-edit'></span>Alterar Status</a>";
         echo "</div>";
 
         echo "</td>";

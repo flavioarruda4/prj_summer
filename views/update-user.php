@@ -13,6 +13,7 @@ $usuario = new Usuario($db);
 $usuario->idUsuarios = $idUsuarios;
 
 $usuario->readOne();
+
 ?>
 
 <form id='update-user' action='' method='post' border='0' autocomplete="off">
