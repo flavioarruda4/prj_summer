@@ -1,9 +1,85 @@
 
 
 $(document).ready(function () {
-    
+    $(".os-table-finalizadas").DataTable({
+        "order": [[0, "desc"]],
+        "lengthMenu": [5,10,15,20,25,30,40, 60, 80, 100],
+        "pageLength": 5,
+        "paging": true,
+        "columnDefs": [
+            {"searchable": true, "targets": 0},
+            {"searchable": true, "targets": 1},
+            {"searchable": true, "targets": 2},
 
-    $(".os-table").DataTable({
+
+        ],
+        "language": {
+            "sEmptyTable": "Nenhuma OS encontrada",
+            "sInfo": "Mostrando de _START_ até _END_ de _TOTAL_ OS",
+            "sInfoEmpty": "Mostrando 0 até 0 de 0 OS",
+            "sInfoFiltered": "(Filtrados de _MAX_ OS)",
+            "sInfoPostFix": "",
+            "sInfoThousands": ".",
+            "sLengthMenu": "_MENU_ OS por página",
+            "sLoadingRecords": "Carregando...",
+            "sProcessing": "Processando...",
+            "sZeroRecords": "Nenhum registro encontrado",
+            "sSearch": "Pesquisar:",
+             "searchPlaceholder": "Id,Nome Cliente ou Data ",
+            "oPaginate": {
+                "sNext": "Próximo",
+                "sPrevious": "Anterior",
+                "sFirst": "Primeiro",
+                "sLast": "Último"
+            },
+            "oAria": {
+                "sSortAscending": ": Ordenar colunas de forma ascendente",
+                "sSortDescending": ": Ordenar colunas de forma descendente"
+            }
+        }
+
+    });
+    
+    $(".os-table-andamento").DataTable({
+        "order": [[0, "desc"]],
+        "lengthMenu": [5,10,15,20,25,30,40, 60, 80, 100],
+        "pageLength": 5,
+        "paging": true,
+        "columnDefs": [
+            {"searchable": true, "targets": 0},
+            {"searchable": true, "targets": 1},
+            {"searchable": true, "targets": 2},
+
+
+        ],
+        "language": {
+            "sEmptyTable": "Nenhuma OS encontrada",
+            "sInfo": "Mostrando de _START_ até _END_ de _TOTAL_ OS",
+            "sInfoEmpty": "Mostrando 0 até 0 de 0 OS",
+            "sInfoFiltered": "(Filtrados de _MAX_ OS)",
+            "sInfoPostFix": "",
+            "sInfoThousands": ".",
+            "sLengthMenu": "_MENU_ OS por página",
+            "sLoadingRecords": "Carregando...",
+            "sProcessing": "Processando...",
+            "sZeroRecords": "Nenhum registro encontrado",
+            "sSearch": "Pesquisar:",
+             "searchPlaceholder": "Id,Nome Cliente ou Data ",
+            "oPaginate": {
+                "sNext": "Próximo",
+                "sPrevious": "Anterior",
+                "sFirst": "Primeiro",
+                "sLast": "Último"
+            },
+            "oAria": {
+                "sSortAscending": ": Ordenar colunas de forma ascendente",
+                "sSortDescending": ": Ordenar colunas de forma descendente"
+            }
+        }
+
+    });
+
+    $(".os-table-pendentes").DataTable({
         "order": [[0, "desc"]],
         "lengthMenu": [5,10,15,20,25,30,40, 60, 80, 100],
         "pageLength": 5,

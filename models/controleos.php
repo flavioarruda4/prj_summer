@@ -34,20 +34,46 @@ class ControleOs {
         $stmt->bindParam(4, $this->usuarios_idUsuarios);
 
        $rc = $stmt;
-        // bind_param() can fail because the number of parameter doesn't match the placeholders in the statement
-        // or there's a type conflict(?), or ....
+   
         if (false === $rc) {
-            // again execute() is useless if you can't bind the parameters. Bail out somehow.
+ 
             die('bind_param() failed: ' . htmlspecialchars($stmt->error));
         }
 
         $rc = $stmt->execute();
-        // execute() can fail for various reasons. And may it be as stupid as someone tripping over the network cable
-        // 2006 "server gone away" is always an option
+  
         if (false === $rc) {
             die('execute() failed: ' . print_r($stmt->errorInfo()));
         }
 
     }
+     //lê as ordens de serviço de acordo com o status
+    function readStatus($osStatus) {
+        $query = "SELECT * "
+                . "FROM " . $this->table_name . " where statusAndamentoOs = ".$osStatus."
+                ORDER BY dataStatusAndamentoOs";
+        $stmt = $this->conn->prepare($query);
+        $rc = $stmt->execute();
+
+        if (false === $rc) {
+            die('execute() failed: ' . print_r($stmt->errorInfo()));
+        }
+        return $stmt;
+    }
+    
+    //lê as ordens de serviço de acordo com o status
+    function readAll() {
+        $query = "SELECT * "
+                . "FROM " . $this->table_name . "
+                ORDER BY dataStatusAndamentoOs";
+        $stmt = $this->conn->prepare($query);
+        $rc = $stmt->execute();
+
+        if (false === $rc) {
+            die('execute() failed: ' . print_r($stmt->errorInfo()));
+        }
+        return $stmt;
+    }
+
 
 }

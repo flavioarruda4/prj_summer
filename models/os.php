@@ -34,7 +34,7 @@ class Os {
     public $perEixoOe;
     public $perDnpOe;
     public $perAlturaOe;
-    //Dados Adicionais da Ordem de servi�o
+    //Dados Adicionais da Ordem de serviço
     public $adicao;
     public $armacao;
     public $dataVencLentes;
@@ -124,5 +124,6 @@ class Os {
             return -1;
         }
     }
+
 
 }

@@ -213,3 +213,24 @@ fieldset{
     top: 10px;
     width: 100%;
 }
+
+
+.btn.btn-info.edit-btn.edit-user.margin-right-2em > a:hover {
+    color: white;
+}
+
+.lista_pendentes.alert.alert-info {
+    margin-top: 100px;
+}
+
+.lista_andamento.alert.alert-info {
+    margin-top: 100px;
+}
+
+.lista_finalizadas.alert.alert-info {
+    margin-top: 100px;
+}
+
+.lista_todas.alert.alert-info {
+    margin-top: 100px;
+}
