@@ -76,9 +76,9 @@ class Cliente {
 
      //lê todos os clientes
     function readAll() {
-        $query = "SELECT nome, cpf,telCelular "
+        $query = "SELECT nome, cpf, telCelular "
                 . "FROM " . $this->table_name . "
-                ORDER BY nome";
+                ORDER BY cpf";
         $stmt = $this->conn->prepare($query);
         $stmt->execute();
         return $stmt;

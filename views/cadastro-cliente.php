@@ -200,8 +200,8 @@ $logado = $_SESSION['login'];
 
             echo "<tr>";
             echo "<td>{$nome}</td>";
-            echo "<td>{$cpf}</td>";
-            echo "<td>{$telCelular}</td>";
+            echo "<td>{cpf}</td>";
+            echo "<td>{telCelular}</td>";
             echo "<td>";
             
 
@@ -210,7 +210,7 @@ $logado = $_SESSION['login'];
             echo "</div>";
 
 
-            echo "<div class='btn btn-warning warning-btn'>";
+           
             
             
            

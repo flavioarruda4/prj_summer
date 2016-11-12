@@ -10,7 +10,7 @@ $db = $database->getConnection();
 
 $cliente = new Cliente($db);
 
-$cliente->cpf = $cpf;
+ /*$cliente->cpf = $cpf  esse botão não está funcionando não sei o pq!*/
 
 $cliente->readOne();
 
