@@ -134,6 +134,19 @@ $(document).ready(function () {
         return false;
 
     });
+
+    //Ajax renderiza a pagina que edita cliente
+
+    $(document).on('click', '.edit-cliente', function () {
+        var cpf = $(this).closest('td').find('.cpf').text();
+        $('#page-edita-cliente').fadeOut(0, function () {
+            $('#page-edita-cliente').load('/prj_summer/views/update-cliente.php?id=' + cpf, function () {
+                $('#page-edita-cliente').fadeIn(0);
+                $('#update-cliente').focus();
+            });
+        });
+    });
+
 //Ajax do cadastro de OS
     $('#cadastro-os').submit(function () {
         var dados = jQuery(this).serialize();

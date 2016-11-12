@@ -1,46 +1,23 @@
-<?php
+ <?php
+include_once '../config/database.php';
+include_once '../models/cliente.php';
 
-session_start();
 
-include_once "../config/database.php";
-include_once "../views/header.php";
-include_once "../views/menu.php";
+$idUsuarios = isset($_GET['id']) ? $_GET['id'] : die("Erro ao encontrar Cliente!");
 
 $database = new Database();
 $db = $database->getConnection();
-    
-//inicia a sessão e verifica se o usuario está autenticado
 
-if ((!isset($_SESSION['login']) == true) and ( !isset($_SESSION['senha']) == true)) {
-    unset($_SESSION['login']);
-    unset($_SESSION['perfil']);
-    unset($_SESSION['senha']);
-    header('location:../index.php');
-}
-$logado = $_SESSION['login'];
+$cliente = new Cliente($db);
+
+$cliente->cpf = $cpf;
+
+$cliente->readOne();
+
 ?>
 
-<div class="flex container">
-    <div  class="panel-right">
-       <ul class="nav nav-tabs">
-         <li class="active"><a data-toggle="tab" href="#cadastro">Cadastro</a></li>
-         <li><a data-toggle="tab" href="#tabClientes">Usuarios</a></li>
-        </ul>      
-        
-        <!-- Mensagem Sucesso -->
-        <div id="msgsucessoclient"  style="display: none;" class="alert alert-success alert-dismissable">
-            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-            Cliente cadastrado com sucesso!
-        </div>
-        
-        <!-- Tab Order com tela de cadastro e listagem de usuario cadastrados--> 
-        <div class="tab-content">
-         <div id="cadastro" class="tab-pane fade in active">
-
-        <div id="load" class="col-sm-offset-5"></div>
-        
-        <!-- Inicio do formulário -->
-        <form id="cadastro-cliente" class="form-horizontal" method="POST" action="" autocomplete="off">
+ <!-- Inicio do formulário -->
+        <form id='update-cliente' class="form-horizontal" method="POST" action="" autocomplete="off">
 
             <fieldset>
                 <div class="form-group"><legend> Dados Pessoais </legend></div>
@@ -158,86 +135,3 @@ $logado = $_SESSION['login'];
                 <button id="submit-cliente" type="submit" class="btn btn-primary">Salvar</button>
             </div>
         </form>
-      </div>
- 
-  <?php
-    include_once '../config/database.php';
-    include_once '../models/cliente.php';
-    $database = new Database();
-    $db = $database->getConnection();
-
-    $usuario = new Usuario($db);
-
-    $stmt = $usuario->readAll();
-
-    $num = $stmt->rowCount();
-    echo '<div id="tabClientes" class="tab-pane fade">';
-    if ($num > 0) {
-
-
-        echo '<h3>Clientes Cadastrados</h3>
-          
-        <div id="msgsucesso-cliente-update"  style="display: none;" class="alert alert-success alert-dismissable">
-            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-            Usuário Alterado com sucesso!
-        </div>
-        
-        <table id="cadastro-cliente-table" class="os-cliente-table table display table-hover" width="100%" cellspacing="0">
-            <thead>
-                <tr>
-                    <th class=".select-filter span2">Nome</th>
-                    <th class=".select-filter span2">CPF</th>
-                    <th class=".select-filter span2">Celular</th>
-                    <th class=".select-filter span2">Ação</th>
-                </tr>
-            </thead>
-            <tbody>';
-
-        while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
-
-
-            extract($row);
-
-            echo "<tr>";
-            echo "<td>{$nome}</td>";
-            echo "<td>{$cpf}</td>";
-            echo "<td>{$telCelular}</td>";
-            echo "<td>";
-            
-
-            echo "<div class='btn btn-info edit-btn edit-cliente margin-right-2em'>";
-            echo "<span class='glyphicon glyphicon-edit'></span> Editar";
-            echo "</div>";
-
-
-            echo "<div class='btn btn-warning warning-btn'>";
-            
-            
-           
-            
-            echo "</td>";
-
-            echo "</tr>";
-        }
-        echo "</tbody>";
-        echo "</table>";
-
-        echo "</div>";
-    } else {
-        echo "<div class='lista_clientes alert alert-info'>Nenhum Cliente Cadastrado!</div>";
-    }
-    
-     echo "<div id='page-edita-cliente'></div>";
-    ?>
-     </div>
-</div>
-</div>
-</div>
-
-
-
-
-<?php
-
-include_once "footer.php";
-?>
