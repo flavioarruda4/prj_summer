@@ -1,6 +1,7 @@
  <?php
 include_once '../config/database.php';
 include_once '../models/cliente.php';
+include_once '../models/endereco.php';
 
 
 $cpf = isset($_GET['id']) ? $_GET['id'] : die("Erro ao encontrar Cliente!");
@@ -9,10 +10,11 @@ $database = new Database();
 $db = $database->getConnection();
 
 $cliente = new Cliente($db);
+$endereco = new Endereco($db);
 
- $cliente->cpf = $cpf  
+ $cliente->cpf = $cpf;  
 
-$cliente->readOne();
+ $cliente->readOne();
 
 ?>
 
@@ -26,7 +28,7 @@ $cliente->readOne();
                 <div class="form-group">
                     <label class="col-md-2 control-label" for="nome">Nome:</label>  
                     <div class="col-md-8">
-                        <input id="nome" name="nome" type="text" placeholder="Digite o Nome Completo" class="form-control input-md" required="true" maxlength="45">
+                        <input id="nome" name="nome" type="text" class="form-control input-md"  value='<?php echo htmlspecialchars($cliente->nome, ENT_QUOTES); ?>' required=/>
 
                     </div>
                 </div>
@@ -34,7 +36,7 @@ $cliente->readOne();
                 <div class="form-group">
                     <label class="col-md-2 control-label" for="email">E-mail:</label>  
                     <div class="col-md-8">
-                        <input id="email" name="email" type="text" placeholder="Digite o E-mail" class="form-control input-md" required="true" maxlength="45">
+                        <input id="email" name="email" type="text" class="form-control input-md" value='<?php echo htmlspecialchars($cliente->email, ENT_QUOTES); ?>' required=/>
 
                     </div>
                 </div>                   
@@ -42,12 +44,12 @@ $cliente->readOne();
                 <div class="form-group">
                     <label class="col-md-2 control-label" for="rg">RG:</label>  
                     <div class="col-md-3">
-                        <input id="rg" name="rg" type="text" placeholder="Digite o RG" class="form-control input-md" required="true" maxlength="45">
+                        <input id="rg" name="rg" type="text" class="form-control input-md" value='<?php echo htmlspecialchars($cliente->rg, ENT_QUOTES); ?>' required=/>
                     </div>
 
                     <label class="col-md-2 control-label" for="cpf">CPF:</label>  
                     <div class="col-md-3">
-                        <input id="cpf" name="cpf" type="text" placeholder="Digite o CPF" class="form-control input-md" required="true" maxlength="45">
+                        <input id="cpf" name="cpf" type="text" class="form-control input-md" value='<?php echo htmlspecialchars($cliente->cpf, ENT_QUOTES); ?>' required=/>
 
                     </div>                    
                 </div>                  
@@ -55,13 +57,13 @@ $cliente->readOne();
                 <div class="form-group">
                     <label class="col-md-2 control-label" for="telFixo">Telefone:</label>  
                     <div class="col-md-3">
-                        <input id="telFixo" name="telFixo" type="text" placeholder="Digite o Telefone" class="form-control input-md" required="true" maxlength="40">
+                        <input id="telFixo" name="telFixo" type="text" class="form-control input-md" value='<?php echo htmlspecialchars($cliente->telFixo, ENT_QUOTES); ?>' required=/>
 
                     </div>
 
                     <label class="col-md-2 control-label" for="telCleluar">Celular:</label>  
                     <div class="col-md-3">
-                        <input id="telCleluar" name="telCelular" type="text" placeholder="Digite o Celular" class="form-control input-md" required="true" maxlength="40">
+                        <input id="telCleluar" name="telCelular" type="text" class="form-control input-md" value='<?php echo htmlspecialchars($cliente->telCelular, ENT_QUOTES); ?>' required=/>
 
                     </div>
                 </div>   
@@ -84,7 +86,7 @@ $cliente->readOne();
                 <div class="form-group">
                     <label class="col-md-2 control-label" for="largadouro">Logradouro:</label>  
                     <div class="col-md-8">
-                        <input id="largadouro" name="logradouro" type="text" placeholder="Digite o Logradouro"  class="form-control input-md" required="true" maxlength="50">
+                        <input id="largadouro" name="logradouro" type="text" class="form-control input-md" value='<?php echo htmlspecialchars($endereco->logradouro, ENT_QUOTES); ?>' required=/>
 
                     </div>
                 </div>  
@@ -92,13 +94,13 @@ $cliente->readOne();
                 <div class="form-group">
                     <label class="col-md-2 control-label" for="numero">Número:</label>  
                     <div class="col-md-3">
-                        <input id="numero" name="numero" type="text" placeholder="Digite o Número"  class="form-control input-md" required="true" maxlength="15">
+                        <input id="numero" name="numero" type="text" class="form-control input-md" value='<?php echo htmlspecialchars($endereco->numero, ENT_QUOTES); ?>' required=/>
 
                     </div>
 
                     <label class="col-md-2 control-label" for="bairro">Bairro:</label>  
                     <div class="col-md-3">
-                        <input id="bairro" name="bairro" type="text" placeholder="Digite o Bairro"  class="form-control input-md" required="true" maxlength="50">
+                        <input id="bairro" name="bairro" type="text" class="form-control input-md" value='<?php echo htmlspecialchars($endereco->bairro, ENT_QUOTES); ?>' required=/>
 
                     </div>
 
@@ -108,13 +110,13 @@ $cliente->readOne();
 
                     <label class="col-md-2 control-label" for="cep">CEP:</label>  
                     <div class="col-md-2">
-                        <input id="cep" name="cep" type="text" placeholder="Digite o CEP"  class="form-control input-md" required="true" maxlength="30">
+                        <input id="cep" name="cep" type="text" class="form-control input-md" value='<?php echo htmlspecialchars($endereco->cep, ENT_QUOTES); ?>' required=/>
 
                     </div>
 
                     <label class="col-md-1 control-label" for="cidade">Cidade:</label>  
                     <div class="col-md-2">
-                        <input id="cidade" name="cidade" type="text" placeholder="Digite a Cidade"  class="form-control input-md" required="true" maxlength="50">
+                        <input id="cidade" name="cidade" type="text" class="form-control input-md" value='<?php echo htmlspecialchars($endereco->cidade, ENT_QUOTES); ?>' required=/>
 
                     </div>
 

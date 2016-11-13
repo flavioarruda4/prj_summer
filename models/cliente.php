@@ -49,9 +49,12 @@ class Cliente {
 
     function readOne() {
 
-        $query = "SELECT * "
-                . " FROM " . $this->table_name .
-                " WHERE cpf = ?";
+        $query = "SELECT * from clientes c inner join endereco e on c.endereco_id = e.id WHERE cpf = ? LIMIT
+                0,1";
+        
+
+
+
 
         $stmt = $this->conn->prepare($query);
         $stmt->bindParam(1, $this->cpf);

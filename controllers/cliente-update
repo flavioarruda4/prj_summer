@@ -2,6 +2,7 @@
 //update do cliente requisitado via ajax
 include_once '../config/database.php';
 include_once '../models/cliente.php';
+include_once '../models/endereco.php';
 
  
 $database = new Database();
@@ -22,5 +23,22 @@ $cliente->telFixo = strip_tags($_POST["telFixo"]);
 $cliente->telCelular = strip_tags($_POST["telCelular"]);
 
 $cliente->update();
+
+
+$endereco = new Endereco($db);
+
+$endereco->logradouro = strip_tags($_POST["logradouro"]);
+
+$endereco->numero = strip_tags($_POST["numero"]);
+
+$endereco->bairro = strip_tags($_POST["bairro"]);
+
+$endereco->uf = strip_tags($_POST["uf"]);
+
+$endereco->cidade = strip_tags($_POST["cidade"]);
+
+$endereco->cep= strip_tags($_POST["cep"]);
+
+$endereco->update();
 
 ?>

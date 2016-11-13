@@ -211,18 +211,18 @@ $(document).ready(function () {
 
         ],
         "language": {
-            "sEmptyTable": "Nenhum usuário encontrado",
-            "sInfo": "Mostrando de _START_ até _END_ de _TOTAL_ usários",
-            "sInfoEmpty": "Mostrando 0 até 0 de 0 Usuários",
+            "sEmptyTable": "Nenhum cliente encontrado",
+            "sInfo": "Mostrando de _START_ até _END_ de _TOTAL_ cliente",
+            "sInfoEmpty": "Mostrando 0 até 0 de 0 Clientes",
             "sInfoFiltered": "(Filtrados de _MAX_ OS)",
             "sInfoPostFix": "",
             "sInfoThousands": ".",
-            "sLengthMenu": "_MENU_ Usuários por página",
+            "sLengthMenu": "_MENU_ Cliente por página",
             "sLoadingRecords": "Carregando...",
             "sProcessing": "Processando...",
             "sZeroRecords": "Nenhum registro encontrado",
             "sSearch": "Pesquisar:",
-            "searchPlaceholder": "Nome,Login ou Perfil ",
+            "searchPlaceholder": "Nome ou CPF",
             "oPaginate": {
                 "sNext": "Próximo",
                 "sPrevious": "Anterior",
