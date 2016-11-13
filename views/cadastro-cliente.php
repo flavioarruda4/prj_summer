@@ -24,7 +24,7 @@ $logado = $_SESSION['login'];
     <div  class="panel-right">
        <ul class="nav nav-tabs">
          <li class="active"><a data-toggle="tab" href="#cadastro">Cadastro</a></li>
-         <li><a data-toggle="tab" href="#tabClientes">Usuarios</a></li>
+         <li><a data-toggle="tab" href="#tabClientes">Clientes</a></li>
         </ul>      
         
         <!-- Mensagem Sucesso -->
@@ -166,9 +166,9 @@ $logado = $_SESSION['login'];
     $database = new Database();
     $db = $database->getConnection();
 
-    $usuario = new Usuario($db);
+    $cliente = new Cliente($db);
 
-    $stmt = $usuario->readAll();
+    $stmt = $cliente->readAll();
 
     $num = $stmt->rowCount();
     echo '<div id="tabClientes" class="tab-pane fade">';
@@ -179,7 +179,7 @@ $logado = $_SESSION['login'];
           
         <div id="msgsucesso-cliente-update"  style="display: none;" class="alert alert-success alert-dismissable">
             <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-            Usuário Alterado com sucesso!
+            Cliente Alterado com sucesso!
         </div>
         
         <table id="cadastro-cliente-table" class="os-cliente-table table display table-hover" width="100%" cellspacing="0">
@@ -200,8 +200,8 @@ $logado = $_SESSION['login'];
 
             echo "<tr>";
             echo "<td>{$nome}</td>";
-            echo "<td>{cpf}</td>";
-            echo "<td>{telCelular}</td>";
+            echo "<td>{$cpf}</td>";
+            echo "<td>{$telCelular}</td>";
             echo "<td>";
             
 

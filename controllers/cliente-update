@@ -21,8 +21,6 @@ $cliente->telFixo = strip_tags($_POST["telFixo"]);
 
 $cliente->telCelular = strip_tags($_POST["telCelular"]);
 
-$cliente->endereco_id =  $id_endereco_cliente;
-
 $cliente->update();
 
 ?>

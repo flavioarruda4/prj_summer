@@ -3,14 +3,14 @@ include_once '../config/database.php';
 include_once '../models/cliente.php';
 
 
-$idUsuarios = isset($_GET['id']) ? $_GET['id'] : die("Erro ao encontrar Cliente!");
+$cpf = isset($_GET['id']) ? $_GET['id'] : die("Erro ao encontrar Cliente!");
 
 $database = new Database();
 $db = $database->getConnection();
 
 $cliente = new Cliente($db);
 
- /*$cliente->cpf = $cpf  esse botão não está funcionando não sei o pq!*/
+ $cliente->cpf = $cpf  
 
 $cliente->readOne();
 
@@ -130,8 +130,17 @@ $cliente->readOne();
 
             </fieldset>
             <hr/>
-            <div class="modal-footer form-group">
-                <button id="limpar" name="limpar" class="btn btn-danger" type="reset">Limpar formul&aacuterio</button>
-                <button id="submit-cliente" type="submit" class="btn btn-primary">Salvar</button>
-            </div>
+             <tr>
+            <td>
+
+                <input type='hidden' name='cpf' value='<?php echo $cpf ?>' /> 
+
+            </td>
+            <td>
+                <button type='submit' class='btn btn-primary'>
+                    <span class='glyphicon glyphicon-edit'></span> Salvar Alterações
+                </button>
+            </td>
+        </tr>
         </form>
+      
