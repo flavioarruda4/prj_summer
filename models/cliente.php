@@ -38,6 +38,9 @@ class Cliente {
         $stmt->bindParam(8, $this->endereco_id);
 
 
+
+
+
         if ($stmt->execute()) {
             $stmt->close();
             return true;
@@ -75,6 +78,13 @@ class Cliente {
         $this->rg = $row['rg'];
         $this->telFixo = $row['telFixo'];
         $this->telCelular = $row['telCelular'];
+        $this->logradouro = $row['logradouro'];
+        $this->numero = $row['numero'];
+        $this->bairro = $row['bairro'];
+        $this->uf = $row['uf'];
+        $this->cidade = $row['cidade'];
+        $this->cep = $row['cep'];
+        
     }
 
      //lê todos os clientes

@@ -204,7 +204,7 @@ $logado = $_SESSION['login'];
             echo "<td>{$telCelular}</td>";
             echo "<td>";
             
-
+             echo "<div id='cpf' class='cpf display-none' style='display: none;'>{$cpf}</div>";
             echo "<div class='btn btn-info edit-btn edit-cliente margin-right-2em'>";
             echo "<span class='glyphicon glyphicon-edit'></span> Editar";
             echo "</div>";
