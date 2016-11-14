@@ -27,6 +27,8 @@ $cliente->update();
 
 $endereco = new Endereco($db);
 
+$endereco->id = strip_tags($_POST["id"]);
+
 $endereco->logradouro = strip_tags($_POST["logradouro"]);
 
 $endereco->numero = strip_tags($_POST["numero"]);

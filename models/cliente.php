@@ -97,23 +97,25 @@ class Cliente {
      //faz um update no cliente caso ele seja editado
     function update() {
         $query = "UPDATE 
-                usuarios
+                clientes
             SET 
                 nome = :nome,
-                login = :login,
-                senha = :senha,
-                perfil = :perfil
+                email = :email,
+                rg = :rg,
+                telFixo = :telFixo,
+                telCelular = :telCelular
                 
             WHERE
-                idUsuarios = :idUsuarios";
+                cpf = :cpf";
         
         $stmt = $this->conn->prepare($query);
         
-        $stmt->bindParam(':idUsuarios', $this->idUsuarios);
         $stmt->bindParam(':nome', $this->nome);
-        $stmt->bindParam(':login', $this->login);
-        $stmt->bindParam(':senha', $this->senha);
-        $stmt->bindParam(':perfil', $this->perfil);
+        $stmt->bindParam(':email', $this->email);
+        $stmt->bindParam(':cpf', $this->cpf);
+        $stmt->bindParam(':rg', $this->rg);
+        $stmt->bindParam(':telFixo', $this->telFixo);
+        $stmt->bindParam(':telCelular', $this->telCelular);
         
         
         if ($stmt->execute()) {

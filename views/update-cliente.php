@@ -127,16 +127,26 @@ $endereco = new Endereco($db);
             </fieldset>
             <hr/>
              <tr>
+              <td>
+
+                <input type='hidden' name='id-endereco' value='<?php echo $id ?>' /> 
+
+            </td>
             <td>
+
 
                 <input type='hidden' name='cpf' value='<?php echo $cpf ?>' /> 
 
             </td>
-            <td>
-                <button type='submit' class='btn btn-primary'>
-                    <span class='glyphicon glyphicon-edit'></span> Salvar Alterações
-                </button>
-            </td>
-        </tr>
+                <td>
+                    <button type='submit' id="cliente-editado" class='btn btn-primary'>
+                         <span class='glyphicon glyphicon-edit'></span> Salvar Alterações
+                    </button>
+                </td>
+            </tr>
         </form>
-      
+
+        <div id="msgsucessoupdate-update"  style="display: none;" class="alert alert-success alert-dismissable">
+    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+    Cliente alterado com sucesso!
+</div>

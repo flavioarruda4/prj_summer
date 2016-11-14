@@ -99,7 +99,53 @@ class Endereco {
         $this->uf = $row['uf'];
         $this->cidade = $row['cidade'];
         $this->cep = $row['cep'];
+        $this->id = $row['id'];
         
+    }
+
+     //faz um update no endereco caso ele seja editado
+    function update() {
+        $query = "UPDATE 
+                endereco
+            SET 
+                logradouro = :logradouro,
+                numero = :numero,
+                bairro = :bairro,
+                uf = :uf,
+                cidade = :cidade,
+                cep = :cep
+            WHERE
+                id = :id";
+        
+        $stmt = $this->conn->prepare($query);
+        
+        $stmt->bindParam(':id', $this->id);
+        $stmt->bindParam(':logradouro', $this->logradouro);
+        $stmt->bindParam(':numero', $this->numero);
+        $stmt->bindParam(':bairro', $this->bairro);
+        $stmt->bindParam(':uf', $this->uf);
+        $stmt->bindParam(':cep', $this->cep);
+        $rc = $stmt;
+
+        if (false === $rc) {
+
+            die('bind_param() failed: ' . htmlspecialchars($stmt->error));
+        }
+
+        $rc = $stmt->execute();
+
+        if (false === $rc) {
+            die('execute() failed: ' . print_r($stmt->errorInfo()));
+        }
+        
+        
+        if ($stmt->execute()) {
+
+            return true;
+        } else {
+
+            return false;
+        }
     }
     
 }
