@@ -79,7 +79,6 @@ $(document).ready(function () {
     $(document).on('submit', '#update-user', function () {
         var update = jQuery(this).serialize();
 
-
         if ($('#senha-edit').val() === $('#senha-edit-2').val()) {
             $.ajax({
                 type: "POST",
@@ -146,30 +145,6 @@ $(document).ready(function () {
             });
         });
     });
-
-
-
-    //ajax update do cliente
-  $(document).on('submit', '#update-cliente', function () {
-        var update = jQuery(this).serialize();
-        
-
-        $.ajax({
-            type: "POST",
-            url: "/prj_summer/controllers/cliente-update.php",
-            data: update,
-            success: function (data) {
-             $('#update-cliente').hide();
-                    $("#msgsucesso-cliente-update").fadeIn(150, function () {
-                        window.setTimeout(function () {
-                            $('#msgsucesso-cliente-update').fadeOut();
-                        }, 3999);
-                    });
-            }
-        });
-        return false;
-    });
-
 
 //Ajax do cadastro de OS
     $('#cadastro-os').submit(function () {

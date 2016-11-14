@@ -61,6 +61,7 @@
                         <div class="col-md-11">
                             <input id="longEsfOd" name="longEsfOd" type="text" placeholder="Long Esf OD" class="form-control input-md" />
                         </div>
+                        <div class="slider">componente</div>
                     </div>          
                 </td>
                 <td>

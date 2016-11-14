@@ -27,7 +27,26 @@
         <script src="/prj_summer/js/bootstrap-datepicker.min.js"></script>
         <script src="/prj_summer/js/bootstrap-datepicker.pt-BR.min.js"></script>
         <link rel="stylesheet" href="/prj_summer/css/bootstrap-datepicker.min.css">
-       
+
+        <!-- Slider -->
+        
+        <script src="/prj_summer/js/jquery-ui.js"></script> 
+        <link rel="stylesheet" href="/prj_summer/css/jquery-ui.min.css">
+          
+        <script>
+            $( "#slider" ).slider({
+                  range: true,
+                  min: -10,
+                  max: 10,
+                  values: [ 2, 4 ],
+                  slide: function( event, ui ) {
+                    $( ".qtd" ).val( "" + ui.values[ 0 ] + " - " + ui.values[ 1 ] );
+                  }
+                });
+                $( ".qtd" ).val( "" + $( "#slider" ).slider( "values", 0 ) +
+                  " - " + $( "#slider" ).slider( "values", 1 ) );
+        </script>        
+
         
         <!-- css style principal -->
         <link rel="stylesheet" href="/prj_summer/css/style.css">
