@@ -71,5 +71,35 @@ class Endereco {
         }
 
     }
+
+    //lê um endereco para ser editado
+    function readOne() {
+
+        $query = "SELECT * from clientes c inner join endereco e on c.endereco_id = e.id WHERE cpf = ? LIMIT
+                0,1";
+        
+
+
+
+
+        $stmt = $this->conn->prepare($query);
+        $stmt->bindParam(1, $this->cpf);
+
+        $rc = $stmt->execute();
+
+        if (false === $rc) {
+            die('execute() failed: ' . print_r($stmt->errorInfo()));
+        }
+
+        $row = $stmt->fetch(PDO::FETCH_ASSOC);
+
+        $this->logradouro = $row['logradouro'];
+        $this->numero = $row['numero'];
+        $this->bairro = $row['bairro'];
+        $this->uf = $row['uf'];
+        $this->cidade = $row['cidade'];
+        $this->cep = $row['cep'];
+        
+    }
     
 }

@@ -50,6 +50,8 @@ class Cliente {
         }
     }
 
+
+//lê um cliente para ser editado
     function readOne() {
 
         $query = "SELECT * from clientes c inner join endereco e on c.endereco_id = e.id WHERE cpf = ? LIMIT
@@ -78,12 +80,7 @@ class Cliente {
         $this->rg = $row['rg'];
         $this->telFixo = $row['telFixo'];
         $this->telCelular = $row['telCelular'];
-        $this->logradouro = $row['logradouro'];
-        $this->numero = $row['numero'];
-        $this->bairro = $row['bairro'];
-        $this->uf = $row['uf'];
-        $this->cidade = $row['cidade'];
-        $this->cep = $row['cep'];
+        
         
     }
 
@@ -95,6 +92,37 @@ class Cliente {
         $stmt = $this->conn->prepare($query);
         $stmt->execute();
         return $stmt;
+    }
+
+     //faz um update no cliente caso ele seja editado
+    function update() {
+        $query = "UPDATE 
+                usuarios
+            SET 
+                nome = :nome,
+                login = :login,
+                senha = :senha,
+                perfil = :perfil
+                
+            WHERE
+                idUsuarios = :idUsuarios";
+        
+        $stmt = $this->conn->prepare($query);
+        
+        $stmt->bindParam(':idUsuarios', $this->idUsuarios);
+        $stmt->bindParam(':nome', $this->nome);
+        $stmt->bindParam(':login', $this->login);
+        $stmt->bindParam(':senha', $this->senha);
+        $stmt->bindParam(':perfil', $this->perfil);
+        
+        
+        if ($stmt->execute()) {
+
+            return true;
+        } else {
+
+            return false;
+        }
     }
     
 }

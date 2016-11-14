@@ -13,8 +13,10 @@ $cliente = new Cliente($db);
 $endereco = new Endereco($db);
 
  $cliente->cpf = $cpf;  
+ $endereco->cpf = $cpf; 
 
  $cliente->readOne();
+ $endereco->readOne();
 
 ?>
 
@@ -66,15 +68,7 @@ $endereco = new Endereco($db);
                         <input id="telCelular" name="telCelular" type="text" class="form-control input-md" value='<?php echo htmlspecialchars($cliente->telCelular, ENT_QUOTES); ?>' required=/>
 
                     </div>
-                </div>   
-
-                <div class="form-group">
-                    <label class="col-md-2 control-label" for="dataCadastro">Data do Cadastro:</label>  
-                    <div class="col-md-2">
-                        <input id="dataCadastro" class="dateTxt" name="dataCadastro" type="text"  class="form-control input-md" required="true">
-
-                    </div>
-                </div>              
+                </div>        
 
             </fieldset>
             <hr/>
@@ -86,7 +80,7 @@ $endereco = new Endereco($db);
                 <div class="form-group">
                     <label class="col-md-2 control-label" for="largadouro">Logradouro:</label>  
                     <div class="col-md-8">
-                        <input id="largadouro" name="logradouro" type="text" class="form-control input-md" value='<?php echo htmlspecialchars($cliente->logradouro, ENT_QUOTES); ?>' required=/>
+                        <input id="largadouro" name="logradouro" type="text" class="form-control input-md" value='<?php echo htmlspecialchars($endereco->logradouro, ENT_QUOTES); ?>' required=/>
 
                     </div>
                 </div>  
@@ -94,13 +88,13 @@ $endereco = new Endereco($db);
                 <div class="form-group">
                     <label class="col-md-2 control-label" for="numero">Número:</label>  
                     <div class="col-md-3">
-                        <input id="numero" name="numero" type="text" class="form-control input-md" value='<?php echo htmlspecialchars($cliente->numero, ENT_QUOTES); ?>' required=/>
+                        <input id="numero" name="numero" type="text" class="form-control input-md" value='<?php echo htmlspecialchars($endereco->numero, ENT_QUOTES); ?>' required=/>
 
                     </div>
 
                     <label class="col-md-2 control-label" for="bairro">Bairro:</label>  
                     <div class="col-md-3">
-                        <input id="bairro" name="bairro" type="text" class="form-control input-md" value='<?php echo htmlspecialchars($cliente->bairro, ENT_QUOTES); ?>' required=/>
+                        <input id="bairro" name="bairro" type="text" class="form-control input-md" value='<?php echo htmlspecialchars($endereco->bairro, ENT_QUOTES); ?>' required=/>
 
                     </div>
 
@@ -110,19 +104,19 @@ $endereco = new Endereco($db);
 
                     <label class="col-md-2 control-label" for="cep">CEP:</label>  
                     <div class="col-md-2">
-                        <input id="cep" name="cep" type="text" class="form-control input-md" value='<?php echo htmlspecialchars($cliente->cep, ENT_QUOTES); ?>' required=/>
+                        <input id="cep" name="cep" type="text" class="form-control input-md" value='<?php echo htmlspecialchars($endereco->cep, ENT_QUOTES); ?>' required=/>
 
                     </div>
 
                     <label class="col-md-1 control-label" for="cidade">Cidade:</label>  
                     <div class="col-md-2">
-                        <input id="cidade" name="cidade" type="text" class="form-control input-md" value='<?php echo htmlspecialchars($cliente->cidade, ENT_QUOTES); ?>' required=/>
+                        <input id="cidade" name="cidade" type="text" class="form-control input-md" value='<?php echo htmlspecialchars($endereco->cidade, ENT_QUOTES); ?>' required=/>
 
                     </div>
 
                     <label class="col-md-1 control-label" for="uf">UF:</label>
                     <div class="col-md-2">
-                        <select id="uf" name="uf" class="form-control">
+                        <select id="uf" name="uf" class="form-control" >
                             <option value="DF">DF</option>
                             <option value="GO">GO</option>                            
                         </select>
