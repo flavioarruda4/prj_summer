@@ -10,7 +10,7 @@ $(document).ready(function () {
             success: function (result) {
                 if (result == 1) {
 
-                    location.href = 'views/home.php';
+                    location.href = '/views/home.php';
                 } else {
                     $("#msgerro").fadeIn(1500, function () {
                         window.setTimeout(function () {
@@ -192,12 +192,12 @@ $(document).ready(function () {
             });
         });
     });
-    
+
     //Ajax renderiza a pagina com todas informacoes da OS
 
     $(document).on('click', '#os-info-link', function () {
         var idOs = $(this).closest('td').find('.idOsList').text();
-        $('#os-info-body'). fadeOut(0, function () {
+        $('#os-info-body').fadeOut(0, function () {
             $('#os-info-body').load('/prj_summer/views/os-info.php?id=' + idOs, function () {
                 $('#os-info-body').fadeIn(0);
             });
@@ -235,6 +235,11 @@ $(document).ready(function () {
 
 
 //Datepicker js
+
+    $.fn.datepicker.noConflict = function () {
+        $.fn.datepicker = old;
+        return this;
+    };
 
     $("#dataEmissao").datepicker({
         todayBtn: 1,

@@ -2,7 +2,7 @@
 
 <!-- linhas : idOs, dataEmissao, dataPrevEntrega  -->
 
- 
+
 <fieldset>
     <div class="form-group"><legend> Dados </legend></div>
 

@@ -2,8 +2,8 @@
 session_start();
 
 include_once "../config/database.php";
-include_once "../views/header.php";
-include_once "../views/menu.php";
+include_once "header.php";
+include_once "menu.php";
 
 //inicia a sessão e verifica se o usuario está autenticado
 
@@ -20,8 +20,6 @@ $logado = $_SESSION['login'];
 
 <div class="flex container">
     <!-- Mensagem Sucesso -->
-
-
 
 
     <div class="flex2 slidebar-left">

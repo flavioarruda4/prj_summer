@@ -1,12 +1,15 @@
 <?php
 
 session_start();
-include_once "config/database.php";
-include_once "views/header.php";
+define('MyConst', TRUE);
+
 
 if((isset ($_SESSION['login']) == true) and (isset ($_SESSION['senha']) == true)){ 
     header('location: /prj_summer/views/home.php'); 
 }   
+
+include_once "config/database.php";
+include_once "views/header.php";
 
 ?>
 

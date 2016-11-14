@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+
 <html>
     <head>
         <title>Summer OS</title>
@@ -22,10 +23,7 @@
 
         <link rel="stylesheet" href="/prj_summer/css/dataTable.min.css">
         
-        <!-- Datepicker -->
         
-        <script src="/prj_summer/js/bootstrap-datepicker.min.js"></script>
-        <script src="/prj_summer/js/bootstrap-datepicker.pt-BR.min.js"></script>
         <link rel="stylesheet" href="/prj_summer/css/bootstrap-datepicker.min.css">
 
         <!-- Slider -->
@@ -55,6 +53,11 @@
         <link rel="stylesheet" href="/prj_summer/css/menu.css">
 
         <script src="/prj_summer/js/table.js"></script>
+        
+        <!-- Datepicker -->
+        
+        <script src="/prj_summer/js/bootstrap-datepicker.min.js"></script>
+        <script src="/prj_summer/js/bootstrap-datepicker.pt-BR.min.js"></script>
 
         <script src="/prj_summer/js/ajax-render.js"></script>
 
@@ -74,7 +77,3 @@
                     </div>
                 </div>
             </header>
-    
-
-
-
