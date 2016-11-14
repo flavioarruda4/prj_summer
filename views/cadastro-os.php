@@ -1,7 +1,7 @@
 <!-- animação de load -->
 <div id="load-os" class="col-sm-offset-5"></div>
 <div class="container-fluid">
-    <form id="cadastro-os" class="form-horizontal" method="POST" action="" autocomplete="off" >
+    <form id="info-os" class="form-horizontal" method="" action="" autocomplete="off" >
 
         <?php include_once 'dados-1-os.php'; ?>
         <?php include_once 'dados-2-os.php'; ?>

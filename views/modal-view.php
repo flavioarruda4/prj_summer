@@ -44,8 +44,8 @@
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                 <h4 class="modal-title" id="myModalLabel">Informações Ordem de Serviço</h4>
             </div>
-            <div class="modal-body">
-                 <?php include_once 'os-info.php' ?>
+            <div id="os-info-body" class="modal-body">
+                
             </div>
 
         </div>
