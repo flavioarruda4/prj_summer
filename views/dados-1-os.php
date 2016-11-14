@@ -9,7 +9,7 @@
     <div class="form-group">
         <label class="col-md-2 control-label" for="clienteOs">Cliente (CPF):</label> 
         <div class="col-md-7">
-            <input id="clienteOs" name="clientes_cpf" type="text" placeholder="Informe o CPF do cliente já cadastrado" class="form-control input-md" />
+            <input id="clienteOs" name="clientes_cpf" type="text" placeholder="Informe o CPF do cliente já cadastrado" class="form-control input-md" required="true" />
 
         </div>
         <div class="col-md-2">
@@ -23,7 +23,7 @@
             <div class="form-group">
                 <label class="col-md-6 control-label" for="dataEmissao">Data Emissão:</label> 
                 <div class="col-md-6">
-                    <input  id="dataEmissao" name="dataEmissao" type="text" placeholder="Data Emissão" class="form-control input-md" />
+                    <input  id="dataEmissao" name="dataEmissao" type="text" placeholder="Data Emissão" class="form-control input-md" required="true" />
                 </div>
             </div>                
         </div>
@@ -32,7 +32,7 @@
             <div class="form-group">
                 <label class="col-md-6 control-label" for="dataPrevEntrega">Data Prevista:</label> 
                 <div class="col-md-6">
-                    <input id="dataPrevEntrega" name="dataPrevEntrega" type="text" placeholder="Previsão de entrega" class="form-control input-md" />
+                    <input id="dataPrevEntrega" name="dataPrevEntrega" type="text" placeholder="Previsão de entrega" class="form-control input-md" required="true" />
                 </div>
             </div>                
         </div>                          

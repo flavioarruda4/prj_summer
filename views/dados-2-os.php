@@ -2,7 +2,7 @@
 
 <!-- Inicio linhas : adicao, adicao, dataVencLentes  --> 
 <fieldset>
-    <div class="form-group"><legend> Dados Extras </legend></div>
+    <div class="form-group"><legend> Dados </legend></div>
 
         <div class="col-md-4">
             <!-- Campo Adi��o da OS ()-->
@@ -27,7 +27,7 @@
             <div class="form-group">
                 <label class="col-md-4 control-label" for="dataVencLentes">Data Vencimento Lentes:</label> 
                 <div class="col-md-8">
-                    <input  id="dataVencLentes" name="dataVencLentes" class="form-control input-md" placeholder="Data vencimento Lentes" type="text">
+                    <input  id="dataVencLentes" name="dataVencLentes" class="form-control input-md" placeholder="Data vencimento Lentes" type="text" required="true">
                 </div>
             </div>                
         </div> 
@@ -78,7 +78,7 @@
         <div class="form-group">
             <label class="col-md-6 control-label" for="valorOs">Valor da O.S:</label> 
             <div class="col-md-6">
-                <input id="valorOs" name="valor" placeholder="Valor da OS " class="form-control input-md" type="text">
+                <input id="valorOs" name="valor" placeholder="Valor da OS " class="form-control input-md" type="text" required="true">
             </div>
         </div>               
     </div>                        
@@ -95,15 +95,7 @@
                     <input name="pagamento"  value="2" type="radio">
                     Cartão
                 </label>
-                <label class="radio-horizontal" for="pagamento-2">
-                    <input name="pagamento" value="3" type="radio">
-                    Visa
-                </label>
-                <label class="radio-horizontal" for="pagamento-3">
-                    <input name="pagamento"
-                           value="4" type="radio">
-                    Master
-                </label>
+                
             </div>
         </div>               
     </div>

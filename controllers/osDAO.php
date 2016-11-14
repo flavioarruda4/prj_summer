@@ -51,7 +51,8 @@ $os->perDnpOe = empty(strip_tags($_POST["perDnpOe"])) ? 0.00 : strip_tags($_POST
 $os->perAlturaOe = empty(strip_tags($_POST["perAlturaOe"])) ? 0.00 : strip_tags($_POST["perAlturaOe"]);
 
 //Dados Adicionais da Ordem de servi�o
-$os->adicao = strip_tags($_POST["adicao"]);
+$os->adicao = empty(strip_tags($_POST["adicao"])) ? 0.00 : strip_tags($_POST["adicao"]);
+
 $os->armacao = strip_tags($_POST["armacao"]);
 
 $dataVencLentes = date("Y-m-d", strtotime(str_replace('/', '-', $_POST["dataVencLentes"])));
@@ -69,7 +70,7 @@ $os->dataPg = $dataPg;
 
 $os->nParcelas = strip_tags($_POST["nParcelas"]);
 $os->observacao = strip_tags($_POST["observacao"]);
-$os->valor = strip_tags($_POST["valor"]);
+$os->valor = empty(strip_tags($_POST["valor"])) ? 0.00 : strip_tags($_POST["valor"]);
 $os->clientes_cpf = strip_tags($_POST["clientes_cpf"]);
 
 $id = $os->create();

@@ -109,8 +109,8 @@ class ControleOs {
                 os_usuarios
             SET 
                 statusAndamentoOs = :statusAndamentoOs,
-                usuarios_idUsuarios = :usuarios_idUsuarios
-               
+                usuarios_idUsuarios = :usuarios_idUsuarios,
+                dataStatusAndamentoOs = :dataStatusAndamentoOs
             WHERE
                 id = :id";
         
@@ -118,6 +118,7 @@ class ControleOs {
         
         $stmt->bindParam(':statusAndamentoOs', $this->statusAndamentoOs);
         $stmt->bindParam(':usuarios_idUsuarios', $this->usuarios_idUsuarios);
+        $stmt->bindParam(':dataStatusAndamentoOs', $this->dataStatusAndamentoOs);
         $stmt->bindParam(':id', $this->id);
         
         
