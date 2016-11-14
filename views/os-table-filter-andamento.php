@@ -39,7 +39,7 @@ if ($numeroOs > 0) {
         echo "<tr>";
         echo "<td>{$os_idos}</td>";
         echo "<td>{$nome}</td>";
-         echo "<td>{$telCelular}</td>";
+        echo "<td>{$telCelular}</td>";
         echo "<td>{$dataStatusAndamentoOs}</td>";
 
 
@@ -49,6 +49,11 @@ if ($numeroOs > 0) {
 
         echo "<div class='btn btn-info edit-btn margin-right-2em'>";
         echo "<a id='edit-os-status' data-toggle='modal' data-target='#myModalEdit' href='#myModalEdit'> <span class='glyphicon glyphicon-edit'></span>Alterar Status</a>";
+        echo "</div>";
+
+
+        echo "<div class='btn btn-info edit-btn margin-right-2em col-md-offset-1'>";
+        echo "<a id='os-info-link' data-toggle='modal' data-target='.bs-os-info-modal-lg' href='' title='Clique para ver as informações da OS'> <span class='glyphicon glyphicon-th-list'></span>Os Info</a>";
         echo "</div>";
 
         echo "</td>";

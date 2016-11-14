@@ -215,10 +215,6 @@ fieldset{
 }
 
 
-.btn.btn-info.edit-btn.edit-user.margin-right-2em > a:hover {
-    color: white;
-}
-
 .lista_pendente.alert.alert-info {
     margin-top: 100px;
 }
@@ -233,4 +229,7 @@ fieldset{
 
 .lista_todas.alert.alert-info {
     margin-top: 100px;
+}
+.btn.btn-info.edit-btn.margin-right-2em > a:hover{
+    color: white;
 }

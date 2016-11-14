@@ -23,7 +23,7 @@ $logado = $_SESSION['login'];
 <div class="flex container">
     <div  class="panel-right">
        <ul class="nav nav-tabs">
-         <li class="active"><a data-toggle="tab" href="#cadastro">Cadastro</a></li>
+         <li class="active"><a data-toggle="tab" href="#cadastro-cliente">Cadastro</a></li>
          <li><a data-toggle="tab" href="#tabClientes">Clientes</a></li>
         </ul>      
         
@@ -35,7 +35,7 @@ $logado = $_SESSION['login'];
         
         <!-- Tab Order com tela de cadastro e listagem de usuario cadastrados--> 
         <div class="tab-content">
-         <div id="cadastro" class="tab-pane fade in active">
+         <div id="cadastro-cliente" class="tab-pane fade in active">
 
         <div id="load" class="col-sm-offset-5"></div>
         
