@@ -197,7 +197,7 @@ $(document).ready(function () {
 
     $(document).on('click', '#os-info-link', function () {
         var idOs = $(this).closest('td').find('.idOsList').text();
-        $('#os-info-body').fadeOut(0, function () {
+        $('#os-info-body'). fadeOut(0, function () {
             $('#os-info-body').load('/prj_summer/views/os-info.php?id=' + idOs, function () {
                 $('#os-info-body').fadeIn(0);
             });
