@@ -102,6 +102,36 @@ class ControleOs {
         $this->dataStatusAndamentoOs = $row['dataStatusAndamentoOs'];
         
     }
+    
+     //faz o update do status da OS
+    function update() {
+        $query = "UPDATE 
+                os_usuarios
+            SET 
+                statusAndamentoOs = :statusAndamentoOs
+               
+            WHERE
+                id = :id";
+        
+        $stmt = $this->conn->prepare($query);
+        
+        $stmt->bindParam(':statusAndamentoOs', $this->statusAndamentoOs);
+        $stmt->bindParam(':id', $this->id);
+        
+        
+        $rc = $stmt;
+
+        if (false === $rc) {
+
+            die('bind_param() failed: ' . htmlspecialchars($stmt->error));
+        }
+
+        $rc = $stmt->execute();
+
+        if (false === $rc) {
+            die('execute() failed: ' . print_r($stmt->errorInfo()));
+        }
+    }
 
 
 }

@@ -17,13 +17,12 @@ if ((!isset($_SESSION['login']) == true) and ( !isset($_SESSION['senha']) == tru
 $logado = $_SESSION['login'];
 ?>
 
-<div id="msgsucesso-os"  style="display: none;" class="container alert alert-success alert-dismissable">
-    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-    Ordem de servico cadastrada com sucesso!
-</div>
 
 <div class="flex container">
     <!-- Mensagem Sucesso -->
+
+
+
 
     <div class="flex2 slidebar-left">
 
@@ -40,6 +39,15 @@ $logado = $_SESSION['login'];
     <div class="panel-right">
         <div class="box-field-container" id="request-list-container">
             <div class="tab-content">
+                <div id="msgsucesso-os"  style="display: none;" class="container alert alert-success alert-dismissable">
+                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                    Ordem de servico cadastrada com sucesso!
+                </div>
+                <!-- Mensagem Sucesso -->
+                <div id="msgsucesso-os-update"  style="display: none;" class="alert alert-success alert-dismissable">
+                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                    Status alterado com sucesso!
+                </div>
                 <legend class="navigation-search">
                     <div class="span6">
                         <h2 class="page-title"> Lista de Ordens de Serviço </h2>
@@ -56,12 +64,9 @@ $logado = $_SESSION['login'];
 
                     </div>
                 </div>
-                
-                <div id="msgsucesso-os-update"  style="display: none;" class="alert alert-success alert-dismissable">
-                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-                    Status da Os Alterada com sucesso!
-                </div>
-                
+
+
+
                 <div class="tab-pane active" id="pendentes">   
                     <?php
                     include_once "./os-table-filter-pendente.php";
@@ -74,12 +79,12 @@ $logado = $_SESSION['login'];
                 </div>
                 <div class="tab-pane" id="finalizadas">
                     <?php
-                        include_once "./os-table-filter-finalizadas.php";
+                    include_once "./os-table-filter-finalizadas.php";
                     ?>
                 </div>
                 <div class="tab-pane" id="todas">
                     <?php
-                        include_once "./os-table-filter-todas.php";
+                    include_once "./os-table-filter-todas.php";
                     ?>
                 </div>
             </div>

@@ -27,15 +27,16 @@ $(document).ready(function () {
 //Ajax Cadastro de Usuario
 
     $('#cadastro-usuario').submit(function () {
-        $("#load").html("<img src='/prj_summer/images/load.gif'>");
-        $("#load").fadeIn(100, function () {
-            window.setTimeout(function () {
-                $('#cadastro-usuario').find('input:text').val('');
-                $('#load').fadeOut();
-            }, 1400);
-        });
+
         var dados = jQuery(this).serialize();
         if ($('#senha').val() === $('#senha2').val()) {
+            $("#load").html("<img src='/prj_summer/images/load.gif'>");
+            $("#load").fadeIn(100, function () {
+                window.setTimeout(function () {
+                    $('#cadastro-usuario').find('input:text').val('');
+                    $('#load').fadeOut();
+                }, 1400);
+            });
             $.ajax({
                 type: "POST",
                 url: "/prj_summer/controllers/usuarioDAO.php",
@@ -45,7 +46,6 @@ $(document).ready(function () {
                         $("#msgsucessouser").focus();
                         window.setTimeout(function () {
                             $('#msgsucessouser').fadeOut();
-
                         }, 2500);
                     });
                 }
@@ -53,7 +53,6 @@ $(document).ready(function () {
         } else {
 
             var field = document.getElementById('senha2');
-            field.value = field.defaultValue;
             $('#senha2').focus();
             $('#msgerrosenha').fadeIn();
 
@@ -81,7 +80,7 @@ $(document).ready(function () {
         var update = jQuery(this).serialize();
 
         if ($('#senha-edit').val() === $('#senha-edit-2').val()) {
-            jQuery.ajax({
+            $.ajax({
                 type: "POST",
                 url: "/prj_summer/controllers/usuario-update.php",
                 data: update,
@@ -183,7 +182,7 @@ $(document).ready(function () {
         return false;
 
     });
-    
+
     //Ajax renderiza a pagina que edita o status da OS
 
     $(document).on('click', '#edit-os-status', function () {
@@ -194,6 +193,36 @@ $(document).ready(function () {
             });
         });
     });
+
+
+    //ajax update do status da OS
+    $(document).on('submit', '.update-status-os', function () {
+        var update = jQuery(this).serialize();
+
+        $.ajax({
+            type: "POST",
+            url: "/prj_summer/controllers/os-update-status.php",
+            data: update,
+            success: function (data) {
+                $("#load-os-status").html("<img src='/prj_summer/images/load.gif'>");
+                $("#load-os-status").fadeIn(100, function () {
+                    window.setTimeout(function () {
+                        $('#close-os-status-modal').click();
+                        $('#load-os-status').fadeOut();
+                    }, 1400);
+                });
+                $("#msgsucesso-os-update").fadeIn(1500, function () {
+                    window.setTimeout(function () {
+                        $('#msgsucesso-os-update').fadeOut();
+                        location.reload();
+                    }, 3999);
+                });
+
+            }
+        });
+        return false;
+    });
+
 
 //Datepicker js
 
@@ -213,8 +242,8 @@ $(document).ready(function () {
         language: "pt-BR",
         todayHighlight: true,
         autoclose: true}).on('changeDate', function (selected) {
-                var minDate = new Date(selected.date.valueOf());
-                $('#dataEmissao').datepicker('setEndDate', minDate);
+        var minDate = new Date(selected.date.valueOf());
+        $('#dataEmissao').datepicker('setEndDate', minDate);
     });
 
     $('#dataVencLentes').datepicker({

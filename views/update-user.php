@@ -49,9 +49,9 @@ $usuario->readOne();
             <td>
                 <?php $selected = htmlspecialchars($usuario->perfil, ENT_QUOTES); ?>
                 <select id="perfil" name="perfil" class="form-control">
-                    <option value="1" <?= ($selected == '1') ? 'selected' : '' ?>>Operação(Atendimento ao Cliente)</option>
-                    <option value="2" <?= ($selected == '2') ? 'selected' : '' ?>>Gerencial</option>
-                    <option value="3" <?= ($selected == '3') ? 'selected' : '' ?>>Estratétegico</option>
+                    <option value="1" <?= ($selected == '1') ? 'selected' : '' ?>>Montador</option>
+                    <option value="2" <?= ($selected == '2') ? 'selected' : '' ?>>Atendente</option>
+                    <option value="3" <?= ($selected == '3') ? 'selected' : '' ?>>Gerente</option>
                 </select>
             </td>
         <tr>

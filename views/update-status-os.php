@@ -35,7 +35,7 @@ $cliente->cpf = $os->clientes_cpf;
 $cliente->readOne();
 ?>
 
-<form id='update-status-os' action='' method='post' border='0' autocomplete="off">
+<form class='update-status-os' action='' method='post' border='0' autocomplete="off">
     <!-- Mensagem Sucesso -->
 
     <table class='table table-bordered table-hover'>
@@ -43,7 +43,7 @@ $cliente->readOne();
         <tr>
             <td>ID Os:</td>
             <td>
-                <input name='id' type="text" class='form-control nome-editar' value='<?php echo htmlspecialchars($os->id, ENT_QUOTES); ?>' disabled="true"/>
+                <input name='idOs' type="text" class='form-control nome-editar' value='<?php echo htmlspecialchars($os->id, ENT_QUOTES); ?>' disabled="true"/>
             </td>
         </tr>
         <tr>
@@ -65,6 +65,9 @@ $cliente->readOne();
                     <option value="2" <?= ($selected == '2') ? 'selected' : '' ?>>Finalizada</option>
                 </select>
             </td>
+            <input type='hidden' name='id' value='<?php echo $controleos->id ?>' /> 
+        </tr>
+       
     </table>
     <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>

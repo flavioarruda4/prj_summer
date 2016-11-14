@@ -41,7 +41,7 @@
                 <div class="form-group">
                     <label class="col-md-3 control-label" for="login">Login:</label>  
                     <div class="col-md-7">
-                        <input id="usuario" name="login" type="text" placeholder="Digite o Login"  class="form-control input-md" required="true" maxlength="50">
+                        <input id="usuario" name="login" type="text" placeholder="Digite o Login"  class="form-control input-md" required="true" maxlength="50" autocomplete="off">
 
                     </div>
                 </div>
@@ -50,7 +50,7 @@
                 <div class="form-group">
                     <label class="col-md-3 control-label" for="senha">Senha:</label>
                     <div class="col-md-7">
-                        <input id="senha" name="senha" type="password" placeholder="Digite a sua Senha" class="form-control input-md" required="true" maxlength="64">
+                        <input id="senha" name="senha" type="password" placeholder="Digite a sua Senha" class="form-control input-md" required="true" maxlength="64" autocomplete="off">
 
                     </div>
                 </div>
@@ -63,7 +63,7 @@
                             <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
                             Senhas não conferem!
                         </div>
-                        <input id="senha2" name="senha2" type="password" placeholder="Reitere a Senha" class="form-control input-md" required="true" maxlength="64">
+                        <input id="senha2" name="senha2" type="password" placeholder="Reitere a Senha" class="form-control input-md" required="true" maxlength="64" autocomplete="off">
 
                     </div>
                 </div>
@@ -74,9 +74,9 @@
                     <label class="col-md-3 control-label" for="perfil">Perfil:</label>
                     <div class="col-md-7">
                         <select id="perfil" name="perfil" class="form-control">
-                            <option value="1">Operação(Atendimento ao Cliente)</option>
-                            <option value="2">Gerencial</option>
-                            <option value="3">Estratétegico</option>
+                            <option value="1">Montador</option>
+                            <option value="2">Atendente</option>
+                            <option value="3">Gerente</option>
                         </select>
                     </div>
                 </div>
