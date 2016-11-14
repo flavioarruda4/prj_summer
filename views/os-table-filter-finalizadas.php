@@ -27,7 +27,7 @@ if ($numeroOs > 0) {
                     <th class=".select-filter span2">Nome Cliente</th>
                     <th class=".select-filter span2">Celular</th>
                     <th class=".select-filter span2">Data Alteração Status</th>
-                    <th class=".select-filter span2">Ação</th>
+                    <th class=".select-filter span2"></th>
                 </tr>
             </thead>
             <tbody>';
@@ -47,10 +47,12 @@ if ($numeroOs > 0) {
         echo "<td>";
         echo "<div id='idOsList' class='idOsList display-none' style='display: none;'>{$os_idos}</div>";
 
-        echo "<div class='btn btn-info edit-btn  margin-right-2em'>";
+        echo "<div class='btn btn-warning edit-btn margin-right-2em'>";
         echo "<a id='edit-os-status' data-toggle='modal' data-target='#myModalEdit' href='#myModalEdit'> <span class='glyphicon glyphicon-edit'></span>Alterar Status</a>";
         echo "</div>";
-
+        echo "<div class='btn btn-info edit-btn margin-right-2em col-md-offset-1'>";
+        echo "<a id='os-info-link' data-toggle='modal' data-target='.bs-os-info-modal-lg' href='' title='Clique para ver as informações da OS'> <span class='glyphicon glyphicon-th-list'></span>Os Info</a>";
+        echo "</div>";
         echo "</td>";
 
         echo "</tr>";

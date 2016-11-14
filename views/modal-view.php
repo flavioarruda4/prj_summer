@@ -26,7 +26,7 @@
             </div>
             <div id="load-os-status" class="col-sm-offset-5"></div>
             <div id="page-edita-status-os" class="modal-body">
-                <!-- animação de load -->
+    
                 
             </div>
 
@@ -45,7 +45,7 @@
                 <h4 class="modal-title" id="myModalLabel">Informações Ordem de Serviço</h4>
             </div>
             <div class="modal-body">
-            
+                 <?php include_once 'os-info.php' ?>
             </div>
 
         </div>

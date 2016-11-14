@@ -233,3 +233,7 @@ fieldset{
 .btn.btn-info.edit-btn.margin-right-2em > a:hover{
     color: white;
 }
+
+.btn.btn-warning.edit-btn.margin-right-2em > a:hover{
+    color:white;
+}
