@@ -93,7 +93,7 @@
                 </label>
                 <label class="radio-horizontal" for="pagamento-1">
                     <input name="pagamento"  value="2" type="radio">
-                    Cheque
+                    Cartão
                 </label>
                 <label class="radio-horizontal" for="pagamento-2">
                     <input name="pagamento" value="3" type="radio">

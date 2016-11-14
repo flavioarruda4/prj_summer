@@ -108,7 +108,8 @@ class ControleOs {
         $query = "UPDATE 
                 os_usuarios
             SET 
-                statusAndamentoOs = :statusAndamentoOs
+                statusAndamentoOs = :statusAndamentoOs,
+                usuarios_idUsuarios = :usuarios_idUsuarios
                
             WHERE
                 id = :id";
@@ -116,6 +117,7 @@ class ControleOs {
         $stmt = $this->conn->prepare($query);
         
         $stmt->bindParam(':statusAndamentoOs', $this->statusAndamentoOs);
+        $stmt->bindParam(':usuarios_idUsuarios', $this->usuarios_idUsuarios);
         $stmt->bindParam(':id', $this->id);
         
         

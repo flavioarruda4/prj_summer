@@ -154,7 +154,7 @@ $(document).ready(function () {
             url: "/prj_summer/controllers/osDAO.php",
             data: dados,
             success: function (data) {
-
+                alert(data);
                 $("#load-os").html("<img src='/prj_summer/images/load.gif'>");
                 $("#load-os").focus();
                 $(".bs-os-modal-lg").animate({scrollTop: 0}, "slow");

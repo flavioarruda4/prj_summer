@@ -22,33 +22,33 @@ $os->dataPrevEntrega = $dataPrevEntrega;
 $os->statusPg = 1;
 
 //Grau Olho Direito Longe
-echo "Resultado if >>>".empty(strip_tags($_POST["longEsfOd"])) ? 0 : strip_tags($_POST["longEsfOd"]);
+// Não deixar ir em branco para o banco, pois, da erro!!! Por isso o if ternário ############
 $os->longEsfOd = empty(strip_tags($_POST["longEsfOd"])) ? 0.00 : strip_tags($_POST["longEsfOd"]);
-$os->longCilOd = strip_tags($_POST["longCilOd"]);
-$os->longEixoOd = strip_tags($_POST["longEixoOd"]);
-$os->longDnpOd = strip_tags($_POST["longDnpOd"]);
-$os->longAlturaOd = strip_tags($_POST["longAlturaOd"]);
+$os->longCilOd = empty(strip_tags($_POST["longCilOd"])) ? 0.00 : strip_tags($_POST["longCilOd"]);
+$os->longEixoOd = empty(strip_tags($_POST["longEixoOd"])) ? 0.00 : strip_tags($_POST["longEixoOd"]);
+$os->longDnpOd = empty(strip_tags($_POST["longDnpOd"])) ? 0.00 : strip_tags($_POST["longDnpOd"]);
+$os->longAlturaOd = empty(strip_tags($_POST["longAlturaOd"])) ? 0.00 : strip_tags($_POST["longAlturaOd"]);
 
 //Grau Olho Esquerdo Longe
-$os->longEsfOe = strip_tags($_POST["longEsfOe"]);
-$os->longCilOe = strip_tags($_POST["longCilOe"]);
-$os->longEixoOe = strip_tags($_POST["longEixoOe"]);
-$os->longDnpOe = strip_tags($_POST["longDnpOe"]);
-$os->longAlturaOe = strip_tags($_POST["longAlturaOe"]);
+$os->longEsfOe = empty(strip_tags($_POST["longEsfOe"])) ? 0.00 : strip_tags($_POST["longEsfOe"]);
+$os->longCilOe = empty(strip_tags($_POST["longCilOe"])) ? 0.00 : strip_tags($_POST["longCilOe"]);
+$os->longEixoOe = empty(strip_tags($_POST["longEixoOe"])) ? 0.00 : strip_tags($_POST["longEixoOe"]);
+$os->longDnpOe = empty(strip_tags($_POST["longDnpOe"])) ? 0.00 : strip_tags($_POST["longDnpOe"]);
+$os->longAlturaOe = empty(strip_tags($_POST["longAlturaOe"])) ? 0.00 : strip_tags($_POST["longAlturaOe"]);
 
 //Grau Olho Direito Perto
-$os->perEsfOd = strip_tags($_POST["perEsfOd"]);
-$os->perCilOd = strip_tags($_POST["perCilOd"]);
-$os->perEixoOd = strip_tags($_POST["perEixoOd"]);
-$os->perDnpOd = strip_tags($_POST["perDnpOd"]);
-$os->perAlturaOd = strip_tags($_POST["perAlturaOd"]);
+$os->perEsfOd = empty(strip_tags($_POST["perEsfOd"])) ? 0.00 : strip_tags($_POST["perEsfOd"]);
+$os->perCilOd = empty(strip_tags($_POST["perCilOd"])) ? 0.00 : strip_tags($_POST["perCilOd"]);
+$os->perEixoOd = empty(strip_tags($_POST["perEixoOd"])) ? 0.00 : strip_tags($_POST["perEixoOd"]);
+$os->perDnpOd = empty(strip_tags($_POST["perDnpOd"])) ? 0.00 : strip_tags($_POST["perDnpOd"]);
+$os->perAlturaOd = empty(strip_tags($_POST["perAlturaOd"])) ? 0.00 : strip_tags($_POST["perAlturaOd"]);
 
 //Grau Olho Esquerdo Perto
-$os->perEsfOe = strip_tags($_POST["perEsfOe"]);
-$os->perCilOe = strip_tags($_POST["perCilOe"]);
-$os->perEixoOe = strip_tags($_POST["perEixoOe"]);
-$os->perDnpOe = strip_tags($_POST["perDnpOe"]);
-$os->perAlturaOe = strip_tags($_POST["perAlturaOe"]);
+$os->perEsfOe = empty(strip_tags($_POST["perEsfOe"])) ? 0.00 : strip_tags($_POST["perEsfOe"]);
+$os->perCilOe = empty(strip_tags($_POST["perCilOe"])) ? 0.00 : strip_tags($_POST["perCilOe"]);
+$os->perEixoOe = empty(strip_tags($_POST["perEixoOe"])) ? 0.00 : strip_tags($_POST["perEixoOe"]);
+$os->perDnpOe = empty(strip_tags($_POST["perDnpOe"])) ? 0.00 : strip_tags($_POST["perDnpOe"]);
+$os->perAlturaOe = empty(strip_tags($_POST["perAlturaOe"])) ? 0.00 : strip_tags($_POST["perAlturaOe"]);
 
 //Dados Adicionais da Ordem de servi�o
 $os->adicao = strip_tags($_POST["adicao"]);
