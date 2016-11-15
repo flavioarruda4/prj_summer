@@ -10,7 +10,7 @@ $(document).ready(function () {
             success: function (result) {
                 if (result == 1) {
 
-                    location.href = '/views/home.php';
+                    location.href = '/prj_summer/views/home.php';
                 } else {
                     $("#msgerro").fadeIn(1500, function () {
                         window.setTimeout(function () {
@@ -134,6 +134,7 @@ $(document).ready(function () {
 
     });
 
+  
     //Ajax renderiza a pagina que edita cliente
 
     $(document).on('click', '.edit-cliente', function () {
@@ -145,6 +146,36 @@ $(document).ready(function () {
             });
         });
     });
+
+
+
+
+     //ajax update do cliente
+  $(document).on('submit', '#update-cliente', function () {
+        var update = jQuery(this).serialize();
+      
+        $.ajax({
+            type: "POST",
+            url: "/prj_summer/controllers/cliente-update.php",
+            data: update,
+            success: function (data) {
+               
+                
+
+             $('#update-cliente').hide();
+                    $("#msgsucesso-cliente-update").fadeIn(300, function () {
+                        window.location.replace();
+
+                        window.setTimeout(function () {
+                            $('#msgsucesso-cliente-update').fadeOut();
+
+                        }, 3999);
+                    });
+            }
+        });
+        return false;
+    });
+
 
 //Ajax do cadastro de OS
     $('#cadastro-os').submit(function () {

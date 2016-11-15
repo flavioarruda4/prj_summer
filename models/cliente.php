@@ -54,7 +54,7 @@ class Cliente {
 //lê um cliente para ser editado
     function readOne() {
 
-        $query = "SELECT * from clientes c inner join endereco e on c.endereco_id = e.id WHERE cpf = ? LIMIT
+        $query ="SELECT * from clientes WHERE cpf = ? LIMIT
                 0,1";
         
 
@@ -103,7 +103,9 @@ class Cliente {
                 email = :email,
                 rg = :rg,
                 telFixo = :telFixo,
-                telCelular = :telCelular
+                telCelular = :telCelular,
+                endereco_id = :endereco_id
+                
                 
             WHERE
                 cpf = :cpf";
@@ -116,6 +118,7 @@ class Cliente {
         $stmt->bindParam(':rg', $this->rg);
         $stmt->bindParam(':telFixo', $this->telFixo);
         $stmt->bindParam(':telCelular', $this->telCelular);
+        $stmt->bindParam(':endereco_id', $this->endereco_id);
         
         
         if ($stmt->execute()) {

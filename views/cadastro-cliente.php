@@ -5,7 +5,7 @@ session_start();
 include_once "../config/database.php";
 include_once "../views/header.php";
 include_once "../views/menu.php";
-include_once '../config/deny-include.php';
+
 
 $database = new Database();
 $db = $database->getConnection();

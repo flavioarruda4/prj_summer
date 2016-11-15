@@ -12,10 +12,13 @@ $db = $database->getConnection();
 $cliente = new Cliente($db);
 $endereco = new Endereco($db);
 
- $cliente->cpf = $cpf;  
- $endereco->cpf = $cpf; 
+  $cliente->cpf = $cpf; 
 
  $cliente->readOne();
+
+ $endereco->id = $cliente->endereco_id; 
+
+
  $endereco->readOne();
 
 ?>
@@ -116,6 +119,7 @@ $endereco = new Endereco($db);
 
                     <label class="col-md-1 control-label" for="uf">UF:</label>
                     <div class="col-md-2">
+                     <?php $selected = htmlspecialchars($endereco->uf, ENT_QUOTES); ?>
                         <select id="uf" name="uf" class="form-control" >
                             <option value="DF">DF</option>
                             <option value="GO">GO</option>                            
@@ -127,16 +131,32 @@ $endereco = new Endereco($db);
             </fieldset>
             <hr/>
              <tr>
-            <td>
+              <td>
 
-                <input type='hidden' name='cpf' value='<?php echo $cpf ?>' /> 
+                <input type='hidden' name='endereco_id' value='<?php echo $cliente->endereco_id?>' /> 
 
             </td>
             <td>
-                <button type='submit' class='btn btn-primary'>
-                    <span class='glyphicon glyphicon-edit'></span> Salvar Alterações
-                </button>
+
+                 <input type='hidden' name='id' value='<?php echo $endereco->id?>' /> 
+
             </td>
-        </tr>
+             <td>
+
+                 <input type='hidden' name='dataCadastro' value='<?php echo $cliente->dataCadastro?>' /> 
+
+            </td>
+
+
+                <td>
+                    <button type='submit' id="cliente-editado" class='btn btn-primary'>
+                         <span class='glyphicon glyphicon-edit'></span> Salvar Alterações
+                    </button>
+                </td>
+            </tr>
         </form>
-      
+
+        <div id="msgsucessoupdate-update"  style="display: none;" class="alert alert-success alert-dismissable">
+    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+    Cliente alterado com sucesso!
+</div>

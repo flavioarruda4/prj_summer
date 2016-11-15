@@ -10,6 +10,7 @@ $db = $database->getConnection();
  
 $cliente = new Cliente($db);
 
+
 $cliente->nome = strip_tags($_POST["nome"]);
 
 $cliente->email = strip_tags($_POST["email"]);
@@ -21,6 +22,8 @@ $cliente->cpf = strip_tags($_POST["cpf"]);
 $cliente->telFixo = strip_tags($_POST["telFixo"]);
 
 $cliente->telCelular = strip_tags($_POST["telCelular"]);
+
+$cliente->endereco_id = strip_tags($_POST["endereco_id"]);
 
 $cliente->update();
 

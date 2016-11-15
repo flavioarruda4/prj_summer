@@ -75,7 +75,7 @@ class Endereco {
     //lê um endereco para ser editado
     function readOne() {
 
-        $query = "SELECT * from clientes c inner join endereco e on c.endereco_id = e.id WHERE cpf = ? LIMIT
+        $query = "SELECT * from endereco WHERE id = ? LIMIT
                 0,1";
         
 
@@ -83,7 +83,7 @@ class Endereco {
 
 
         $stmt = $this->conn->prepare($query);
-        $stmt->bindParam(1, $this->cpf);
+        $stmt->bindParam(1, $this->id);
 
         $rc = $stmt->execute();
 
@@ -125,19 +125,7 @@ class Endereco {
         $stmt->bindParam(':bairro', $this->bairro);
         $stmt->bindParam(':uf', $this->uf);
         $stmt->bindParam(':cep', $this->cep);
-        $rc = $stmt;
-
-        if (false === $rc) {
-
-            die('bind_param() failed: ' . htmlspecialchars($stmt->error));
-        }
-
-        $rc = $stmt->execute();
-
-        if (false === $rc) {
-            die('execute() failed: ' . print_r($stmt->errorInfo()));
-        }
-        
+        $stmt->bindParam(':cidade', $this->cidade);
         
         if ($stmt->execute()) {
 
