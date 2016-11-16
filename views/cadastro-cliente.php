@@ -2,23 +2,16 @@
 
 session_start();
 
-include_once "../config/database.php";
+//evitar o acesso do perfil 1 ao cadastro de acordo com o caso de uso
+if (($_SESSION["perfil"] != 3) && ($_SESSION["perfil"] != 2)) {
+    header('location:../index.php');
+}
+
+
 include_once "../views/header.php";
 include_once "../views/menu.php";
 
 
-$database = new Database();
-$db = $database->getConnection();
-    
-//inicia a sessão e verifica se o usuario está autenticado
-
-if ((!isset($_SESSION['login']) == true) and ( !isset($_SESSION['senha']) == true)) {
-    unset($_SESSION['login']);
-    unset($_SESSION['perfil']);
-    unset($_SESSION['senha']);
-    header('location:../index.php');
-}
-$logado = $_SESSION['login'];
 ?>
 
 <div class="flex container">

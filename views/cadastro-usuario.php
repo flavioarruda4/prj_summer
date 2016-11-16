@@ -1,4 +1,12 @@
+<?php
 
+session_start();
+//evitar o acesso do perfil 1 ao cadastro de acordo com o caso de uso
+if (($_SESSION["perfil"] != 3) && ($_SESSION["perfil"] != 2)) {
+    header('location:../index.php');
+}
+
+?>
 <ul class="nav nav-tabs">
     <li class="active"><a data-toggle="tab" href="#cadastro">Cadastro</a></li>
     <li><a data-toggle="tab" href="#tabUsuario">Usuarios</a></li>
@@ -133,11 +141,11 @@
             echo "<td>{$nome}</td>";
             echo "<td>{$login}</td>";
             if ($perfil == "1") {
-                echo "<td>Operação</td>";
+                echo "<td>Montador</td>";
             } else if ($perfil == 2) {
-                echo "<td>Gerencial</td>";
+                echo "<td>Atendente</td>";
             } else if ($perfil == 3) {
-                echo "<td>Estratégico</td>";
+                echo "<td>Gerente</td>";
             }
             echo "<td>";
             echo "<div id='idUsuarios' class='idUsuarios display-none' style='display: none;'>{$idUsuarios}</div>";
