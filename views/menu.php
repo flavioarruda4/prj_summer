@@ -17,7 +17,7 @@ $perfil = $_SESSION['perfil'];
         <nav role="menu" class="menu__links">
             <a class="" href="../">Gerenciamento de OS</a>
             <?php
-            if (($perfil == 3 && $perfil == 2)) {
+            if (($perfil == 3 || $perfil == 2)) {
                 echo '<a class = " " href = "../views/cadastro-cliente.php">Gerenciamento de Clientes</a>';
             }
             ?>
@@ -31,7 +31,7 @@ $perfil = $_SESSION['perfil'];
                     </a>
                     <ul aria-labelledby="drop3" role="menu" class="dropdown-menu pull-right">
                         <?php
-                        if (!($perfil != 3)) {
+                        if ($perfil == 3) {
 
                             echo '<li role="presentation"><a tabindex="-1" data-toggle="modal" data-target=".bs-user-modal-lg" href=""> <i aria-hidden="true" class="glyphicon glyphicon-plus-sign"></i> Cadastrar Usuário  </a></li>';
                         }

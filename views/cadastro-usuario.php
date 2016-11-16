@@ -1,6 +1,5 @@
 <?php
 
-session_start();
 //evitar o acesso do perfil 1 ao cadastro de acordo com o caso de uso
 if (($_SESSION["perfil"] != 3) && ($_SESSION["perfil"] != 2)) {
     header('location:../index.php');

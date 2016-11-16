@@ -10,7 +10,8 @@
 
         <!-- Jquery -->
         <script src="/prj_summer/js/jquery.js"></script>
-
+        <script src="/prj_summer/js/jquery-ui.js"></script> 
+        <link rel="stylesheet" href="/prj_summer/css/jquery-ui.min.css">   
         <!-- Latest compiled and minified JavaScript -->
 
         <script src="/prj_summer/css/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
@@ -27,8 +28,7 @@
         <link rel="stylesheet" href="/prj_summer/css/bootstrap-datepicker.min.css">
 
         <!-- Slider -->
-        <script src="/prj_summer/js/jquery-ui.js"></script> 
-        <link rel="stylesheet" href="/prj_summer/css/jquery-ui.min.css">
+       
         <script>
             $( "#slider" ).slider({
                   range: true,
@@ -43,8 +43,8 @@
                   " - " + $( "#slider" ).slider( "values", 1 ) );
         </script>        
 
-        <!-- Validacao Campos maskedinput -->
-        <script src="/prj_summer/js/jquery-1.8.3.min.js" type="text/javascript"></script>
+        <!-- Validacao Campos maskedinput
+        <script src="/prj_summer/js/jquery-1.8.3.min.js" type="text/javascript"></script> -->
         <script src="/prj_summer/js/jquery.maskedinput.min.js" type="text/javascript"></script>         
         <script type="text/javascript">
             $(function() {
