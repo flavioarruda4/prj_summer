@@ -59,7 +59,7 @@
                     <!-- Campo Grau longe Esférico olho direito da OS ()-->
                     <div class="form-group">
                         <div class="col-md-11">
-                            <input id="longEsfOd" name="longEsfOd" type="text" placeholder="Long Esf OD" class="form-control input-md" />
+                            <input id="longEsfOd" name="longEsfOd" type="number" min="-10" max="10" step="0.25" placeholder="Long Esf OD" class="form-control input-md" />
                         </div>
                         <div class="slider">componente</div>
                     </div>          
@@ -68,7 +68,7 @@
                     <!-- Campo Grau longe Esférico olho direito da OS ()-->
                     <div class="form-group">
                         <div class="col-md-11">
-                            <input id="longCilOd" name="longCilOd" type="text" placeholder="Long Cil OD" class="form-control input-md" />
+                            <input id="longCilOd" name="longCilOd" type="number" min="-10" max="10" step="0.25" placeholder="Long Cil OD" class="form-control input-md" />
                         </div>
                     </div>        
                 </td>
@@ -76,7 +76,7 @@
                     <!-- Campo Grau longe Esf�rico olho direito da OS ()-->
                     <div class="form-group">
                         <div class="col-md-11">
-                            <input id="longEixoOd" name="longEixoOd" type="text" placeholder="Long Eixo OD" class="form-control input-md" />
+                            <input id="longEixoOd" name="longEixoOd" type="number" min="-10" max="10" step="0.25" placeholder="Long Eixo OD" class="form-control input-md" />
                         </div>
                     </div>        
                 </td>
@@ -84,7 +84,7 @@
                     <!-- Campo Grau longe Esf�rico olho direito da OS ()-->
                     <div class="form-group">
                         <div class="col-md-11">
-                            <input id="longDnpOd" name="longDnpOd" type="text" placeholder="Long Dnp OD" class="form-control input-md" />
+                            <input id="longDnpOd" name="longDnpOd" type="number" min="-10" max="10" step="0.25" placeholder="Long Dnp OD" class="form-control input-md" />
                         </div>
                     </div>        
                 </td>
@@ -92,7 +92,7 @@
                     <!-- Campo Grau longe Esf�rico olho direito da OS ()-->
                     <div class="form-group">
                         <div class="col-md-11">
-                            <input id="longAlturaOd" name="longAlturaOd" type="text" placeholder="Long Alt OD" class="form-control input-md" />
+                            <input id="longAlturaOd" name="longAlturaOd" type="number" min="-10" max="10" step="0.25" placeholder="Long Alt OD" class="form-control input-md" />
                         </div>
                     </div>        
                 </td>
@@ -103,7 +103,7 @@
                     <!-- Campo Grau longe Esf�rico olho Esquerdo da OS ()-->
                     <div class="form-group">
                         <div class="col-md-11">
-                            <input id="longEsfOd" name="longEsfOe" type="text" placeholder="Long Esf OE" class="form-control input-md" />
+                            <input id="longEsfOd" name="longEsfOe" type="number" min="-10" max="10" step="0.25" placeholder="Long Esf OE" class="form-control input-md" />
                         </div>
                     </div>          
                 </td>
@@ -111,7 +111,7 @@
                     <!-- Campo Grau longe Esf�rico olho Esquerdo da OS ()-->
                     <div class="form-group">
                         <div class="col-md-11">
-                            <input id="longCilOd" name="longCilOe" type="text" placeholder="Long Cil OE" class="form-control input-md" />
+                            <input id="longCilOd" name="longCilOe" type="number" min="-10" max="10" step="0.25" placeholder="Long Cil OE" class="form-control input-md" />
                         </div>
                     </div>        
                 </td>
@@ -119,7 +119,7 @@
                     <!-- Campo Grau longe Esf�rico olho Esquerdo da OS ()-->
                     <div class="form-group">
                         <div class="col-md-11">
-                            <input id="longEixoOd" name="longEixoOe" type="text" placeholder="Long Eixo OE" class="form-control input-md" />
+                            <input id="longEixoOd" name="longEixoOe" type="number" min="-10" max="10" step="0.25" placeholder="Long Eixo OE" class="form-control input-md" />
                         </div>
                     </div>        
                 </td>
@@ -127,7 +127,7 @@
                     <!-- Campo Grau longe Esf�rico olho Esquerdo da OS ()-->
                     <div class="form-group">
                         <div class="col-md-11">
-                            <input id="longDnpOd" name="longDnpOe" type="text" placeholder="Long Dnp OE" class="form-control input-md" />
+                            <input id="longDnpOd" name="longDnpOe" type="number" min="-10" max="10" step="0.25" placeholder="Long Dnp OE" class="form-control input-md" />
                         </div>
                     </div>        
                 </td>
@@ -135,7 +135,7 @@
                     <!-- Campo Grau longe Esf�rico olho Esquerdo da OS ()-->
                     <div class="form-group">
                         <div class="col-md-11">
-                            <input id="longAlturaOd" name="longAlturaOe" type="text" placeholder="Long Altura OE" class="form-control input-md" />
+                            <input id="longAlturaOd" name="longAlturaOe" type="number" min="-10" max="10" step="0.25" placeholder="Long Altura OE" class="form-control input-md" />
                         </div>
                     </div>        
                 </td>
@@ -161,7 +161,7 @@
                     <!-- Campo Grau pertoEsfOd olho direito da OS ()-->
                     <div class="form-group">
                         <div class="col-md-11">
-                            <input id="perEsfOd" name="perEsfOd" type="text" placeholder="Perto Esf OD" class="form-control input-md" />
+                            <input id="perEsfOd" name="perEsfOd" type="number" min="-10" max="10" step="0.25" placeholder="Perto Esf OD" class="form-control input-md" />
                         </div>
                     </div>          
                 </td>
@@ -169,7 +169,7 @@
                     <!-- Campo Grau pertoCilOd olho direito da OS ()-->
                     <div class="form-group">
                         <div class="col-md-11">
-                            <input id="perCilOd" name="perCilOd" type="text" placeholder="Perto Esf OD" class="form-control input-md" />
+                            <input id="perCilOd" name="perCilOd" type="number" min="-10" max="10" step="0.25" placeholder="Perto Esf OD" class="form-control input-md" />
                         </div>
                     </div>        
                 </td>
@@ -177,7 +177,7 @@
                     <!-- Campo Grau pertoEixoOd olho direito da OS ()-->
                     <div class="form-group">
                         <div class="col-md-11">
-                            <input id="perEixoOd" name="perEixoOd" type="text" placeholder="Perto Esf OD" class="form-control input-md" />
+                            <input id="perEixoOd" name="perEixoOd" type="number" min="-10" max="10" step="0.25" placeholder="Perto Esf OD" class="form-control input-md" />
                         </div>
                     </div>        
                 </td>
@@ -185,7 +185,7 @@
                     <!-- Campo Grau pertoDnpOd olho direito da OS ()-->
                     <div class="form-group">
                         <div class="col-md-11">
-                            <input id="perDnpOd" name="perDnpOd" type="text" placeholder="Perto Dnp OD" class="form-control input-md" />
+                            <input id="perDnpOd" name="perDnpOd" type="number" min="-10" max="10" step="0.25" placeholder="Perto Dnp OD" class="form-control input-md" />
                         </div>
                     </div>        
                 </td>
@@ -193,7 +193,7 @@
                     <!-- Campo Grau pertoAlturaOd olho direito da OS ()-->
                     <div class="form-group">
                         <div class="col-md-11">
-                            <input id="perAlturaOd" name="perAlturaOd" type="text" placeholder="Perto Alt OD" class="form-control input-md" />
+                            <input id="perAlturaOd" name="perAlturaOd" type="number" min="-10" max="10" step="0.25" placeholder="Perto Alt OD" class="form-control input-md" />
                         </div>
                     </div>        
                 </td>
@@ -204,7 +204,7 @@
                     <!-- Campo Grau pertoEsfOe olho Esquerdo da OS ()-->
                     <div class="form-group">
                         <div class="col-md-11">
-                            <input id="perEsfOe" name="perEsfOe" type="text" placeholder="Perto Esf OE" class="form-control input-md" />
+                            <input id="perEsfOe" name="perEsfOe" type="number" min="-10" max="10" step="0.25" placeholder="Perto Esf OE" class="form-control input-md" />
                         </div>
                     </div>          
                 </td>
@@ -212,7 +212,7 @@
                     <!-- Campo Grau pertoCilOe olho Esquerdo da OS ()-->
                     <div class="form-group">
                         <div class="col-md-11">
-                            <input id="perCilOe" name="perCilOe" type="text" placeholder="Perto Cil OE" class="form-control input-md" />
+                            <input id="perCilOe" name="perCilOe" type="number" min="-10" max="10" step="0.25" placeholder="Perto Cil OE" class="form-control input-md" />
                         </div>
                     </div>        
                 </td>
@@ -220,7 +220,7 @@
                     <!-- Campo Grau pertoEixoOe olho Esquerdo da OS ()-->
                     <div class="form-group">
                         <div class="col-md-11">
-                            <input id="perEixoOe" name="perEixoOe" type="text" placeholder="Perto Eixo OE" class="form-control input-md" />
+                            <input id="perEixoOe" name="perEixoOe" type="number" min="-10" max="10" step="0.25" placeholder="Perto Eixo OE" class="form-control input-md" />
                         </div>
                     </div>        
                 </td>
@@ -228,7 +228,7 @@
                     <!-- Campo Grau pertoDnpOe olho Esquerdo da OS ()-->
                     <div class="form-group">
                         <div class="col-md-11">
-                            <input id="perDnpOe" name="perDnpOe" type="text" placeholder="Perto Dnp OE" class="form-control input-md" />
+                            <input id="perDnpOe" name="perDnpOe" type="number" min="-10" max="10" step="0.25" placeholder="Perto Dnp OE" class="form-control input-md" />
                         </div>
                     </div>        
                 </td>
@@ -236,7 +236,7 @@
                     <!-- Campo Grau pertoAlturaOe olho Esquerdo da OS ()-->
                     <div class="form-group">
                         <div class="col-md-11">
-                            <input id="perAlturaOe" name="perAlturaOe" type="text" placeholder="Perto Altura OE" class="form-control input-md" />
+                            <input id="perAlturaOe" name="perAlturaOe" type="number" min="-10" max="10" step="0.25" placeholder="Perto Altura OE" class="form-control input-md" />
                         </div>
                     </div>        
                 </td>

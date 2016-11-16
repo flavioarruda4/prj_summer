@@ -27,10 +27,8 @@
         <link rel="stylesheet" href="/prj_summer/css/bootstrap-datepicker.min.css">
 
         <!-- Slider -->
-        
         <script src="/prj_summer/js/jquery-ui.js"></script> 
         <link rel="stylesheet" href="/prj_summer/css/jquery-ui.min.css">
-          
         <script>
             $( "#slider" ).slider({
                   range: true,
@@ -38,12 +36,58 @@
                   max: 10,
                   values: [ 2, 4 ],
                   slide: function( event, ui ) {
-                    $( ".qtd" ).val( "" + ui.values[ 0 ] + " - " + ui.values[ 1 ] );
+                    $( ".longEsfOd" ).val( "" + ui.values[ 0 ] + " - " + ui.values[ 1 ] );
                   }
                 });
-                $( ".qtd" ).val( "" + $( "#slider" ).slider( "values", 0 ) +
+                $( ".longEsfOd" ).val( "" + $( "#slider" ).slider( "values", 0 ) +
                   " - " + $( "#slider" ).slider( "values", 1 ) );
         </script>        
+
+        <!-- Validacao Campos maskedinput -->
+        <script src="/prj_summer/js/jquery-1.8.3.min.js" type="text/javascript"></script>
+        <script src="/prj_summer/js/jquery.maskedinput.min.js" type="text/javascript"></script>         
+        <script type="text/javascript">
+            $(function() {
+                $.mask.definitions['~'] = "[+-]";
+               // $("#dataEmissao").mask("99/99/9999",{completed:function(){alert("completed!");}});
+               // $("#dataPrevEntrega").mask("99/99/9999",{completed:function(){alert("completed!");}});
+               
+                $("#dataVencLentes").mask("99/99/9999",{completed:function(){alert("completed!");}});
+                $("#cpf").mask("999.999.999-99");
+                $("#clienteOs").mask("999.999.999-99");
+                $("input").blur(function() {
+                    $("#info").html("Unmasked value: " + $(this).mask());
+                }).dblclick(function() {
+                    $(this).unmask();
+                });
+            });
+        	
+        </script>  
+        
+       <!-- Validacao de valore jquery.maskMoney   -->
+       <!-- em conflito com demais jQuery -->
+       <!-- <script src="/prj_summer/js/jquery.min.js" type="text/javascript"></script> -->
+        <script src="/prj_summer/js/jquery.maskMoney.js" type="text/javascript"></script>
+        <script type="text/javascript">
+            $(function(){
+                $("#valorOs").maskMoney(
+                    {symbol:'R$', 
+                     showSymbol:true, 
+                     thousands:'.', 
+                     decimal:',', 
+                     symbolStay: true}
+                );
+                
+                $(".graus").maskMoney(
+                    {symbol:'R$', // Simbolo 
+                     thousands:'.', 
+                     decimal:'.', // Separador do decimal
+                     precision:2,
+                     allowZero:false, // Permite que o digito 0 seja o primeiro caractere 
+                     showSymbol:false // Exibe/Oculta o símbolo
+                     });                                      
+            })
+        </script> 
 
         
         <!-- css style principal -->
