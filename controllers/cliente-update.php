@@ -25,12 +25,13 @@ $cliente->telCelular = strip_tags($_POST["telCelular"]);
 
 $cliente->endereco_id = strip_tags($_POST["endereco_id"]);
 
+
 $cliente->update();
 
 
 $endereco = new Endereco($db);
 
-$endereco->id = strip_tags($_POST["id"]);
+$endereco->id = strip_tags($_POST["endereco_id"]);
 
 $endereco->logradouro = strip_tags($_POST["logradouro"]);
 

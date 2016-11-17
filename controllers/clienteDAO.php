@@ -29,9 +29,11 @@ if($endereco->create()){
 $cliente->nome = strip_tags($_POST["nome"]);
 $cliente->email = strip_tags($_POST["email"]);
 
-$dataCadastro = date("Y-m-d",strtotime(str_replace('/','-',$_POST["dataCadastro"])));
 
-$cliente->dataCadastro = $dataCadastro;
+// data de inclusao
+$dt = new DateTime();
+
+$cliente->dataCadastro =  $dt->format('Y-m-d H:i:s');;
 $cliente->rg = strip_tags($_POST["rg"]);
 $cliente->cpf = strip_tags($_POST["cpf"]);
 $cliente->telFixo = strip_tags($_POST["telFixo"]);

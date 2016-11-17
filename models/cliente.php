@@ -58,9 +58,6 @@ class Cliente {
                 0,1";
         
 
-
-
-
         $stmt = $this->conn->prepare($query);
         $stmt->bindParam(1, $this->cpf);
 
@@ -121,12 +118,17 @@ class Cliente {
         $stmt->bindParam(':endereco_id', $this->endereco_id);
         
         
-        if ($stmt->execute()) {
+        $rc = $stmt;
 
-            return true;
-        } else {
+        if (false === $rc) {
 
-            return false;
+            die('bind_param() failed: ' . htmlspecialchars($stmt->error));
+        }
+
+        $rc = $stmt->execute();
+
+        if (false === $rc) {
+            die('execute() failed: ' . print_r($stmt->errorInfo()));
         }
     }
     

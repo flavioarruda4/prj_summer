@@ -106,7 +106,7 @@ $(document).ready(function () {
 
 
 //Ajax do cadastro de cliente
-    $('#cadastro-cliente').submit(function () {
+    $('#cadastro-cliente-form').submit(function () {
         $("#load").html("<img src='/prj_summer/images/load.gif'>");
         $("#load").fadeIn(100, function () {
             window.setTimeout(function () {
@@ -160,12 +160,10 @@ $(document).ready(function () {
             data: update,
             success: function (data) {
                
-                
+              
 
              $('#update-cliente').hide();
                     $("#msgsucesso-cliente-update").fadeIn(300, function () {
-                        window.location.replace();
-
                         window.setTimeout(function () {
                             $('#msgsucesso-cliente-update').fadeOut();
 
@@ -307,10 +305,12 @@ $(document).ready(function () {
         autoclose: true
     });
 
+
     $('.os-filter').click(function () {
         $('li.os-filter').removeClass('active');
         $(this).addClass("active");
     });
+
 
 
 });

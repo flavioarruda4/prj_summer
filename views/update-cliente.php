@@ -12,7 +12,7 @@ $db = $database->getConnection();
 $cliente = new Cliente($db);
 $endereco = new Endereco($db);
 
-  $cliente->cpf = $cpf; 
+$cliente->cpf = $cpf; 
 
  $cliente->readOne();
 
@@ -33,7 +33,7 @@ $endereco = new Endereco($db);
                 <div class="form-group">
                     <label class="col-md-2 control-label" for="nome">Nome:</label>  
                     <div class="col-md-8">
-                        <input id="nome" name="nome" type="text" class="form-control input-md"  value='<?php echo htmlspecialchars($cliente->nome, ENT_QUOTES); ?>' required=/>
+                        <input id="nome" name="nome" type="text" class="form-control input-md"  value='<?php echo htmlspecialchars($cliente->nome, ENT_QUOTES); ?>' required="true"/>
 
                     </div>
                 </div>
@@ -41,7 +41,7 @@ $endereco = new Endereco($db);
                 <div class="form-group">
                     <label class="col-md-2 control-label" for="email">E-mail:</label>  
                     <div class="col-md-8">
-                        <input id="email" name="email" type="text" class="form-control input-md" value='<?php echo htmlspecialchars($cliente->email, ENT_QUOTES); ?>' required=/>
+                        <input id="email" name="email" type="text" class="form-control input-md" value='<?php echo htmlspecialchars($cliente->email, ENT_QUOTES); ?>' required="true"/>
 
                     </div>
                 </div>                   
@@ -49,13 +49,13 @@ $endereco = new Endereco($db);
                 <div class="form-group">
                     <label class="col-md-2 control-label" for="rg">RG:</label>  
                     <div class="col-md-3">
-                        <input id="rg" name="rg" type="text" class="form-control input-md" value='<?php echo htmlspecialchars($cliente->rg, ENT_QUOTES); ?>' required=/>
+                        <input id="rg" name="rg" type="text" class="form-control input-md" value='<?php echo htmlspecialchars($cliente->rg, ENT_QUOTES); ?>' required="true"/>
                     </div>
 
                     <label class="col-md-2 control-label" for="cpf">CPF:</label>  
                     <div class="col-md-3">
-                        <input id="cpf" name="cpf" type="text" class="form-control input-md" value='<?php echo htmlspecialchars($cliente->cpf, ENT_QUOTES); ?>' required=/>
-
+                        <input id="cpf-disabled" name="cpf-disabled" type="text" class="form-control input-md" value='<?php echo htmlspecialchars($cliente->cpf, ENT_QUOTES); ?>' disabled="true"/>
+                        <input id="cpf" name="cpf" type="text" class="form-control input-md hidden" value='<?php echo htmlspecialchars($cliente->cpf, ENT_QUOTES); ?>' />
                     </div>                    
                 </div>                  
 
@@ -81,9 +81,9 @@ $endereco = new Endereco($db);
                 <div class="form-group"><legend> Endereço </legend></div>
 
                 <div class="form-group">
-                    <label class="col-md-2 control-label" for="largadouro">Logradouro:</label>  
+                    <label class="col-md-2 control-label" for="logradouro">Logradouro:</label>  
                     <div class="col-md-8">
-                        <input id="largadouro" name="logradouro" type="text" class="form-control input-md" value='<?php echo htmlspecialchars($endereco->logradouro, ENT_QUOTES); ?>' required=/>
+                        <input id="logradouro" name="logradouro" type="text" class="form-control input-md" value='<?php echo htmlspecialchars($endereco->logradouro, ENT_QUOTES); ?>' required="true"/>
 
                     </div>
                 </div>  
@@ -91,13 +91,13 @@ $endereco = new Endereco($db);
                 <div class="form-group">
                     <label class="col-md-2 control-label" for="numero">Número:</label>  
                     <div class="col-md-3">
-                        <input id="numero" name="numero" type="text" class="form-control input-md" value='<?php echo htmlspecialchars($endereco->numero, ENT_QUOTES); ?>' required=/>
+                        <input id="numero" name="numero" type="text" class="form-control input-md" value='<?php echo htmlspecialchars($endereco->numero, ENT_QUOTES); ?>' required="true"/>
 
                     </div>
 
                     <label class="col-md-2 control-label" for="bairro">Bairro:</label>  
                     <div class="col-md-3">
-                        <input id="bairro" name="bairro" type="text" class="form-control input-md" value='<?php echo htmlspecialchars($endereco->bairro, ENT_QUOTES); ?>' required=/>
+                        <input id="bairro" name="bairro" type="text" class="form-control input-md" value='<?php echo htmlspecialchars($endereco->bairro, ENT_QUOTES); ?>' required="true"/>
 
                     </div>
 
@@ -107,13 +107,13 @@ $endereco = new Endereco($db);
 
                     <label class="col-md-2 control-label" for="cep">CEP:</label>  
                     <div class="col-md-2">
-                        <input id="cep" name="cep" type="text" class="form-control input-md" value='<?php echo htmlspecialchars($endereco->cep, ENT_QUOTES); ?>' required=/>
+                        <input id="cep" name="cep" type="text" class="form-control input-md" value='<?php echo htmlspecialchars($endereco->cep, ENT_QUOTES); ?>' required="true"/>
 
                     </div>
 
                     <label class="col-md-1 control-label" for="cidade">Cidade:</label>  
                     <div class="col-md-2">
-                        <input id="cidade" name="cidade" type="text" class="form-control input-md" value='<?php echo htmlspecialchars($endereco->cidade, ENT_QUOTES); ?>' required=/>
+                        <input id="cidade" name="cidade" type="text" class="form-control input-md" value='<?php echo htmlspecialchars($endereco->cidade, ENT_QUOTES); ?>' required="true"/>
 
                     </div>
 
@@ -121,8 +121,8 @@ $endereco = new Endereco($db);
                     <div class="col-md-2">
                      <?php $selected = htmlspecialchars($endereco->uf, ENT_QUOTES); ?>
                         <select id="uf" name="uf" class="form-control" >
-                            <option value="DF">DF</option>
-                            <option value="GO">GO</option>                            
+                            <option value="DF" <?= ($selected == 'DF') ? 'selected' : '' ?>>DF</option>
+                            <option value="GO" <?= ($selected == 'GO') ? 'selected' : '' ?>>GO</option>                            
                         </select>
                     </div>
 
@@ -133,21 +133,10 @@ $endereco = new Endereco($db);
              <tr>
               <td>
 
-                <input type='hidden' name='endereco_id' value='<?php echo $cliente->endereco_id?>' /> 
+                <input type='hidden' name='endereco_id' value='<?php echo $cliente->endereco_id; ?>' /> 
 
             </td>
-            <td>
-
-                 <input type='hidden' name='id' value='<?php echo $endereco->id?>' /> 
-
-            </td>
-             <td>
-
-                 <input type='hidden' name='dataCadastro' value='<?php echo $cliente->dataCadastro?>' /> 
-
-            </td>
-
-
+            
                 <td>
                     <button type='submit' id="cliente-editado" class='btn btn-primary'>
                          <span class='glyphicon glyphicon-edit'></span> Salvar Alterações

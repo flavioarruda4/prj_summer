@@ -34,7 +34,7 @@ include_once "../views/menu.php";
         <div id="load" class="col-sm-offset-5"></div>
         
         <!-- Inicio do formulário -->
-        <form id="cadastro-cliente" class="form-horizontal" method="POST" action="" autocomplete="off">
+        <form id="cadastro-cliente-form" class="form-horizontal" method="POST" action="" autocomplete="off">
 
             <fieldset>
                 <div class="form-group"><legend> Dados Pessoais </legend></div>
@@ -82,14 +82,6 @@ include_once "../views/menu.php";
 
                     </div>
                 </div>   
-
-                <div class="form-group">
-                    <label class="col-md-2 control-label" for="dataCadastro">Data do Cadastro:</label>  
-                    <div class="col-md-2">
-                        <input id="dataCadastro" class="dateTxt" name="dataCadastro" type="text"  class="form-control input-md" required="true">
-
-                    </div>
-                </div>              
 
             </fieldset>
             <hr/>
