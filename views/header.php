@@ -53,7 +53,6 @@
                // $("#dataPrevEntrega").mask("99/99/9999",{completed:function(){alert("completed!");}});
                
                 $("#dataVencLentes").mask("99/99/9999",{completed:function(){alert("completed!");}});
-                $("#cpf").mask("999.999.999-99");
                 $("#clienteOs").mask("999.999.999-99");
                 $("input").blur(function() {
                     $("#info").html("Unmasked value: " + $(this).mask());
