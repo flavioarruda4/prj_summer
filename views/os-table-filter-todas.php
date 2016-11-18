@@ -41,7 +41,10 @@ if ($numeroOs > 0) {
         echo "<td>{$os_idos}</td>";
         echo "<td>{$nome}</td>";
         echo "<td>{$telCelular}</td>";
-        echo "<td>{$dataStatusAndamentoOs}</td>";
+        
+        //parse pra exibicao da data
+        $newDate = date("d/m/Y H:i", strtotime($dataStatusAndamentoOs));
+        echo "<td class='dateField'>{$newDate}</td>";
 
 
         echo "<td>";
