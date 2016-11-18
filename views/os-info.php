@@ -17,7 +17,6 @@ $db = $database->getConnection();
 $os = new Os($db);
 $os->id = $idOs;
 $os->readOne();
-
 ?>
 
 <div class="container-fluid">
@@ -355,8 +354,8 @@ $os->readOne();
                 <div class="form-group">
                     <label class="col-md-4 control-label" for="pagamento">Forma de Pagamento</label>
                     <div class="col-md-8">
-                        <?php $formapgmt = htmlspecialchars($os->formaPg, ENT_QUOTES);?>
-                        
+                        <?php $formapgmt = htmlspecialchars($os->formaPg, ENT_QUOTES); ?>
+
                         <label class="radio-horizontal" for="pagamento-0">
                             <input name="pagamento" value="1" <?= ($formapgmt == '1') ? 'checked' : '' ?> type="radio" disabled="true">
                             Dinheiro
@@ -378,7 +377,20 @@ $os->readOne();
                     </div>
                 </div>                
             </div>
-
+            <div class="col-md-6">
+                <!-- Campo Numero de parcelas a pagar da OS ()-->
+                <div class="form-group">
+                    <label class="col-md-4 control-label" for="nParcelas">Número de Parcelas:</label> 
+                    <div class="col-md-8">
+                        <select class="form-control" id="nParcelas" name="nParcelas">
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                        </select>
+                    </div>
+                </div>                 
+            </div> 
         </fieldset>
         <!-- Fim linhas : formaPg,dataPg,nParcelas  --> 
 
