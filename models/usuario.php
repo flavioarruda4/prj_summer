@@ -1,51 +1,49 @@
 <?php
+
 //classse login
 class Usuario {
+
     private $conn;
     private $table_name = "usuarios";
- 
-  
     public $idUsuarios;
     public $nome;
     public $login;
     public $senha;
     public $perfil;
     public $statusAtividade;
- 
-    public function __construct($db){
+
+    public function __construct($db) {
         $this->conn = $db;
     }
-    
+
     //cria um login
-    function create(){
- 
+    function create() {
+
         $query = "INSERT INTO
                     " . $this->table_name . "
                 SET
-                    nome = ?, login = ?, senha = ?, perfil = ?";
-        
-    
- 
+                    nome = ?, login = ?, senha = ?, perfil = ?, statusAtividade = ?";
+
+
+
         $stmt = $this->conn->prepare($query);
- 
+
         $stmt->bindParam(1, $this->nome);
         $stmt->bindParam(2, $this->login);
         $stmt->bindParam(3, $this->senha);
         $stmt->bindParam(4, $this->perfil);
-    
-        
-        if($stmt->execute()){
+        $stmt->bindParam(5, $this->statusAtividade);
+
+        if ($stmt->execute()) {
 
             return true;
-        }else{
+        } else {
 
             return false;
-        }       
-        
-        
+        }
     }
-    
-     //faz um update no usuario caso ele seja editado
+
+    //faz um update no usuario caso ele seja editado
     function update() {
         $query = "UPDATE 
                 usuarios
@@ -57,16 +55,16 @@ class Usuario {
                 
             WHERE
                 idUsuarios = :idUsuarios";
-        
+
         $stmt = $this->conn->prepare($query);
-        
+
         $stmt->bindParam(':idUsuarios', $this->idUsuarios);
         $stmt->bindParam(':nome', $this->nome);
         $stmt->bindParam(':login', $this->login);
         $stmt->bindParam(':senha', $this->senha);
         $stmt->bindParam(':perfil', $this->perfil);
-        
-        
+
+
         if ($stmt->execute()) {
 
             return true;
@@ -75,8 +73,37 @@ class Usuario {
             return false;
         }
     }
-    
-     //lê um usuario para ser editado
+
+    //faz um update no usuario caso ele seja editado
+    function changeStatus() {
+        $query = "UPDATE 
+                usuarios
+            SET 
+                statusAtividade = :statusAtividade
+                
+            WHERE
+                idUsuarios = :idUsuarios";
+
+        $stmt = $this->conn->prepare($query);
+
+        $stmt->bindParam(':idUsuarios', $this->idUsuarios);
+        $stmt->bindParam(':statusAtividade', $this->statusAtividade);
+
+        $rc = $stmt;
+
+        if (false === $rc) {
+
+            die('bind_param() failed: ' . htmlspecialchars($stmt->error));
+        }
+
+        $rc = $stmt->execute();
+
+        if (false === $rc) {
+            die('execute() failed: ' . print_r($stmt->errorInfo()));
+        }
+    }
+
+    //lê um usuario para ser editado
     function readOne() {
         $query = "SELECT
                  idUsuarios,nome,login,senha,perfil
@@ -85,26 +112,25 @@ class Usuario {
                 idUsuarios = ?
             LIMIT
                 0,1";
-        
+
         $stmt = $this->conn->prepare($query);
         $stmt->bindParam(1, $this->idUsuarios);
         $stmt->execute();
-        
+
         $row = $stmt->fetch(PDO::FETCH_ASSOC);
-        
+
         $this->idUsuarios = $row['idUsuarios'];
         $this->nome = $row['nome'];
         $this->senha = $row['senha'];
         $this->login = $row['login'];
         $this->perfil = $row['perfil'];
     }
-    
-    
+
     //verifica se o usuario existe na tabela login
-    
-    function logando(){
-     
- 
+
+    function logando() {
+
+
         $query = "SELECT *
 
                     FROM  " . $this->table_name . "
@@ -114,7 +140,7 @@ class Usuario {
                 LIMIT
                     1";
 
-        $stmt = $this->conn->prepare( $query );
+        $stmt = $this->conn->prepare($query);
 
         $stmt->bindParam(1, $this->login);
         $stmt->bindParam(2, $this->senha);
@@ -123,12 +149,12 @@ class Usuario {
 
         return $stmt;
     }
-    
+
     //recupera o nivel de acesso do usuario
-    
-    function recuperaPerfil(){
-     
- 
+
+    function recuperaPerfil() {
+
+
         $query = "SELECT *
 
                     FROM  " . $this->table_name . "
@@ -138,7 +164,7 @@ class Usuario {
                 LIMIT
                     1";
 
-        $stmt = $this->conn->prepare( $query );
+        $stmt = $this->conn->prepare($query);
 
         $stmt->bindParam(1, $this->login);
         $stmt->bindParam(2, $this->senha);
@@ -147,15 +173,15 @@ class Usuario {
 
         return $stmt->fetch();
     }
-    
-     //lê todos os usuarios
+
+    //lê todos os usuarios
     function readAll() {
-        $query = "SELECT idUsuarios,nome, login,perfil "
+        $query = "SELECT idUsuarios,nome, login,perfil,statusAtividade "
                 . "FROM " . $this->table_name . "
                 ORDER BY nome";
         $stmt = $this->conn->prepare($query);
         $stmt->execute();
         return $stmt;
     }
-    
+
 }

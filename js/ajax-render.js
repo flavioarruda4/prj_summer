@@ -105,6 +105,55 @@ $(document).ready(function () {
     });
 
 
+    //Ajax desabilitar o usuario
+
+    $(document).on('click', '.desabilitar-usuario', function () {
+        var idUsuarios = $(this).closest('td').find('.idUsuarios').text();
+        
+        $(this).addClass('hidden');
+        $(this).closest('td').find('.edit-user').addClass('hidden');
+        $(this).closest('td').find('.habilitar-usuario').removeClass('hidden');
+        
+        $.ajax({
+            url: '/prj_summer/controllers/desabilita-usuario.php', //This is the current doc
+            type: "POST",
+            data: ({idUsuarios: idUsuarios}),
+            success: function (data) {
+                $("#msgsucesso-usuario-status").fadeIn(1500, function () {
+                    $("#msgsucesso-usuario-status").focus();
+                    window.setTimeout(function () {
+                        $('#msgsucesso-usuario-status').fadeOut();
+                    }, 2500);
+                });
+            }
+        });
+
+    });
+
+    //Ajax habilitar o usuario
+    $(document).on('click', '.habilitar-usuario', function () {
+        var idUsuarios = $(this).closest('td').find('.idUsuarios').text();
+        
+        $(this).addClass('hidden');
+        $(this).closest('td').find('.edit-user').removeClass('hidden');
+        $(this).closest('td').find('.desabilitar-usuario').removeClass('hidden');
+        
+        $.ajax({
+            url: '/prj_summer/controllers/habilita-usuario.php', //This is the current doc
+            type: "POST",
+            data: ({idUsuarios: idUsuarios}),
+            success: function (data) {
+                $("#msgsucesso-usuario-status").fadeIn(1500, function () {
+                    $("#msgsucesso-usuario-status").focus();
+                    window.setTimeout(function () {
+                        $('#msgsucesso-usuario-status').fadeOut();
+                    }, 2500);
+                });
+            }
+        });
+
+    });
+
 //Ajax do cadastro de cliente
     $('#cadastro-cliente-form').submit(function () {
         $("#load").html("<img src='/prj_summer/images/load.gif'>");
@@ -134,7 +183,7 @@ $(document).ready(function () {
 
     });
 
-  
+
     //Ajax renderiza a pagina que edita cliente
 
     $(document).on('click', '.edit-cliente', function () {
@@ -150,25 +199,25 @@ $(document).ready(function () {
 
 
 
-     //ajax update do cliente
-  $(document).on('submit', '#update-cliente', function () {
+    //ajax update do cliente
+    $(document).on('submit', '#update-cliente', function () {
         var update = jQuery(this).serialize();
-      
+
         $.ajax({
             type: "POST",
             url: "/prj_summer/controllers/cliente-update.php",
             data: update,
             success: function (data) {
-               
-              
 
-             $('#update-cliente').hide();
-                    $("#msgsucesso-cliente-update").fadeIn(300, function () {
-                        window.setTimeout(function () {
-                            $('#msgsucesso-cliente-update').fadeOut();
 
-                        }, 3999);
-                    });
+
+                $('#update-cliente').hide();
+                $("#msgsucesso-cliente-update").fadeIn(300, function () {
+                    window.setTimeout(function () {
+                        $('#msgsucesso-cliente-update').fadeOut();
+
+                    }, 3999);
+                });
             }
         });
         return false;

@@ -14,7 +14,7 @@ $usuario->nome = strip_tags($_POST["nome"]);
 $usuario->login = strip_tags($_POST["login"]);
 $usuario->senha = md5(strip_tags($_POST["senha"]));
 $usuario->perfil = strip_tags($_POST["perfil"]);
-
+$usuario->statusAtividade = 1;
 
 $usuario->create();
 

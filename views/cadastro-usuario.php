@@ -118,6 +118,11 @@ if ($num > 0) {
             Usuário Alterado com sucesso!
         </div>
         
+        <div id="msgsucesso-usuario-status"  style="display: none;" class="alert alert-success alert-dismissable">
+            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+            Status do usuario alterado!
+        </div>
+        
         <table id="cadastro-user-table" class="os-user-table table display table-hover" width="100%" cellspacing="0">
             <thead>
                 <tr>
@@ -145,19 +150,35 @@ if ($num > 0) {
             echo "<td>Gerente</td>";
         }
         echo "<td>";
-        echo "<div id='idUsuarios' class='idUsuarios display-none' style='display: none;'>{$idUsuarios}</div>";
-
-        echo "<div class='btn btn-info edit-btn edit-user margin-right-2em'>";
+        
+        $hiddenDisable = '';
+        $hiddenEnable= '';
+        
+        if($statusAtividade != 1){
+            $hiddenDisable = 'hidden';
+        }else{
+             $hiddenEnable= 'hidden';
+        }
+        
+        echo "<div  class='idUsuarios display-none' style='display: none;'>{$idUsuarios}</div>";
+        
+        
+        echo "<div class='$hiddenDisable btn btn-info edit-btn edit-user margin-right-2em'>";
         echo "<span class='glyphicon glyphicon-edit'></span> Editar";
         echo "</div>";
-
-
-        echo "<div class='btn btn-warning warning-btn'>";
-
+        
         //implementar o desabilitar! 0 = desabilitado e 1 = habilitado (variavel statusAtividade)
+        echo "<div class='$hiddenDisable desabilitar-usuario btn btn-warning warning-btn col-md-offset-1'>";
         echo "<span class='glyphicon glyphicon-delete'></span> Desabilitar";
-
+        echo "</div>";
+        
+        //implementar o desabilitar! 0 = desabilitado e 1 = habilitado (variavel statusAtividade)
+        echo "<div class='$hiddenEnable habilitar-usuario btn btn-success success-btn'>";
+        echo "<span class='glyphicon glyphicon-plus'></span> Habilitar";
+        echo "</div>";
         echo "</td>";
+        
+       
 
         echo "</tr>";
     }
