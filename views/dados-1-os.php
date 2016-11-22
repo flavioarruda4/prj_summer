@@ -9,7 +9,7 @@
     <div class="form-group">
         <label class="col-md-2 control-label" for="clienteOs">Cliente (CPF):</label> 
         <div class="col-md-7">
-            <input id="clienteOs" name="clientes_cpf" type="text" placeholder="Informe o CPF do cliente já cadastrado" class="form-control input-md" required="true" />
+            <input class="cpf_cnpj" id="clienteOs" name="clientes_cpf" type="text" placeholder="Informe o CPF do cliente já cadastrado" class="form-control input-md" required="true" />
 
         </div>
         <div class="col-md-2">

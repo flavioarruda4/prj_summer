@@ -27,33 +27,14 @@
         
         <link rel="stylesheet" href="/prj_summer/css/bootstrap-datepicker.min.css">
 
-        <!-- Slider -->
-       
-        <script>
-            $( "#slider" ).slider({
-                  range: true,
-                  min: -10,
-                  max: 10,
-                  values: [ 2, 4 ],
-                  slide: function( event, ui ) {
-                    $( ".longEsfOd" ).val( "" + ui.values[ 0 ] + " - " + ui.values[ 1 ] );
-                  }
-                });
-                $( ".longEsfOd" ).val( "" + $( "#slider" ).slider( "values", 0 ) +
-                  " - " + $( "#slider" ).slider( "values", 1 ) );
-        </script>        
-
         <!-- Validacao Campos maskedinput
         <script src="/prj_summer/js/jquery-1.8.3.min.js" type="text/javascript"></script> -->
         <script src="/prj_summer/js/jquery.maskedinput.min.js" type="text/javascript"></script>         
         <script type="text/javascript">
             $(function() {
                 $.mask.definitions['~'] = "[+-]";
-               // $("#dataEmissao").mask("99/99/9999",{completed:function(){alert("completed!");}});
-               // $("#dataPrevEntrega").mask("99/99/9999",{completed:function(){alert("completed!");}});
-               
+                $("#telFixo").mask("(99) 9999-9999");
                 $("#dataVencLentes").mask("99/99/9999",{completed:function(){alert("completed!");}});
-                $("#clienteOs").mask("999.999.999-99");
                 $("input").blur(function() {
                     $("#info").html("Unmasked value: " + $(this).mask());
                 }).dblclick(function() {
@@ -62,6 +43,25 @@
             });
         	
         </script>  
+
+        <!-- Validacao Campos CPF / CNPJ -->
+        <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+        <!-- Funções para validação de CPF e CNPJ -->
+        <script src="/prj_summer/js/valida_cpf_cnpj.js"></script>        
+        <script type="text/javascript">
+            $(function(){
+                $('.cpf_cnpj').blur(function(){
+                    // O CPF ou CNPJ
+                    var cpf_cnpj = $(this).val();
+                    // Testa a validação e formata se estiver OK
+                    if ( formata_cpf_cnpj( cpf_cnpj ) ) {
+                        $(this).val( formata_cpf_cnpj( cpf_cnpj ) );
+                    } else {
+                        alert('CPF ou CNPJ inválido!');
+                    }
+                });
+            });
+        </script>
         
        <!-- Validacao de valore jquery.maskMoney   -->
        <!-- em conflito com demais jQuery -->

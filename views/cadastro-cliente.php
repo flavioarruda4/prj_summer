@@ -61,7 +61,7 @@ include_once "../views/menu.php";
 
                             <label class="col-md-2 control-label" for="cpf">CPF:</label>  
                             <div class="col-md-3">
-                                <input id="cpf" name="cpf" type="text" placeholder="Digite o CPF" class="form-control input-md" required="true" maxlength="45">
+                                <input class="cpf_cnpj" id="cpf" name="cpf" type="text" placeholder="Digite o CPF" class="form-control input-md" required="true" maxlength="45">
 
                             </div>                    
                         </div>                  
