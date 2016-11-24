@@ -1,5 +1,5 @@
 <?php
-
+include_once '../config/deny.php';
 include_once '../config/database.php';
 
 $database = new Database();

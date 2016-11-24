@@ -1,4 +1,5 @@
 <?php
+include_once '../config/deny.php';
 include_once '../config/database.php';
 include_once '../models/os.php';
 include_once '../models/controleos.php';

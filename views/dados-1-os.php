@@ -1,3 +1,7 @@
+<?php
+include_once "../config/deny.php";
+?>
+
 <!-- Conteudo que envolve as tab e suas respectivas informacoes-->
 
 <!-- linhas : idOs, dataEmissao, dataPrevEntrega  -->
@@ -9,7 +13,7 @@
     <div class="form-group">
         <label class="col-md-2 control-label" for="clienteOs">Cliente (CPF):</label> 
         <div class="col-md-7">
-            <input class="cpf_cnpj" id="clienteOs" name="clientes_cpf" type="text" placeholder="Informe o CPF do cliente já cadastrado" class="form-control input-md" required="true" />
+            <input id="cpf_cnpj" name="clientes_cpf" type="text" placeholder="Informe o CPF do cliente já cadastrado" class="form-control input-md" required="true" />
 
         </div>
         <div class="col-md-2">
@@ -61,7 +65,7 @@
                         <div class="col-md-11">
                             <input id="longEsfOd" name="longEsfOd" type="number" min="-10" max="10" step="0.25" placeholder="Long Esf OD" class="form-control input-md" />
                         </div>
-                        <div class="slider">componente</div>
+
                     </div>          
                 </td>
                 <td>

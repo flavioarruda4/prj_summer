@@ -21,6 +21,12 @@ include_once "views/header.php";
         Usuário ou senha inválidos!
     </div>
     
+     <div id="msgerrostatus"  style="display: none;" class="alert alert-danger alert-dismissable">
+        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+        Usuário desabilitado! Faça login com um perfil de administrador a habilite o usuário!
+    </div>
+    
+    
     <legend class="col-sm-offset-5">Acesso</legend>
     <form id="form-login" class="form-horizontal" method="POST" action="" autocomplete="off">
         <div class="form-group">

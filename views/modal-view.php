@@ -1,4 +1,6 @@
-
+<?php
+include_once "../config/deny.php";
+?>
 
 <!-- Modal Cadastro de OS - Incluir formujlário de cadastro da OS -->
 <div class="modal fade  bs-os-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
@@ -9,7 +11,7 @@
                 <h4 class="modal-title" id="myModalLabel">Cadastrar Ordem de Serviço</h4>
             </div>
             <div class="modal-body">
-                <?php include_once 'cadastro-os.php' ?>
+<?php include_once 'cadastro-os.php' ?>
             </div>
         </div>
     </div>
@@ -26,8 +28,8 @@
             </div>
             <div id="load-os-status" class="col-sm-offset-5"></div>
             <div id="page-edita-status-os" class="modal-body">
-    
-                
+
+
             </div>
 
         </div>
@@ -45,7 +47,7 @@
                 <h4 class="modal-title" id="myModalLabel">Informações Ordem de Serviço</h4>
             </div>
             <div id="os-info-body" class="modal-body">
-                
+
             </div>
 
         </div>
@@ -63,7 +65,7 @@
                 <h4 class="modal-title" id="myModalLabel">Cadastro de Usuarios</h4>
             </div>
             <div class="modal-body">
-                <?php include_once 'cadastro-usuario.php' ?>
+<?php include_once 'cadastro-usuario.php' ?>
             </div>
 
         </div>

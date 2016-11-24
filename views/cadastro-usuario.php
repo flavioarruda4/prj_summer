@@ -1,8 +1,13 @@
 <?php
+
+include_once "../config/deny.php";
 //evitar o acesso do perfil 1 ao cadastro de acordo com o caso de uso
 if (($_SESSION["perfil"] != 3) && ($_SESSION["perfil"] != 2)) {
     header('location:../index.php');
 }
+
+
+
 ?>
 <ul class="nav nav-tabs">
     <li class="active"><a data-toggle="tab" href="#cadastro">Cadastro</a></li>
@@ -120,7 +125,7 @@ if ($num > 0) {
         
         <div id="msgsucesso-usuario-status"  style="display: none;" class="alert alert-success alert-dismissable">
             <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-            
+            Status alterado com sucesso!
         </div>
         
         <table id="cadastro-user-table" class="os-user-table table display table-hover" width="100%" cellspacing="0">

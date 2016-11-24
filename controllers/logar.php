@@ -20,17 +20,21 @@ $stmt = $usuario->logando();
 $row = $stmt->fetch(PDO::FETCH_ASSOC);
 
 $num = $stmt->rowCount();
+$statusAtividade = $row["statusAtividade"];
 
-if($num > 0)
-{   
-    echo 1;
-    $_SESSION['idUsuarios'] = $row["idUsuarios"];
-    $_SESSION['login'] = $row["login"];
-    $_SESSION['senha'] = $row["senha"];
-    $_SESSION['perfil'] = $row["perfil"];
-    
+if($statusAtividade == 1){
+    if($num > 0){   
+        echo 1;
+        $_SESSION['idUsuarios'] = $row["idUsuarios"];
+        $_SESSION['login'] = $row["login"];
+        $_SESSION['senha'] = $row["senha"];
+        $_SESSION['perfil'] = $row["perfil"];
+
+    }else{
+        echo 0;      
+    }
+}else{
+    echo 2;
 }
-else{
-    echo 0;      
-}
+
 ?>

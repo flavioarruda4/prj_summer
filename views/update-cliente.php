@@ -1,4 +1,5 @@
  <?php
+include_once '../config/deny.php';
 include_once '../config/database.php';
 include_once '../models/cliente.php';
 include_once '../models/endereco.php';

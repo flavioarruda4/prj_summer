@@ -1,3 +1,7 @@
+<?php
+include_once "../config/deny.php";
+?>
+
 <!-- animação de load -->
 
 <div id="load-os" class="col-sm-offset-5"></div>

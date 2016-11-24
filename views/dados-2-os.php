@@ -1,3 +1,7 @@
+<?php
+include_once "../config/deny.php";
+?>
+
 <!-- tab 'Parte 2' -->
 
 <!-- Inicio linhas : adicao, adicao, dataVencLentes  -->

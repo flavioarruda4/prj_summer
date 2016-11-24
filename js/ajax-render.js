@@ -11,10 +11,16 @@ $(document).ready(function () {
                 if (result == 1) {
 
                     location.href = '/prj_summer/views/home.php';
-                } else {
+                } else if (result == 0)  {
                     $("#msgerro").fadeIn(1500, function () {
                         window.setTimeout(function () {
                             $('#msgerro').fadeOut();
+                        }, 10000);
+                    });
+                } else if (result == 2) {
+                    $("#msgerrostatus").fadeIn(1500, function () {
+                        window.setTimeout(function () {
+                            $('#msgerrostatus').fadeOut();
                         }, 10000);
                     });
                 }

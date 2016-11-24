@@ -33,7 +33,7 @@ $perfil = $_SESSION['perfil'];
                         <?php
                         if ($perfil == 3) {
 
-                            echo '<li role="presentation"><a tabindex="-1" data-toggle="modal" data-target=".bs-user-modal-lg" href=""> <i aria-hidden="true" class="glyphicon glyphicon-plus-sign"></i> Cadastrar Usuário  </a></li>';
+                            echo '<li role="presentation"><a tabindex="-1" data-toggle="modal" data-target=".bs-user-modal-lg" href=""> <i aria-hidden="true" class="glyphicon glyphicon-plus-sign"></i> Gerenciamento de usuários  </a></li>';
                         }
                         ?>
 
