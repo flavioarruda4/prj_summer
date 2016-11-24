@@ -121,13 +121,13 @@ $(document).ready(function () {
             type: "POST",
             data: ({idUsuarios: idUsuarios}),
             success: function (result) {
-            
+
                 if (result == 1) {
                     $("#msgsucesso-usuario-status").fadeIn(1500, function () {
                         $this.addClass('hidden');
                         $this.closest('td').find('.edit-user').addClass('hidden');
                         $this.closest('td').find('.habilitar-usuario').removeClass('hidden');
-                        
+
                         window.setTimeout(function () {
                             $('#msgsucesso-usuario-status').fadeOut();
                         }, 2500);
@@ -223,9 +223,6 @@ $(document).ready(function () {
             url: "/prj_summer/controllers/cliente-update.php",
             data: update,
             success: function (data) {
-
-
-
                 $('#update-cliente').hide();
                 $("#msgsucesso-cliente-update").fadeIn(300, function () {
                     window.setTimeout(function () {
@@ -245,32 +242,41 @@ $(document).ready(function () {
         $.ajax({
             type: "POST",
             url: "/prj_summer/controllers/osDAO.php",
-            data: dados,
-            success: function (data) {
-                $("#load-os").html("<img src='/prj_summer/images/load.gif'>");
-                $("#load-os").focus();
-                $(".bs-os-modal-lg").animate({scrollTop: 0}, "slow");
-                $("#load-os").fadeIn(100, function () {
-                    window.setTimeout(function () {
-                        $('#close-os-modal').click();
-                        $('#load-os').fadeOut();
-                    }, 1400);
-                });
+            data: dados,      
+            success: function (result) {
+                if (result == 3) {
+                    $("#msgerro-os").fadeIn(2000, function () {
+                        $(".bs-os-modal-lg").animate({scrollTop: 0}, "slow");
+                        window.setTimeout(function () {
+                            $('#msgerro-os').fadeOut();
+                        }, 2500);
+                    });
+                } else {
+                    $("#load-os").html("<img src='/prj_summer/images/load.gif'>");
+                    $("#load-os").focus();
+                    $(".bs-os-modal-lg").animate({scrollTop: 0}, "slow");
+                    $("#load-os").fadeIn(100, function () {
+                        window.setTimeout(function () {
+                            $('#close-os-modal').click();
+                            $('#load-os').fadeOut();
+                        }, 1400);
+                    });
 
+                    $("#msgsucesso-os").fadeIn(2000, function () {
+                        $("#msgsucesso-os").focus();
+                        window.setTimeout(function () {
+                            $('#msgsucesso-os').fadeOut();
+                        }, 2500);
+                    });
 
-                $("#msgsucesso-os").fadeIn(2000, function () {
-                    $("#msgsucesso-os").focus();
-                    window.setTimeout(function () {
-                        $('#msgsucesso-os').fadeOut();
-                    }, 2500);
-                });
+                    setTimeout(function () {
+                        location.reload();
+                        $('#cadastro-os').trigger("reset");
+                    }, 3000);
 
-                setTimeout(function () {
-                    location.reload();
-                    $('#cadastro-os').trigger("reset");
-                }, 3000);
-
+                }
             }
+
         });
 
         return false;

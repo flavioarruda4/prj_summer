@@ -130,6 +130,29 @@ class Cliente {
         if (false === $rc) {
             die('execute() failed: ' . print_r($stmt->errorInfo()));
         }
+    } 
+    
+    function validaCpf() {
+
+        $query ="SELECT * from clientes WHERE cpf = ? LIMIT
+                0,1";
+        
+
+        $stmt = $this->conn->prepare($query);
+        $stmt->bindParam(1, $this->cpf);
+
+        $rc = $stmt->execute();
+
+        if (false === $rc) {
+            die('execute() failed: ' . print_r($stmt->errorInfo()));
+        }
+        
+       if($stmt->rowCount() > 0){
+           return true;
+       }else{
+           return false;
+       }
+        
     }
     
 }

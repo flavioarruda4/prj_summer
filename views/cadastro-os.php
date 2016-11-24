@@ -5,6 +5,12 @@ include_once "../config/deny.php";
 <!-- animação de load -->
 
 <div id="load-os" class="col-sm-offset-5"></div>
+
+ <div id="msgerro-os"  style="display: none;" class="alert alert-danger alert-dismissable">
+        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+        CPF não cadastrado! Cadastre o cliente antes de prosseguir!
+    </div>
+    
 <div class="container-fluid">
     <form id="cadastro-os" class="form-horizontal" method="" action="" autocomplete="off" >
 

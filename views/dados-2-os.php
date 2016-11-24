@@ -92,8 +92,8 @@ include_once "../config/deny.php";
         <div class="form-group">
             <label class="col-md-4 control-label" for="pagamento">Forma de Pagamento</label>
             <div class="col-md-8">
-                <label class="radio-horizontal" for="pagamento-0">
-                    <input name="pagamento" value="1" type="radio">
+                <label class="radio-horizontal" for="pagamento-0" >
+                    <input name="pagamento" value="1" type="radio" required="true">
                     Dinheiro
                 </label>
                 <label class="radio-horizontal" for="pagamento-1">
