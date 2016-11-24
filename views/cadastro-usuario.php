@@ -120,7 +120,7 @@ if ($num > 0) {
         
         <div id="msgsucesso-usuario-status"  style="display: none;" class="alert alert-success alert-dismissable">
             <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-            Status do usuario alterado!
+            
         </div>
         
         <table id="cadastro-user-table" class="os-user-table table display table-hover" width="100%" cellspacing="0">
