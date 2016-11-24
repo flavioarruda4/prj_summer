@@ -1,13 +1,9 @@
 <?php
-
 include_once "../config/deny.php";
 //evitar o acesso do perfil 1 ao cadastro de acordo com o caso de uso
 if (($_SESSION["perfil"] != 3) && ($_SESSION["perfil"] != 2)) {
     header('location:../index.php');
 }
-
-
-
 ?>
 <ul class="nav nav-tabs">
     <li class="active"><a data-toggle="tab" href="#cadastro">Cadastro</a></li>
@@ -101,22 +97,22 @@ if (($_SESSION["perfil"] != 3) && ($_SESSION["perfil"] != 2)) {
         </form>
     </div>
 
-<?php
-include_once '../config/database.php';
-include_once '../models/usuario.php';
-$database = new Database();
-$db = $database->getConnection();
+    <?php
+    include_once '../config/database.php';
+    include_once '../models/usuario.php';
+    $database = new Database();
+    $db = $database->getConnection();
 
-$usuario = new Usuario($db);
+    $usuario = new Usuario($db);
 
-$stmt = $usuario->readAll();
+    $stmt = $usuario->readAll();
 
-$num = $stmt->rowCount();
-echo '<div id="tabUsuario" class="tab-pane fade">';
-if ($num > 0) {
+    $num = $stmt->rowCount();
+    echo '<div id="tabUsuario" class="tab-pane fade">';
+    if ($num > 0) {
 
 
-    echo '<h3>Usuários Cadastrados</h3>
+        echo '<h3>Usuários Cadastrados</h3>
           
         <div id="msgsucesso-user-update"  style="display: none;" class="alert alert-success alert-dismissable">
             <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
@@ -126,6 +122,11 @@ if ($num > 0) {
         <div id="msgsucesso-usuario-status"  style="display: none;" class="alert alert-success alert-dismissable">
             <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
             Status alterado com sucesso!
+        </div>
+        
+         <div id="msgerror-usuario-status"  style="display: none;" class="alert alert-danger alert-dismissable">
+            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+            Você não pode se auto desabilitar!
         </div>
         
         <table id="cadastro-user-table" class="os-user-table table display table-hover" width="100%" cellspacing="0">
@@ -139,63 +140,63 @@ if ($num > 0) {
             </thead>
             <tbody>';
 
-    while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+        while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
 
 
-        extract($row);
+            extract($row);
 
-        echo "<tr>";
-        echo "<td>{$nome}</td>";
-        echo "<td>{$login}</td>";
-        if ($perfil == "1") {
-            echo "<td>Montador</td>";
-        } else if ($perfil == 2) {
-            echo "<td>Atendente</td>";
-        } else if ($perfil == 3) {
-            echo "<td>Gerente</td>";
+            echo "<tr>";
+            echo "<td>{$nome}</td>";
+            echo "<td>{$login}</td>";
+            if ($perfil == "1") {
+                echo "<td>Montador</td>";
+            } else if ($perfil == 2) {
+                echo "<td>Atendente</td>";
+            } else if ($perfil == 3) {
+                echo "<td>Gerente</td>";
+            }
+            echo "<td>";
+
+            $hiddenDisable = '';
+            $hiddenEnable = '';
+
+            if ($statusAtividade != 1) {
+                $hiddenDisable = 'hidden';
+            } else {
+                $hiddenEnable = 'hidden';
+            }
+
+            echo "<div  class='idUsuarios display-none' style='display: none;'>{$idUsuarios}</div>";
+
+
+            echo "<div class='$hiddenDisable btn btn-info edit-btn edit-user margin-right-2em'>";
+            echo "<span class='glyphicon glyphicon-edit'></span> Editar";
+            echo "</div>";
+
+            //implementar o desabilitar! 0 = desabilitado e 1 = habilitado (variavel statusAtividade)
+            echo "<div class='$hiddenDisable desabilitar-usuario btn btn-warning warning-btn col-md-offset-1'>";
+            echo "<span class='glyphicon glyphicon-delete'></span> Desabilitar";
+            echo "</div>";
+
+            //implementar o desabilitar! 0 = desabilitado e 1 = habilitado (variavel statusAtividade)
+            echo "<div class='$hiddenEnable habilitar-usuario btn btn-success success-btn'>";
+            echo "<span class='glyphicon glyphicon-plus'></span> Habilitar";
+            echo "</div>";
+            echo "</td>";
+
+
+
+            echo "</tr>";
         }
-        echo "<td>";
-        
-        $hiddenDisable = '';
-        $hiddenEnable= '';
-        
-        if($statusAtividade != 1){
-            $hiddenDisable = 'hidden';
-        }else{
-             $hiddenEnable= 'hidden';
-        }
-        
-        echo "<div  class='idUsuarios display-none' style='display: none;'>{$idUsuarios}</div>";
-        
-        
-        echo "<div class='$hiddenDisable btn btn-info edit-btn edit-user margin-right-2em'>";
-        echo "<span class='glyphicon glyphicon-edit'></span> Editar";
-        echo "</div>";
-        
-        //implementar o desabilitar! 0 = desabilitado e 1 = habilitado (variavel statusAtividade)
-        echo "<div class='$hiddenDisable desabilitar-usuario btn btn-warning warning-btn col-md-offset-1'>";
-        echo "<span class='glyphicon glyphicon-delete'></span> Desabilitar";
-        echo "</div>";
-        
-        //implementar o desabilitar! 0 = desabilitado e 1 = habilitado (variavel statusAtividade)
-        echo "<div class='$hiddenEnable habilitar-usuario btn btn-success success-btn'>";
-        echo "<span class='glyphicon glyphicon-plus'></span> Habilitar";
-        echo "</div>";
-        echo "</td>";
-        
-       
-
-        echo "</tr>";
+        echo "</tbody>";
+        echo "</table>";
+    } else {
+        echo "<div class='lista_clientes alert alert-info'>Nenhum Usuário Cadastrado!</div>";
     }
-    echo "</tbody>";
-    echo "</table>";
-} else {
-    echo "<div class='lista_clientes alert alert-info'>Nenhum Usuário Cadastrado!</div>";
-}
 
-echo "<div id='page-edita'></div>";
+    echo "<div id='page-edita'></div>";
 
-echo "</div>";
-?>
+    echo "</div>";
+    ?>
 
 </div>

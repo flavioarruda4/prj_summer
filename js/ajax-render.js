@@ -11,7 +11,7 @@ $(document).ready(function () {
                 if (result == 1) {
 
                     location.href = '/prj_summer/views/home.php';
-                } else if (result == 0)  {
+                } else if (result == 0) {
                     $("#msgerro").fadeIn(1500, function () {
                         window.setTimeout(function () {
                             $('#msgerro').fadeOut();
@@ -115,22 +115,31 @@ $(document).ready(function () {
 
     $(document).on('click', '.desabilitar-usuario', function () {
         var idUsuarios = $(this).closest('td').find('.idUsuarios').text();
-        
-        $(this).addClass('hidden');
-        $(this).closest('td').find('.edit-user').addClass('hidden');
-        $(this).closest('td').find('.habilitar-usuario').removeClass('hidden');
-        
+        var $this = $(this);
         $.ajax({
             url: '/prj_summer/controllers/desabilita-usuario.php', //This is the current doc
             type: "POST",
             data: ({idUsuarios: idUsuarios}),
-            success: function (data) {
-                $("#msgsucesso-usuario-status").fadeIn(1500, function () {
-                    $("#msgsucesso-usuario-status").focus();
-                    window.setTimeout(function () {
-                        $('#msgsucesso-usuario-status').fadeOut();
-                    }, 2500);
-                });
+            success: function (result) {
+            
+                if (result == 1) {
+                    $("#msgsucesso-usuario-status").fadeIn(1500, function () {
+                        $this.addClass('hidden');
+                        $this.closest('td').find('.edit-user').addClass('hidden');
+                        $this.closest('td').find('.habilitar-usuario').removeClass('hidden');
+                        
+                        window.setTimeout(function () {
+                            $('#msgsucesso-usuario-status').fadeOut();
+                        }, 2500);
+                    });
+                } else if (result == 0) {
+                    $("#msgerror-usuario-status").fadeIn(1500, function () {
+                        $("#msgerror-usuario-status").focus();
+                        window.setTimeout(function () {
+                            $('#msgerror-usuario-status').fadeOut();
+                        }, 2500);
+                    });
+                }
             }
         });
 
@@ -139,11 +148,11 @@ $(document).ready(function () {
     //Ajax habilitar o usuario
     $(document).on('click', '.habilitar-usuario', function () {
         var idUsuarios = $(this).closest('td').find('.idUsuarios').text();
-        
+
         $(this).addClass('hidden');
         $(this).closest('td').find('.edit-user').removeClass('hidden');
         $(this).closest('td').find('.desabilitar-usuario').removeClass('hidden');
-        
+
         $.ajax({
             url: '/prj_summer/controllers/habilita-usuario.php', //This is the current doc
             type: "POST",
@@ -247,8 +256,8 @@ $(document).ready(function () {
                         $('#load-os').fadeOut();
                     }, 1400);
                 });
-                
-                
+
+
                 $("#msgsucesso-os").fadeIn(2000, function () {
                     $("#msgsucesso-os").focus();
                     window.setTimeout(function () {
