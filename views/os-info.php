@@ -347,7 +347,7 @@ $os->readOne();
                 <div class="form-group">
                     <label class="col-md-6 control-label" for="valorOs">Valor da O.S:</label> 
                     <div class="col-md-6">
-                        <input id="valorOs" name="valor" placeholder="" value=" <?php echo htmlspecialchars($os->valor, ENT_QUOTES); ?> "  class="form-control input-md" type="text" required="true" disabled="true">
+                        <input id="valorOs" name="valor" placeholder="" value="R$ <?php echo htmlspecialchars($os->valor, ENT_QUOTES); ?> "  class="form-control input-md" type="text" required="true" disabled="true">
                     </div>
                 </div>               
             </div>                        

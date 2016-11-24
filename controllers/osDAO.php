@@ -12,10 +12,10 @@ $os = new Os($db);
 include_once '../models/controleos.php';
 $controleos = new ControleOs($db);
 
-$dataEmissao = date("Y-m-d", strtotime(str_replace('/', '-', $_POST["dataEmissao"])));
+$dataEmissao = date("Y-m-d  H:i:s", strtotime(str_replace('/', '-', $_POST["dataEmissao"])));
 $os->dataEmissao = $dataEmissao;
 
-$dataPrevEntrega = date("Y-m-d", strtotime(str_replace('/', '-', $_POST["dataPrevEntrega"])));
+$dataPrevEntrega = date("Y-m-d  H:i:s", strtotime(str_replace('/', '-', $_POST["dataPrevEntrega"])));
 $os->dataPrevEntrega = $dataPrevEntrega;
 
 //Status pagamento onde 0 - Pago ; 1 - Pendente ; 2 - Cobranca
@@ -65,17 +65,25 @@ $os->receita = strip_tags($_POST["receita"]);
 //Pagamento
 $os->formaPg = strip_tags($_POST["pagamento"]);
 
-$dataPg = date("Y-m-d", strtotime(str_replace('/', '-', $_POST["dataPg"])));
+$dataPg = date("Y-m-d  H:i:s", strtotime(str_replace('/', '-', $_POST["dataPg"])));
 $os->dataPg = $dataPg;
 
 $os->nParcelas = strip_tags($_POST["nParcelas"]);
 $os->observacao = strip_tags($_POST["observacao"]);
-$os->valor = empty(strip_tags($_POST["valor"])) ? 0.00 : strip_tags($_POST["valor"]);
+
+preg_match("/\d.*/im", $_POST["valor"], $output_array);
+
+print_r($output_array);
+
+$valorPg = preg_replace("/,/im", ".", $output_array[0]);
+
+
+$os->valor = empty(strip_tags($valorPg)) ? 0.00 : strip_tags($valorPg);
 $os->clientes_cpf = strip_tags($_POST["clientes_cpf"]);
 
 $id = $os->create();
 
-
+print_r($os);
 if($id > 0){
     
     $id_idos = $id;
