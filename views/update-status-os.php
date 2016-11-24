@@ -64,6 +64,7 @@ $cliente->readOne();
                     <option value="0" <?= ($selected == '0') ? 'selected' : '' ?>>Pendente</option>
                     <option value="1" <?= ($selected == '1') ? 'selected' : '' ?>>Em andamento</option>
                     <option value="2" <?= ($selected == '2') ? 'selected' : '' ?>>Finalizada</option>
+                    <option value="3" <?= ($selected == '3') ? 'selected' : '' ?>>Cancelada</option>
                 </select>
             </td>
             <input type='hidden' name='id' value='<?php echo $controleos->id ?>' /> 

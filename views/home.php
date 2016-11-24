@@ -29,6 +29,7 @@ $logado = $_SESSION['login'];
             <li class="active"><a href="#pendentes" data-toggle="pill">Pendentes</a></li>
             <li><a href="#andamento" data-toggle="pill">Em andamento</a></li>
             <li><a href="#finalizadas" data-toggle="pill">Finalizadas</a></li>
+            <li><a href="#canceladas" data-toggle="pill">Canceladas</a></li>
             <li><a href="#todas" data-toggle="pill">Todas</a></li>
         </ul>
     </div>
@@ -78,6 +79,11 @@ $logado = $_SESSION['login'];
                 <div class="tab-pane" id="finalizadas">
                     <?php
                     include_once "./os-table-filter-finalizadas.php";
+                    ?>
+                </div>
+                 <div class="tab-pane" id="canceladas">
+                    <?php
+                    include_once "./os-table-filter-canceladas.php";
                     ?>
                 </div>
                 <div class="tab-pane" id="todas">

@@ -23,7 +23,7 @@ include_once "views/header.php";
     
      <div id="msgerrostatus"  style="display: none;" class="alert alert-danger alert-dismissable">
         <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-        Usuário desabilitado! Faça login com um perfil de administrador a habilite o usuário!
+        Usuário desabilitado! Faça login com um perfil de administrador e habilite o usuário!
     </div>
     
     
