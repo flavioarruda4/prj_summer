@@ -22,8 +22,9 @@ $row = $stmt->fetch(PDO::FETCH_ASSOC);
 $num = $stmt->rowCount();
 $statusAtividade = $row["statusAtividade"];
 
-if($statusAtividade == 1){
-    if($num > 0){   
+
+if($num > 0){ 
+    if($statusAtividade == 1){
         echo 1;
         $_SESSION['idUsuarios'] = $row["idUsuarios"];
         $_SESSION['login'] = $row["login"];
@@ -31,10 +32,10 @@ if($statusAtividade == 1){
         $_SESSION['perfil'] = $row["perfil"];
 
     }else{
-        echo 0;      
+        echo 2;      
     }
 }else{
-    echo 2;
+    echo 3;
 }
 
 ?>

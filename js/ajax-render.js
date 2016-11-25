@@ -12,7 +12,7 @@ $(document).ready(function () {
                 if (result == 1) {
 
                     location.href = '/prj_summer/views/home.php';
-                } else if (result == 0) {
+                } else if (result == 3) {
                     $("#msgerro").fadeIn(1500, function () {
                         window.setTimeout(function () {
                             $('#msgerro').fadeOut();
