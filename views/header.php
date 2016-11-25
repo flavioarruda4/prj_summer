@@ -33,7 +33,6 @@
         <script type="text/javascript" src="/prj_summer/js/valida_cpf_cnpj.js" ></script>      
         
        <!-- Validacao de valore jquery.maskMoney   -->
-       <!-- em conflito com demais jQuery -->
        <!-- <script src="/prj_summer/js/jquery.min.js" type="text/javascript"></script> -->
         <script type="text/javascript" src="/prj_summer/js/jquery.maskMoney.js" ></script>  
         <script type="text/javascript" src="/prj_summer/js/validation.js" ></script>

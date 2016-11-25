@@ -2,9 +2,8 @@
 $(function () {
 
     $("#telFixo").mask("(99) 9999-9999");
-    $("#dataVencLentes").mask("99/99/9999", {completed: function () {
-            alert("completed!");
-        }});
+    $("#telCelular").mask("(99) 99999-9999");
+
     $("#cpf_cnpj").mask("999.999.999-99");
     $("#cpf-cnpj-cliente").mask("999.999.999-99");
     $("#clienteOs").mask("999.999.999-99");
@@ -24,6 +23,7 @@ $(function () {
             $(this).val(formata_cpf_cnpj(cpf_cnpj));
         } else {
             alert('CPF ou CNPJ inválido!');
+            break;
         }
     });
     
@@ -35,15 +35,25 @@ $(function () {
             $(this).val(formata_cpf_cnpj(cpf_cnpj));
         } else {
             alert('CPF ou CNPJ inválido!');
+            break;
         }
     });
 });
 
 $(function () {
+   
+    $("#adicao").maskMoney(
+            {symbol: 'R$',
+                showSymbol: true,
+                thousands: '',
+                decimal: ',',
+                symbolStay: true}
+    );
+   
     $("#valorOs").maskMoney(
             {symbol: 'R$',
                 showSymbol: true,
-                thousands: '.',
+                thousands: '',
                 decimal: ',',
                 symbolStay: true}
     );

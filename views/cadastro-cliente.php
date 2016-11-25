@@ -48,7 +48,7 @@ include_once "../views/menu.php";
                         <div class="form-group">
                             <label class="col-md-2 control-label" for="email">E-mail:</label>  
                             <div class="col-md-8">
-                                <input id="email" name="email" type="text" placeholder="Digite o E-mail" class="form-control input-md" required="true" maxlength="45">
+                                <input id="email" name="email" type="text" placeholder="Digite o E-mail" class="form-control input-md" maxlength="45">
 
                             </div>
                         </div>                   
@@ -56,7 +56,7 @@ include_once "../views/menu.php";
                         <div class="form-group">
                             <label class="col-md-2 control-label" for="rg">RG:</label>  
                             <div class="col-md-3">
-                                <input id="rg" name="rg" type="text" placeholder="Digite o RG" class="form-control input-md" required="true" maxlength="45">
+                                <input id="rg" name="rg" type="text" placeholder="Digite o RG" class="form-control input-md" maxlength="45">
                             </div>
 
                             <label class="col-md-2 control-label" for="cpf">CPF:</label>  
@@ -69,13 +69,13 @@ include_once "../views/menu.php";
                         <div class="form-group">
                             <label class="col-md-2 control-label" for="telFixo">Telefone:</label>  
                             <div class="col-md-3">
-                                <input id="telFixo" name="telFixo" type="text" placeholder="Digite o Telefone" class="form-control input-md" required="true" maxlength="40">
+                                <input id="telFixo" name="telFixo" type="text" placeholder="Digite o Telefone" class="form-control input-md" maxlength="40">
 
                             </div>
 
                             <label class="col-md-2 control-label" for="telCleluar">Celular:</label>  
                             <div class="col-md-3">
-                                <input id="telCleluar" name="telCelular" type="text" placeholder="Digite o Celular" class="form-control input-md" required="true" maxlength="40">
+                                <input id="telCelular" name="telCelular" type="text" placeholder="Digite o Celular" class="form-control input-md" maxlength="40">
 
                             </div>
                         </div>   

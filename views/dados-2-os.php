@@ -14,7 +14,7 @@ include_once "../config/deny.php";
             <div class="form-group">
                 <label class="col-md-4 control-label" for="adicao">Adição:</label> 
                 <div class="col-md-8">
-                    <input id="adicao" name="adicao" placeholder="Adição" class="form-control input-md" type="text">
+                    <input id="adicao" name="adicao" type="number" min="0" max="10" step="0.25" placeholder="Adição" class="form-control input-md">
                 </div>
             </div>                
         </div>
