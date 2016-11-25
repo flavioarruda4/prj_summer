@@ -3,7 +3,7 @@ $(function () {
 
     $("#telFixo").mask("(99) 9999-9999");
     $("#telCelular").mask("(99) 99999-9999");
-
+    
     $("#cpf_cnpj").mask("999.999.999-99");
     $("#cpf-cnpj-cliente").mask("999.999.999-99");
     $("#clienteOs").mask("999.999.999-99");
