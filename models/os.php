@@ -129,7 +129,7 @@ class Os {
         if (false === $rc) {
             die('execute() failed: ' . print_r($stmt->errorInfo()));
         }
-        if ($stmt->execute()) {
+        if ($rc) {
             return $this->conn->lastInsertId("id");
         } else {
             return -1;

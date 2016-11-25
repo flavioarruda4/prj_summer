@@ -114,7 +114,6 @@ if($validaCpf){
         echo -1;
     }
 }else{
-    unset($_POST);
     echo 3;
 }
 

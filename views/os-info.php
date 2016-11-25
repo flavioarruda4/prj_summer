@@ -24,7 +24,7 @@ $os->readOne();
 <div class="container-fluid">
 
 
-    <form id="info-os" class="form-horizontal" method="" action="" autocomplete="off" >
+    <form id="info-os" class="form-horizontal">
         <!-- linhas : idOs, dataEmissao, dataPrevEntrega  -->
 
 

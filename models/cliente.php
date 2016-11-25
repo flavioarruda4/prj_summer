@@ -134,8 +134,7 @@ class Cliente {
     
     function validaCpf() {
 
-        $query ="SELECT * from clientes WHERE cpf = ? LIMIT
-                0,1";
+        $query ="SELECT * from clientes WHERE cpf = ?";
         
 
         $stmt = $this->conn->prepare($query);

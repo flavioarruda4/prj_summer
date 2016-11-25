@@ -150,6 +150,43 @@ class Usuario {
         return $stmt;
     }
 
+    //verifica se o usuario existe na tabela login
+
+    function verificaLogin() {
+
+
+        $query = "SELECT *
+
+                    FROM  " . $this->table_name . "
+                WHERE
+                    login = ?
+                LIMIT
+                    1";
+
+        $stmt = $this->conn->prepare($query);
+
+        $stmt->bindParam(1, $this->login);
+
+        $rc = $stmt;
+
+        if (false === $rc) {
+
+            die('bind_param() failed: ' . htmlspecialchars($stmt->error));
+        }
+
+        $rc = $stmt->execute();
+
+        if (false === $rc) {
+            die('execute() failed: ' . print_r($stmt->errorInfo()));
+        }
+
+        if ($stmt->rowCount() > 0) {
+            return false;
+        } else {
+            return true;
+        }
+    }
+
     //recupera o nivel de acesso do usuario
 
     function recuperaPerfil() {

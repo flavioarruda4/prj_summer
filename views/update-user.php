@@ -30,7 +30,7 @@ $usuario->readOne();
         </tr>
         <tr>
             <td>Login</td>
-            <td><input type='text' name='login' class='form-control' value='<?php echo htmlspecialchars($usuario->login, ENT_QUOTES); ?>' required /></td>
+            <td><input type='text' name='login' class='form-control' value='<?php echo htmlspecialchars($usuario->login, ENT_QUOTES); ?>' required  disabled="true"/></td>
         </tr>
         <tr>
             <td>Senha</td>

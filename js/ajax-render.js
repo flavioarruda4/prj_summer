@@ -1,6 +1,7 @@
-$(document).ready(function () {
-//Ajax login
 
+$(document).ready(function () {
+
+//Ajax login
     $('#form-login').submit(function () {
         var dados = jQuery(this).serialize();
         $.ajax({
@@ -33,27 +34,40 @@ $(document).ready(function () {
 //Ajax Cadastro de Usuario
 
     $('#cadastro-usuario').submit(function () {
-
         var dados = jQuery(this).serialize();
         if ($('#senha').val() === $('#senha2').val()) {
-            $("#load").html("<img src='/prj_summer/images/load.gif'>");
-            $("#load").fadeIn(100, function () {
-                window.setTimeout(function () {
-                    $('#cadastro-usuario').find('input:text').val('');
-                    $('#load').fadeOut();
-                }, 1400);
-            });
             $.ajax({
                 type: "POST",
                 url: "/prj_summer/controllers/usuarioDAO.php",
                 data: dados,
-                success: function (data) {
-                    $("#msgsucessouser").fadeIn(1500, function () {
-                        $("#msgsucessouser").focus();
-                        window.setTimeout(function () {
-                            $('#msgsucessouser').fadeOut();
-                        }, 2500);
-                    });
+                success: function (result) {
+
+                    if (result == -1) {
+                        $("#msgerro-same-login").fadeIn(2000, function () {
+                            window.setTimeout(function () {
+                                $('#msgerro-same-login').fadeOut();
+                            }, 2500);
+
+                        });
+                    } else {
+                        $("#load").html("<img src='/prj_summer/images/load.gif'>");
+                        $("#load").fadeIn(100, function () {
+                            window.setTimeout(function () {
+                                $('#cadastro-usuario').find('input:text').val('');
+                                $('#cadastro-usuario').find('input:password').val('');
+                                $('#load').fadeOut();
+                            }, 1400);
+                        });
+                        $("#msgsucessouser").fadeIn(1500, function () {
+                            $("#msgsucessouser").focus();
+                            window.setTimeout(function () {
+                                $('#msgsucessouser').fadeOut();
+                                location.reload();
+
+                            }, 2500);
+                           
+                        });
+                    }
                 }
             });
         } else {
@@ -63,10 +77,12 @@ $(document).ready(function () {
             $('#msgerrosenha').fadeIn();
 
         }
+        
         return false;
 
     });
-
+    
+ 
 //Ajax renderiza a pagina que edita usuario
 
     $(document).on('click', '.edit-user', function () {
@@ -242,19 +258,21 @@ $(document).ready(function () {
         $.ajax({
             type: "POST",
             url: "/prj_summer/controllers/osDAO.php",
-            data: dados,      
+            cache: false,
+            data: dados,
             success: function (result) {
+
                 if (result == 3) {
-                    $("#msgerro-os").fadeIn(2000, function () {
-                        $(".bs-os-modal-lg").animate({scrollTop: 0}, "slow");
+                    $(".bs-os-modal-lg").animate({scrollTop: 0}, "slow");
+                    $("#msgerro-os").fadeIn(150, function () {
                         window.setTimeout(function () {
                             $('#msgerro-os').fadeOut();
                         }, 2500);
                     });
+
                 } else {
-                    $("#load-os").html("<img src='/prj_summer/images/load.gif'>");
-                    $("#load-os").focus();
                     $(".bs-os-modal-lg").animate({scrollTop: 0}, "slow");
+                    $("#load-os").html("<img src='/prj_summer/images/load.gif'>");
                     $("#load-os").fadeIn(100, function () {
                         window.setTimeout(function () {
                             $('#close-os-modal').click();
@@ -263,7 +281,7 @@ $(document).ready(function () {
                     });
 
                     $("#msgsucesso-os").fadeIn(2000, function () {
-                        $("#msgsucesso-os").focus();
+                        $('#close-os-modal').click();
                         window.setTimeout(function () {
                             $('#msgsucesso-os').fadeOut();
                         }, 2500);
@@ -271,8 +289,9 @@ $(document).ready(function () {
 
                     setTimeout(function () {
                         location.reload();
-                        $('#cadastro-os').trigger("reset");
-                    }, 3000);
+                        $('#cadastro-os').find('.form-control').val('');
+                        $('#cadastro-os').find('input:radio').prop('checked', false);
+                    }, 4000);
 
                 }
             }

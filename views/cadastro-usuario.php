@@ -5,6 +5,11 @@ if (($_SESSION["perfil"] != 3) && ($_SESSION["perfil"] != 2)) {
     header('location:../index.php');
 }
 ?>
+ <div id="msgerro-same-login"  style="display: none;" class="alert alert-danger alert-dismissable">
+        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+        Login já existe! Informe outro login para prosseguir.
+    </div>
+    
 <ul class="nav nav-tabs">
     <li class="active"><a data-toggle="tab" href="#cadastro">Cadastro</a></li>
     <li><a data-toggle="tab" href="#tabUsuario">Usuarios</a></li>
