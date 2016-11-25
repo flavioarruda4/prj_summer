@@ -11,8 +11,8 @@ class Database {
     public function __construct(){
         $this->host = "localhost";
         $this->db_name = "summer_db";
-        $this->username = "root";
-        $this->password = "";   
+        $this->username = "admin";
+        $this->password = "facil123";   
     }
     
     public function getConnection() {
